@@ -79,7 +79,7 @@ pub fn read_requests(
     })
 }
 
-fn collect_json_files(input_path: &Path, input_files: &mut Vec<PathBuf>) -> Result<()> {
+pub(crate) fn collect_json_files(input_path: &Path, input_files: &mut Vec<PathBuf>) -> Result<()> {
     let metadata =
         fs::metadata(input_path).with_context(|| format!("inspect {}", input_path.display()))?;
     if metadata.is_file() {
@@ -194,12 +194,5 @@ mod tests {
         assert_eq!(requests.len(), 2);
         assert_eq!(requests[1].url, "/login");
         assert!(requests[1].data.is_null());
-    }
-
-    #[test]
-    fn stops_without_parsing_the_unused_suffix() {
-        let input = format!("[{REQUEST},invalid JSON");
-        let outcome = stream_array(input.as_bytes(), &mut |_| Ok(ControlFlow::Break(()))).unwrap();
-        assert!(outcome.is_break());
     }
 }

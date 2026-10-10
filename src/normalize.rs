@@ -12,11 +12,24 @@ pub fn normalize(request: HttpRequest, id: u64) -> Request {
     let mut headers: Vec<_> = request
         .headers
         .into_iter()
-        .map(|(name, value)| (name.to_ascii_lowercase(), value))
+        .map(|(mut name, value)| {
+            name.make_ascii_lowercase();
+            (name, value)
+        })
         .collect();
     headers.sort_by(|left, right| left.0.cmp(&right.0));
 
-    let mut bytes = Vec::new();
+    let body_length = request.data.as_str().map_or(0, str::len);
+    let capacity = request.method.len()
+        + 1
+        + request.url.len()
+        + 4
+        + headers
+            .iter()
+            .map(|(name, value)| name.len() + value.len() + 4)
+            .sum::<usize>()
+        + body_length;
+    let mut bytes = Vec::with_capacity(capacity);
     bytes.extend_from_slice(request.method.as_bytes());
     bytes.push(b' ');
     bytes.extend_from_slice(request.url.as_bytes());

@@ -10,10 +10,12 @@ use std::time::Instant;
 mod corpus;
 mod matcher;
 mod normalize;
+mod output;
 mod patterns;
 mod pipeline;
 
 use matcher::Matcher;
+use output::validate_output_paths;
 use patterns::{PatternDatabase, PATTERNS_PATH};
 use pipeline::{run_baseline, run_parallel, RunStats};
 
@@ -56,8 +58,12 @@ struct Metrics {
 fn main() -> Result<()> {
     let arguments = Arguments::parse();
     let workers = worker_count(&arguments)?;
-    validate_output_path(&arguments.input, &arguments.output)?;
     let total_start = Instant::now();
+    validate_output_paths(
+        &arguments.input,
+        Path::new(PATTERNS_PATH),
+        &arguments.output,
+    )?;
     let database = PatternDatabase::load(Path::new(PATTERNS_PATH))
         .with_context(|| format!("could not load {PATTERNS_PATH}"))?;
     let supported_patterns = database.rules.len();
@@ -151,26 +157,4 @@ fn create_output(path: &Path) -> Result<BufWriter<File>> {
     let file =
         File::create(path).with_context(|| format!("could not create {}", path.display()))?;
     Ok(BufWriter::new(file))
-}
-
-fn validate_output_path(input: &Path, output: &Path) -> Result<()> {
-    let input_path = input
-        .canonicalize()
-        .with_context(|| format!("could not find input {}", input.display()))?;
-    let patterns_path = Path::new(PATTERNS_PATH).canonicalize().ok();
-    for candidate in [output.to_owned(), output.with_extension("skipped.jsonl")] {
-        if let Ok(output_path) = candidate.canonicalize() {
-            if output_path == input_path || Some(output_path) == patterns_path {
-                bail!("output must be separate from the input and the pattern database");
-            }
-        }
-    }
-    if input_path.is_dir()
-        && output
-            .extension()
-            .is_some_and(|extension| extension == "json")
-    {
-        bail!("use a .jsonl output file to keep results separate from JSON corpus files");
-    }
-    Ok(())
 }

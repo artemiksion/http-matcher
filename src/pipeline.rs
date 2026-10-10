@@ -117,14 +117,22 @@ fn read_batches(
     let mut sequence = 0;
     let read_stats = read_requests(input_path, request_limit, |request| {
         if !batch.is_empty() && batch_bytes + request.bytes.len() > BATCH_BYTE_LIMIT {
-            broadcast_batch(&batch_senders, sequence, std::mem::take(&mut batch))?;
+            broadcast_batch(
+                &batch_senders,
+                sequence,
+                std::mem::replace(&mut batch, Vec::with_capacity(BATCH_REQUEST_LIMIT)),
+            )?;
             sequence += 1;
             batch_bytes = 0;
         }
         batch_bytes += request.bytes.len();
         batch.push(request);
         if batch.len() == BATCH_REQUEST_LIMIT || batch_bytes >= BATCH_BYTE_LIMIT {
-            broadcast_batch(&batch_senders, sequence, std::mem::take(&mut batch))?;
+            broadcast_batch(
+                &batch_senders,
+                sequence,
+                std::mem::replace(&mut batch, Vec::with_capacity(BATCH_REQUEST_LIMIT)),
+            )?;
             sequence += 1;
             batch_bytes = 0;
         }
