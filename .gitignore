@@ -1,0 +1,13 @@
+/target/
+/data/
+/results/*
+!/results/benchmark.json
+!/results/experiments.json
+!/results/skipped-patterns.jsonl
+!/results/history/
+!/results/history/*.json
+!/results/profile-rule-shards/
+/results/profile-rule-shards/*
+!/results/profile-rule-shards/recording-options.json
+!/results/profile-rule-shards/recording-options-l1d.json
+.DS_Store

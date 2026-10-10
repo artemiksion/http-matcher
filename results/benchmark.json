@@ -1,0 +1,1066 @@
+{
+  "date": "2026-10-10T06:15:52.298481+00:00",
+  "implementation": "rule_shards_broadcast",
+  "status": "complete",
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
+    "binary_sha256": "23aa691093ca8c16dbae5d1e7679144f8775704998f55a8802cffa3cb94859ca",
+    "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
+  },
+  "method": "Same unchanged release binary, sorted input and real JSONL output/flush. No profiler, fsync, affinity, explicit warm-up or OS file-cache reset. Full 2/4/8 saved from earlier same-day sequential runs; current fast/1 measured afterwards separately. One full run per configuration; validation outside matcher timing. Sample uses 3 repetitions per fast worker count. Speedup S(N) uses current fast/1 total_seconds; splitting changes automaton size and computation cost, so S(N) is not pure parallel efficiency.",
+  "sample_limit": 10000,
+  "worker_counts": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "sample_summary": [
+    {
+      "workers": 1,
+      "preparation_seconds": 0.385533334,
+      "pipeline_seconds": 5.539692625,
+      "total_seconds": 5.925226125,
+      "throughput_req_s": 1687.6993027839928,
+      "total_min_seconds": 5.876982834,
+      "total_max_seconds": 5.972292416,
+      "speedup_vs_fast_one": 1.0,
+      "pipeline_speedup_vs_fast_one": 1.0,
+      "parallel_efficiency": 1.0
+    },
+    {
+      "workers": 2,
+      "preparation_seconds": 0.558665167,
+      "pipeline_seconds": 1.69824175,
+      "total_seconds": 2.256907209,
+      "throughput_req_s": 4430.842331542218,
+      "total_min_seconds": 2.236734125,
+      "total_max_seconds": 2.297044209,
+      "speedup_vs_fast_one": 2.625374273860986,
+      "pipeline_speedup_vs_fast_one": 3.2620165091336375,
+      "parallel_efficiency": 1.312687136930493
+    },
+    {
+      "workers": 4,
+      "preparation_seconds": 0.557819875,
+      "pipeline_seconds": 0.889999958,
+      "total_seconds": 1.446336584,
+      "throughput_req_s": 6914.019952633654,
+      "total_min_seconds": 1.445890667,
+      "total_max_seconds": 1.4519245,
+      "speedup_vs_fast_one": 4.096713165211619,
+      "pipeline_speedup_vs_fast_one": 6.224374029689561,
+      "parallel_efficiency": 1.0241782913029047
+    },
+    {
+      "workers": 8,
+      "preparation_seconds": 0.396405917,
+      "pipeline_seconds": 0.318388625,
+      "total_seconds": 0.710463958,
+      "throughput_req_s": 14075.309362843147,
+      "total_min_seconds": 0.69373675,
+      "total_max_seconds": 0.727849333,
+      "speedup_vs_fast_one": 8.339939075417533,
+      "pipeline_speedup_vs_fast_one": 17.399153707202952,
+      "parallel_efficiency": 1.0424923844271916
+    }
+  ],
+  "service_match_counts_by_corpus_class": {
+    "Legitimate": {
+      "requests": 1040242,
+      "with_service_match": 1040216,
+      "without_service_match": 26
+    },
+    "Malicious": {
+      "requests": 73924,
+      "with_service_match": 73924,
+      "without_service_match": 0
+    }
+  },
+  "classification_note": "Service matches are not allow/block verdicts. Every Malicious request has at least one matching service; 26 Legitimate requests have none.",
+  "historical_report": "results/history/benchmark-request-distribution.json",
+  "runs": [
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "baseline",
+        "--workers",
+        "1",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 5.448468334,
+      "metrics": {
+        "mode": "baseline",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.018243021,
+        "preparation_seconds": 0.267844334,
+        "pipeline_seconds": 4.542067792,
+        "total_seconds": 4.809912334,
+        "throughput_req_s": 2079.039971126426
+      },
+      "scope": "sample",
+      "purpose": "correctness_reference",
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "1",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 5.888320875,
+      "metrics": {
+        "mode": "fast",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.015404462,
+        "preparation_seconds": 0.38087975,
+        "pipeline_seconds": 5.496102792,
+        "total_seconds": 5.876982834,
+        "throughput_req_s": 1701.5533790820666
+      },
+      "scope": "sample",
+      "repetition": 1,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "2",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 2.2951150840000007,
+      "metrics": {
+        "mode": "fast",
+        "workers": 2,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.015776819,
+        "preparation_seconds": 0.552930833,
+        "pipeline_seconds": 1.6838031249999998,
+        "total_seconds": 2.236734125,
+        "throughput_req_s": 4470.804056785248
+      },
+      "scope": "sample",
+      "repetition": 1,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "4",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 1.4919094160000004,
+      "metrics": {
+        "mode": "fast",
+        "workers": 4,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.016318162,
+        "preparation_seconds": 0.556336334,
+        "pipeline_seconds": 0.889999958,
+        "total_seconds": 1.446336584,
+        "throughput_req_s": 6914.019952633654
+      },
+      "scope": "sample",
+      "repetition": 1,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "8",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 0.7834207499999994,
+      "metrics": {
+        "mode": "fast",
+        "workers": 8,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.016843195,
+        "preparation_seconds": 0.406059125,
+        "pipeline_seconds": 0.321789958,
+        "total_seconds": 0.727849333,
+        "throughput_req_s": 13739.107184151257
+      },
+      "scope": "sample",
+      "repetition": 1,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "8",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 0.7166268749999993,
+      "metrics": {
+        "mode": "fast",
+        "workers": 8,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.015812229,
+        "preparation_seconds": 0.396405917,
+        "pipeline_seconds": 0.297330584,
+        "total_seconds": 0.69373675,
+        "throughput_req_s": 14414.689722001898
+      },
+      "scope": "sample",
+      "repetition": 2,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "4",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 1.4943272499999978,
+      "metrics": {
+        "mode": "fast",
+        "workers": 4,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.016130279,
+        "preparation_seconds": 0.562368125,
+        "pipeline_seconds": 0.883522334,
+        "total_seconds": 1.445890667,
+        "throughput_req_s": 6916.152257036458
+      },
+      "scope": "sample",
+      "repetition": 2,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "2",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 2.345921292,
+      "metrics": {
+        "mode": "fast",
+        "workers": 2,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.015843169,
+        "preparation_seconds": 0.559830334,
+        "pipeline_seconds": 1.737213667,
+        "total_seconds": 2.297044209,
+        "throughput_req_s": 4353.420783465644
+      },
+      "scope": "sample",
+      "repetition": 2,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "1",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 6.015980875,
+      "metrics": {
+        "mode": "fast",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.015525679,
+        "preparation_seconds": 0.411971791,
+        "pipeline_seconds": 5.560320417,
+        "total_seconds": 5.972292416,
+        "throughput_req_s": 1674.3989248097794
+      },
+      "scope": "sample",
+      "repetition": 2,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "2",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 2.300019917,
+      "metrics": {
+        "mode": "fast",
+        "workers": 2,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.015372695,
+        "preparation_seconds": 0.558665167,
+        "pipeline_seconds": 1.69824175,
+        "total_seconds": 2.256907209,
+        "throughput_req_s": 4430.842331542218
+      },
+      "scope": "sample",
+      "repetition": 3,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "8",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 0.7363086249999995,
+      "metrics": {
+        "mode": "fast",
+        "workers": 8,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.015981079,
+        "preparation_seconds": 0.392075166,
+        "pipeline_seconds": 0.318388625,
+        "total_seconds": 0.710463958,
+        "throughput_req_s": 14075.309362843147
+      },
+      "scope": "sample",
+      "repetition": 3,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "1",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 5.939302916999999,
+      "metrics": {
+        "mode": "fast",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.015119463,
+        "preparation_seconds": 0.385533334,
+        "pipeline_seconds": 5.539692625,
+        "total_seconds": 5.925226125,
+        "throughput_req_s": 1687.6993027839928
+      },
+      "scope": "sample",
+      "repetition": 3,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "4",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-sample-pc32hawu/matches.jsonl",
+        "--limit",
+        "10000"
+      ],
+      "external_wall_seconds": 1.4903133749999995,
+      "metrics": {
+        "mode": "fast",
+        "workers": 4,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 10000,
+        "bytes": 37004032,
+        "matched_requests": 9999,
+        "normalization_seconds": 0.016613525,
+        "preparation_seconds": 0.557819875,
+        "pipeline_seconds": 0.894104416,
+        "total_seconds": 1.4519245,
+        "throughput_req_s": 6887.410467968548
+      },
+      "scope": "sample",
+      "repetition": 3,
+      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
+      "every_id_once": true,
+      "equals_baseline": true
+    },
+    {
+      "scope": "full",
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "1",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/profile-rule-shards/full-one-output.jsonl"
+      ],
+      "external_wall_seconds": 575.715577625,
+      "metrics": {
+        "mode": "fast",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.67305633,
+        "preparation_seconds": 0.377739375,
+        "pipeline_seconds": 575.326194416,
+        "total_seconds": 575.703933917,
+        "throughput_req_s": 1935.3107289355971
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "every_id_once": true,
+      "equals_historical_fast_one": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
+      "speedup_vs_historical_fast_one": 1.0298337900422896,
+      "speedup_vs_fast_one": 1.0,
+      "parallel_efficiency": 1.0,
+      "equals_fast_one": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "2",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-full-jjpjib3b/matches.jsonl"
+      ],
+      "external_wall_seconds": 55.379918333999996,
+      "scope": "full",
+      "metrics": {
+        "mode": "fast",
+        "workers": 2,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.6426122840000001,
+        "preparation_seconds": 0.581858709,
+        "pipeline_seconds": 54.220741667,
+        "total_seconds": 54.802600459,
+        "throughput_req_s": 20330.531592812862
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "every_id_once": true,
+      "equals_historical_fast_one": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
+      "speedup_vs_historical_fast_one": 10.818453125259204,
+      "speedup_vs_previous_same_workers": 7.233262664032956,
+      "speedup_vs_fast_one": 10.505047736698316,
+      "parallel_efficiency": 5.252523868349158,
+      "equals_fast_one": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "4",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-full-jjpjib3b/matches.jsonl"
+      ],
+      "external_wall_seconds": 30.134681958999998,
+      "scope": "full",
+      "metrics": {
+        "mode": "fast",
+        "workers": 4,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.6506237860000001,
+        "preparation_seconds": 0.560852625,
+        "pipeline_seconds": 29.523661583,
+        "total_seconds": 30.084514375,
+        "throughput_req_s": 37034.53498075619
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "every_id_once": true,
+      "equals_historical_fast_one": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
+      "speedup_vs_historical_fast_one": 19.70712762113515,
+      "speedup_vs_previous_same_workers": 16.925313344865984,
+      "speedup_vs_fast_one": 19.13622160361031,
+      "parallel_efficiency": 4.784055400902577,
+      "equals_fast_one": true
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "8",
+        "--input",
+        "data/requests",
+        "--output",
+        "results/shards-full-jjpjib3b/matches.jsonl"
+      ],
+      "external_wall_seconds": 28.116599209,
+      "scope": "full",
+      "metrics": {
+        "mode": "fast",
+        "workers": 8,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.678111276,
+        "preparation_seconds": 0.410642834,
+        "pipeline_seconds": 27.649515583,
+        "total_seconds": 28.060158625,
+        "throughput_req_s": 39706.332914573824
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "every_id_once": true,
+      "equals_historical_fast_one": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
+      "speedup_vs_historical_fast_one": 21.128867164698715,
+      "speedup_vs_previous_same_workers": 20.511204408453338,
+      "speedup_vs_fast_one": 20.51677403577044,
+      "parallel_efficiency": 2.564596754471305,
+      "equals_fast_one": true
+    }
+  ],
+  "measurement_sources": [
+    {
+      "original_report_name": "benchmark-shards-one-20261010T060524Z.json",
+      "original_report_sha256": "2821c80b2a67e2da33a71ea66fd49f8f0c531464525c926eb3a727b33afd0dbe",
+      "retention": "All runs consolidated into this report; intermediate file removed.",
+      "metadata": {
+        "date": "2026-10-10T06:05:24.916677+00:00",
+        "implementation": "rule_shards_broadcast",
+        "environment": {
+          "platform": "macOS-27.0.1-arm64-arm-64bit",
+          "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
+          "binary_sha256": "23aa691093ca8c16dbae5d1e7679144f8775704998f55a8802cffa3cb94859ca",
+          "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
+        },
+        "status": "complete",
+        "method": "One fresh-process unprofiled full-corpus run; same release binary as saved current 2/4/8. Real JSONL output and flush. No affinity, explicit warm-up, fsync or OS cache reset. Validation outside matcher timing.",
+        "historical_reference": {
+          "report": "results/history/benchmark-request-distribution.json",
+          "run": {
+            "command": [
+              "target/release/http-matcher",
+              "--mode",
+              "fast",
+              "--workers",
+              "1",
+              "--input",
+              "data/requests",
+              "--output",
+              "results/benchmark-5en_09ed/matches.jsonl"
+            ],
+            "external_wall_seconds": 592.898289208,
+            "metrics": {
+              "mode": "fast",
+              "workers": 1,
+              "supported_patterns": 11267,
+              "skipped_patterns": 905,
+              "requests": 1114166,
+              "bytes": 5365209223,
+              "matched_requests": 1114140,
+              "normalization_seconds": 1.729851137,
+              "preparation_seconds": 0.3847995,
+              "pipeline_seconds": 592.494564583,
+              "total_seconds": 592.879364208,
+              "throughput_req_s": 1879.2457070729097
+            },
+            "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+            "scope": "full",
+            "every_id_once": true,
+            "equals_fast_one": true,
+            "speedup_vs_fast_one": 1.0,
+            "parallel_efficiency": 1.0
+          }
+        },
+        "corpus_class_method": "Sorted corpus paths put all Legitimate records before Malicious; boundary 1040242 from saved corpus counts. Service matches are not allow/block verdicts."
+      }
+    },
+    {
+      "original_report_name": "benchmark-shards-full-20261010T054538Z.json",
+      "original_report_sha256": "1b3632ed858079a1d51781e771e87a6c0de4d2bd963e61ac9d082ba6b2511909",
+      "retention": "All runs consolidated into this report; intermediate file removed.",
+      "metadata": {
+        "date": "2026-10-10T05:45:38.358715+00:00",
+        "implementation": "rule_shards_broadcast",
+        "worker_counts": [
+          2,
+          4,
+          8
+        ],
+        "repetitions": 1,
+        "status": "complete",
+        "environment": {
+          "platform": "macOS-27.0.1-arm64-arm-64bit",
+          "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
+          "binary_sha256": "23aa691093ca8c16dbae5d1e7679144f8775704998f55a8802cffa3cb94859ca",
+          "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
+        },
+        "historical_reference": {
+          "report": "results/history/benchmark-request-distribution.json",
+          "date": "2026-10-09T16:08:55.031960+00:00",
+          "implementation": "full_rules_request_distribution",
+          "binary_sha256": "bcd996665a114b288f0d91e643d5c641da09d1142d2ad64618aaee774df206af",
+          "run": {
+            "command": [
+              "target/release/http-matcher",
+              "--mode",
+              "fast",
+              "--workers",
+              "1",
+              "--input",
+              "data/requests",
+              "--output",
+              "results/benchmark-5en_09ed/matches.jsonl"
+            ],
+            "external_wall_seconds": 592.898289208,
+            "metrics": {
+              "mode": "fast",
+              "workers": 1,
+              "supported_patterns": 11267,
+              "skipped_patterns": 905,
+              "requests": 1114166,
+              "bytes": 5365209223,
+              "matched_requests": 1114140,
+              "normalization_seconds": 1.729851137,
+              "preparation_seconds": 0.3847995,
+              "pipeline_seconds": 592.494564583,
+              "total_seconds": 592.879364208,
+              "throughput_req_s": 1879.2457070729097
+            },
+            "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+            "scope": "full",
+            "every_id_once": true,
+            "equals_fast_one": true,
+            "speedup_vs_fast_one": 1.0,
+            "parallel_efficiency": 1.0
+          }
+        },
+        "method": "One sequential fresh-process full-corpus run at each of 2, 4 and 8 workers, same release binary and sorted input. Real JSONL output and flush; no fsync, affinity, profiler, explicit warm-up or OS file-cache clearing. Output validation is outside matcher timing. Speedup uses application total_seconds relative to saved historical fast/1; the historical executable and parallel strategy differ. Every output is checked against the saved full-corpus digest."
+      }
+    },
+    {
+      "original_report_name": "benchmark-shards-sample-20261010T053808Z.json",
+      "original_report_sha256": "1b1982ad943c71b1098839b870ab59ecfb086ee300cc65d0587499892f838918",
+      "retention": "All runs consolidated into this report; intermediate file removed.",
+      "metadata": {
+        "date": "2026-10-10T05:38:08.650853+00:00",
+        "implementation": "rule_shards_broadcast",
+        "sample_limit": 10000,
+        "input": "first 10000 requests in sorted data/requests path order",
+        "worker_counts": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "repetitions": 3,
+        "run_orders": [
+          [
+            1,
+            2,
+            4,
+            8
+          ],
+          [
+            8,
+            4,
+            2,
+            1
+          ],
+          [
+            2,
+            8,
+            1,
+            4
+          ]
+        ],
+        "environment": {
+          "platform": "macOS-27.0.1-arm64-arm-64bit",
+          "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
+          "binary_sha256": "23aa691093ca8c16dbae5d1e7679144f8775704998f55a8802cffa3cb94859ca",
+          "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
+        },
+        "method": "Sequential fresh-process runs, same sorted sample and binary. One baseline correctness run, three runs per fast worker count in varied order. Real JSONL output and flush; no fsync, affinity, profiler, explicit warm-up or OS file-cache clearing. Output validation is outside matcher timing. Summary uses medians of application total_seconds and pipeline_seconds. Total speedup is relative to fast/1.",
+        "unit_tests": {
+          "passed": 16,
+          "failed": 0
+        },
+        "all_outputs_equal_baseline": true
+      }
+    }
+  ],
+  "baseline_comparison_100k": {
+    "date": "2026-10-10T08:48:35.326702+00:00",
+    "status": "complete",
+    "sample_limit": 100000,
+    "worker_counts": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "repetitions": 1,
+    "environment": {
+      "platform": "macOS-27.0.1-arm64-arm-64bit",
+      "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
+      "binary_sha256": "23aa691093ca8c16dbae5d1e7679144f8775704998f55a8802cffa3cb94859ca",
+      "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
+    },
+    "method": "One sequential fresh-process run of baseline/1 and each fast configuration on the same sorted first 100000 requests from data/requests. Same unchanged release binary as saved full 1/2/4/8 measurements. Real JSONL output and final flush; preparation included, no fsync, profiler, affinity, explicit warm-up or OS cache clearing. Every request ID, canonical output digest, byte counts and skipped-rule hash validated outside matcher timing. Speedup = baseline total_seconds / fast total_seconds. No full-corpus run in this series.",
+    "input_order_note": "Sorted first 100000 records; these are Legitimate requests, not a random mix of both corpus classes.",
+    "output_retention": "Temporary JSONL outputs removed after validation; metrics, per-ID digest and skipped-rule hashes retained.",
+    "runs": [
+      {
+        "command": [
+          "target/release/http-matcher",
+          "--mode",
+          "baseline",
+          "--workers",
+          "1",
+          "--input",
+          "data/requests",
+          "--output",
+          "results/baseline-100k-6npcyirt/matches.jsonl",
+          "--limit",
+          "100000"
+        ],
+        "external_wall_seconds": 48.784974792,
+        "metrics": {
+          "mode": "baseline",
+          "workers": 1,
+          "supported_patterns": 11267,
+          "skipped_patterns": 905,
+          "requests": 100000,
+          "bytes": 417530913,
+          "matched_requests": 99999,
+          "normalization_seconds": 0.193868073,
+          "preparation_seconds": 0.237728042,
+          "pipeline_seconds": 48.469903541,
+          "total_seconds": 48.707631833,
+          "throughput_req_s": 2053.066351960245
+        },
+        "scope": "sample",
+        "output_digest": "d70c8538778c5a83db438549c14efc711ef4ae01a5cb7b25131afeef57a736a2",
+        "every_id_once": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
+        "speedup_vs_baseline": 1.0
+      },
+      {
+        "command": [
+          "target/release/http-matcher",
+          "--mode",
+          "fast",
+          "--workers",
+          "1",
+          "--input",
+          "data/requests",
+          "--output",
+          "results/baseline-100k-6npcyirt/matches.jsonl",
+          "--limit",
+          "100000"
+        ],
+        "external_wall_seconds": 51.427286458,
+        "metrics": {
+          "mode": "fast",
+          "workers": 1,
+          "supported_patterns": 11267,
+          "skipped_patterns": 905,
+          "requests": 100000,
+          "bytes": 417530913,
+          "matched_requests": 99999,
+          "normalization_seconds": 0.157811183,
+          "preparation_seconds": 0.427969208,
+          "pipeline_seconds": 50.975775708,
+          "total_seconds": 51.403745166,
+          "throughput_req_s": 1945.3835450523368
+        },
+        "scope": "sample",
+        "output_digest": "d70c8538778c5a83db438549c14efc711ef4ae01a5cb7b25131afeef57a736a2",
+        "every_id_once": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
+        "speedup_vs_baseline": 0.9475502548638559,
+        "equals_baseline": true
+      },
+      {
+        "command": [
+          "target/release/http-matcher",
+          "--mode",
+          "fast",
+          "--workers",
+          "2",
+          "--input",
+          "data/requests",
+          "--output",
+          "results/baseline-100k-6npcyirt/matches.jsonl",
+          "--limit",
+          "100000"
+        ],
+        "external_wall_seconds": 6.444532916,
+        "metrics": {
+          "mode": "fast",
+          "workers": 2,
+          "supported_patterns": 11267,
+          "skipped_patterns": 905,
+          "requests": 100000,
+          "bytes": 417530913,
+          "matched_requests": 99999,
+          "normalization_seconds": 0.152167695,
+          "preparation_seconds": 0.569044125,
+          "pipeline_seconds": 5.857149708,
+          "total_seconds": 6.426193958,
+          "throughput_req_s": 15561.310575680573
+        },
+        "scope": "sample",
+        "output_digest": "d70c8538778c5a83db438549c14efc711ef4ae01a5cb7b25131afeef57a736a2",
+        "every_id_once": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
+        "speedup_vs_baseline": 7.579545863592187,
+        "equals_baseline": true
+      },
+      {
+        "command": [
+          "target/release/http-matcher",
+          "--mode",
+          "fast",
+          "--workers",
+          "4",
+          "--input",
+          "data/requests",
+          "--output",
+          "results/baseline-100k-6npcyirt/matches.jsonl",
+          "--limit",
+          "100000"
+        ],
+        "external_wall_seconds": 4.042713875000004,
+        "metrics": {
+          "mode": "fast",
+          "workers": 4,
+          "supported_patterns": 11267,
+          "skipped_patterns": 905,
+          "requests": 100000,
+          "bytes": 417530913,
+          "matched_requests": 99999,
+          "normalization_seconds": 0.163530564,
+          "preparation_seconds": 0.566398792,
+          "pipeline_seconds": 3.412105167,
+          "total_seconds": 3.97850425,
+          "throughput_req_s": 25135.074318445182
+        },
+        "scope": "sample",
+        "output_digest": "d70c8538778c5a83db438549c14efc711ef4ae01a5cb7b25131afeef57a736a2",
+        "every_id_once": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
+        "speedup_vs_baseline": 12.242699459979212,
+        "equals_baseline": true
+      },
+      {
+        "command": [
+          "target/release/http-matcher",
+          "--mode",
+          "fast",
+          "--workers",
+          "8",
+          "--input",
+          "data/requests",
+          "--output",
+          "results/baseline-100k-6npcyirt/matches.jsonl",
+          "--limit",
+          "100000"
+        ],
+        "external_wall_seconds": 2.1903926669999976,
+        "metrics": {
+          "mode": "fast",
+          "workers": 8,
+          "supported_patterns": 11267,
+          "skipped_patterns": 905,
+          "requests": 100000,
+          "bytes": 417530913,
+          "matched_requests": 99999,
+          "normalization_seconds": 0.172569449,
+          "preparation_seconds": 0.39760425,
+          "pipeline_seconds": 1.761570292,
+          "total_seconds": 2.159174792,
+          "throughput_req_s": 46313.990127391226
+        },
+        "scope": "sample",
+        "output_digest": "d70c8538778c5a83db438549c14efc711ef4ae01a5cb7b25131afeef57a736a2",
+        "every_id_once": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
+        "speedup_vs_baseline": 22.558447798421685,
+        "equals_baseline": true
+      }
+    ],
+    "completed_at": "2026-10-10T08:50:30.212903+00:00",
+    "all_outputs_equal_baseline": true,
+    "all_skipped_reports_equal_baseline": true
+  },
+  "historical_report_retention": "The recorded historical report path is no longer present. Historical summary values remain in docs/experiments.md; current measured runs and the independent 100k comparison are retained in this report."
+}

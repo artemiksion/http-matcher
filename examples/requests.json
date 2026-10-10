@@ -1,0 +1,20 @@
+[
+  {
+    "method": "GET",
+    "url": "/search?q=phone",
+    "headers": { "Host": "example.com", "User-Agent": "ExampleClient/1.0" },
+    "data": ""
+  },
+  {
+    "method": "POST",
+    "url": "/submit",
+    "headers": { "Content-Type": "text/plain" },
+    "data": "@ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  },
+  {
+    "method": "POST",
+    "url": "/upload",
+    "headers": {},
+    "data": "Binary\u0000body"
+  }
+]

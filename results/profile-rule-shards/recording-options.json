@@ -1,0 +1,26 @@
+{
+  "CPU Counters": {
+    "allEventsAndFormulas": [],
+    "configurationType": {"guided": {}},
+    "countingLevel": "EL0",
+    "pmiEventAliasOrMnemonic": "",
+    "pmiThreshold": 1000000,
+    "processBucketSize": 10,
+    "sampleByTime": true,
+    "selectedCountingMode": {
+      "analysisMode": "bottleneck",
+      "countingMode": "processing"
+    },
+    "selectedCountingModeDisplayName": "Instruction Processing Bottlenecks",
+    "useDebuggingInformation": false,
+    "useHighFrequencyForGuidedMode": false,
+    "useHighFrequencyForManualMode": false
+  },
+  "Time Profiler": {
+    "contextSwitchSampling": false,
+    "highFrequencySampling": false,
+    "recordKernelStacks": false,
+    "recordWaitingThreads": true
+  },
+  "Points of Interest": {"excludeOSLogs": false}
+}
