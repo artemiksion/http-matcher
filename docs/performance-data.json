@@ -1,0 +1,1665 @@
+{
+  "status": "complete",
+  "date": "2026-10-13",
+  "machine": {
+    "cpu": "Apple M3",
+    "physical_cores": 8,
+    "performance_cores": 4,
+    "efficiency_cores": 4,
+    "ram_bytes": 17179869184,
+    "l1d_bytes_per_performance_core": 131072,
+    "l1d_bytes_per_efficiency_core": 65536,
+    "l2_bytes_per_performance_cluster": 16777216,
+    "l2_bytes_per_efficiency_cluster": 4194304
+  },
+  "requests": 1114166,
+  "normalized_bytes": 5365209223,
+  "binary_sha256": "109618097a8108a1ace963b9b8a07a34e5d944b2a75ebb1551f45fbe183809c4",
+  "build_command": "cargo rustc --release --locked --offline --bin http-matcher -- -C debuginfo=1",
+  "matcher_sources_unchanged_during_measurement": true,
+  "verified_full_outputs": 30,
+  "ordinary": [
+    {
+      "mode": "fast",
+      "workers": 1,
+      "repetitions": 3,
+      "median_matching_seconds": 5.116802542,
+      "min_matching_seconds": 4.919494333,
+      "max_matching_seconds": 5.192109334,
+      "matching_throughput_req_s": 217746.5303487179,
+      "speedup_vs_baseline": 153.900320682533,
+      "median_worker_cpu_seconds_sum": 5.114747666,
+      "speedup_vs_fast_one": 1.0,
+      "median_average_active_cores": 0.9998283276810921,
+      "median_peak_footprint_bytes_full_process": 7411521416
+    },
+    {
+      "mode": "fast",
+      "workers": 2,
+      "repetitions": 3,
+      "median_matching_seconds": 2.8985637090000003,
+      "min_matching_seconds": 2.809132417,
+      "max_matching_seconds": 3.108384083,
+      "matching_throughput_req_s": 384385.54810457677,
+      "speedup_vs_baseline": 271.6785384560957,
+      "median_worker_cpu_seconds_sum": 5.762854083999999,
+      "speedup_vs_fast_one": 1.7652889691927072,
+      "median_average_active_cores": 1.9881757527379567,
+      "median_peak_footprint_bytes_full_process": 7290394408
+    },
+    {
+      "mode": "fast",
+      "workers": 4,
+      "repetitions": 3,
+      "median_matching_seconds": 1.6331985420000001,
+      "min_matching_seconds": 1.523615792,
+      "max_matching_seconds": 1.65546625,
+      "matching_throughput_req_s": 682198.7476400771,
+      "speedup_vs_baseline": 482.1689046566635,
+      "median_worker_cpu_seconds_sum": 6.422986583,
+      "speedup_vs_fast_one": 3.1329948015591604,
+      "median_average_active_cores": 3.9515729919136797,
+      "median_peak_footprint_bytes_full_process": 7495358416
+    },
+    {
+      "mode": "fast",
+      "workers": 8,
+      "repetitions": 3,
+      "median_matching_seconds": 1.184061083,
+      "min_matching_seconds": 1.158648667,
+      "max_matching_seconds": 1.467699042,
+      "matching_throughput_req_s": 940970.0360872345,
+      "speedup_vs_baseline": 665.0649729047805,
+      "median_worker_cpu_seconds_sum": 8.696975209,
+      "speedup_vs_fast_one": 4.321400825906546,
+      "median_average_active_cores": 7.2983355436769335,
+      "median_peak_footprint_bytes_full_process": 7531976632
+    }
+  ],
+  "hardware": [
+    {
+      "workers": 1,
+      "cpu_bottleneck_fractions": {
+        "all": {
+          "useful": 0.39751408967791557,
+          "instruction_processing": 0.48985312448466034,
+          "instruction_delivery": 0.028144827399573698,
+          "discarded": 0.08428988939108302
+        },
+        "Performance": {
+          "useful": 0.39802775197326673,
+          "instruction_processing": 0.489398655823788,
+          "instruction_delivery": 0.02781960068896558,
+          "discarded": 0.08455599271705132
+        },
+        "Efficiency": {
+          "useful": 0.3618822289490251,
+          "instruction_processing": 0.521378825663157,
+          "instruction_delivery": 0.05070523909923278,
+          "discarded": 0.06583076413265865
+        }
+      },
+      "instruction_processing_fractions": {
+        "all": {
+          "executing": 0.9232132458459817,
+          "critical_l1d_miss_while_executing": 0.02613109358474329,
+          "critical_l1d_miss": 0.013067646320338851,
+          "execution_latency": 0.037388614417611155
+        },
+        "Performance": {
+          "executing": 0.9233406422118086,
+          "critical_l1d_miss_while_executing": 0.026129557134351177,
+          "critical_l1d_miss": 0.013000948996121442,
+          "execution_latency": 0.03732945107786903
+        },
+        "Efficiency": {
+          "executing": 0.5563810456944676,
+          "critical_l1d_miss_while_executing": 0.030555234525538374,
+          "critical_l1d_miss": 0.20511964111718095,
+          "execution_latency": 0.2077468341758927
+        }
+      },
+      "l1d_miss_events_per_1000_load_micro_ops": 25.219483114044667,
+      "target_faults_approximate_worker_window": 329955,
+      "target_pageins_approximate_worker_window": 2,
+      "system_cpu_seconds_approximate_worker_window": 0.8781274583333333,
+      "system_cpu_fraction_approximate_worker_window": 0.15971364934716747,
+      "resident_bytes_range_approximate_worker_window": [
+        1132625920,
+        5540954112
+      ],
+      "efficiency_core_active_fraction_under_bottleneck_profiler": 0.01421095207299039
+    },
+    {
+      "workers": 2,
+      "cpu_bottleneck_fractions": {
+        "all": {
+          "useful": 0.3780790038468281,
+          "instruction_processing": 0.5103925014218562,
+          "instruction_delivery": 0.025696500617169184,
+          "discarded": 0.08563224250254155
+        },
+        "Performance": {
+          "useful": 0.3771184321491657,
+          "instruction_processing": 0.511023372273984,
+          "instruction_delivery": 0.025515164062755506,
+          "discarded": 0.08614328523094572
+        },
+        "Efficiency": {
+          "useful": 0.4447568147207455,
+          "instruction_processing": 0.46660078085960066,
+          "instruction_delivery": 0.03828392590686903,
+          "discarded": 0.05015835702792034
+        }
+      },
+      "instruction_processing_fractions": {
+        "all": {
+          "executing": 0.8802755742548766,
+          "critical_l1d_miss_while_executing": 0.047946914462903556,
+          "critical_l1d_miss": 0.028786401579985996,
+          "execution_latency": 0.04279185260692504
+        },
+        "Performance": {
+          "executing": 0.881525010685688,
+          "critical_l1d_miss_while_executing": 0.04798569311213797,
+          "critical_l1d_miss": 0.027836171224589916,
+          "execution_latency": 0.04245388211299254
+        },
+        "Efficiency": {
+          "executing": 0.5516123802264881,
+          "critical_l1d_miss_while_executing": 0.03774622365287564,
+          "critical_l1d_miss": 0.27874369109520847,
+          "execution_latency": 0.13169470455199422
+        }
+      },
+      "l1d_miss_events_per_1000_load_micro_ops": 26.71311918951765,
+      "target_faults_approximate_worker_window": 346038,
+      "target_pageins_approximate_worker_window": 2,
+      "system_cpu_seconds_approximate_worker_window": 1.0283357499999999,
+      "system_cpu_fraction_approximate_worker_window": 0.16868803740863056,
+      "resident_bytes_range_approximate_worker_window": [
+        860061696,
+        5841108992
+      ],
+      "efficiency_core_active_fraction_under_bottleneck_profiler": 0.014201576991372318
+    },
+    {
+      "workers": 4,
+      "cpu_bottleneck_fractions": {
+        "all": {
+          "useful": 0.3757260914933105,
+          "instruction_processing": 0.5114649517567768,
+          "instruction_delivery": 0.025398920498881546,
+          "discarded": 0.08721076744977865
+        },
+        "Performance": {
+          "useful": 0.36859416050530946,
+          "instruction_processing": 0.5162316475092552,
+          "instruction_delivery": 0.025030961746888587,
+          "discarded": 0.08994412119372548
+        },
+        "Efficiency": {
+          "useful": 0.442830600117428,
+          "instruction_processing": 0.4666149978285878,
+          "instruction_delivery": 0.028861053165053118,
+          "discarded": 0.06149257693558636
+        }
+      },
+      "instruction_processing_fractions": {
+        "all": {
+          "executing": 0.8458824211600741,
+          "critical_l1d_miss_while_executing": 0.05294598527690373,
+          "critical_l1d_miss": 0.042468727912658016,
+          "execution_latency": 0.05850329034701687
+        },
+        "Efficiency": {
+          "executing": 0.6895385795721327,
+          "critical_l1d_miss_while_executing": 0.03624572380065194,
+          "critical_l1d_miss": 0.11375035546955287,
+          "execution_latency": 0.16026623084119973
+        },
+        "Performance": {
+          "executing": 0.8662308948195234,
+          "critical_l1d_miss_while_executing": 0.05511955877557074,
+          "critical_l1d_miss": 0.03319127696856003,
+          "execution_latency": 0.04525863361399841
+        }
+      },
+      "l1d_miss_events_per_1000_load_micro_ops": 32.38018051588798,
+      "target_faults_approximate_worker_window": 380905,
+      "target_pageins_approximate_worker_window": 0,
+      "system_cpu_seconds_approximate_worker_window": 1.4718696666666666,
+      "system_cpu_fraction_approximate_worker_window": 0.2116852896563685,
+      "resident_bytes_range_approximate_worker_window": [
+        1196883968,
+        5078368256
+      ],
+      "efficiency_core_active_fraction_under_bottleneck_profiler": 0.09607048809539497
+    },
+    {
+      "workers": 8,
+      "cpu_bottleneck_fractions": {
+        "all": {
+          "useful": 0.3915661608970009,
+          "instruction_processing": 0.5002368849791646,
+          "instruction_delivery": 0.02671257436571564,
+          "discarded": 0.08128499974089165
+        },
+        "Performance": {
+          "useful": 0.3684270554479489,
+          "instruction_processing": 0.5161905445148184,
+          "instruction_delivery": 0.02557786764057502,
+          "discarded": 0.08960516310874794
+        },
+        "Efficiency": {
+          "useful": 0.4466035402705773,
+          "instruction_processing": 0.4622904045417955,
+          "instruction_delivery": 0.02941152418669404,
+          "discarded": 0.06149512546355007
+        }
+      },
+      "instruction_processing_fractions": {
+        "all": {
+          "executing": 0.7881824549259557,
+          "critical_l1d_miss_while_executing": 0.051850772410092075,
+          "critical_l1d_miss": 0.06646606187153015,
+          "execution_latency": 0.09330094668360064
+        },
+        "Efficiency": {
+          "executing": 0.7176718326412128,
+          "critical_l1d_miss_while_executing": 0.0411699986899783,
+          "critical_l1d_miss": 0.09601651517047582,
+          "execution_latency": 0.1449424048089387
+        },
+        "Performance": {
+          "executing": 0.8523948033954115,
+          "critical_l1d_miss_while_executing": 0.06157749927501368,
+          "critical_l1d_miss": 0.03955516613443718,
+          "execution_latency": 0.04627229770609056
+        }
+      },
+      "l1d_miss_events_per_1000_load_micro_ops": 39.180252156069706,
+      "target_faults_approximate_worker_window": 393964,
+      "target_pageins_approximate_worker_window": 25,
+      "system_cpu_seconds_approximate_worker_window": 2.0937705833333333,
+      "system_cpu_fraction_approximate_worker_window": 0.25581546451032117,
+      "resident_bytes_range_approximate_worker_window": [
+        876462080,
+        3419160576
+      ],
+      "efficiency_core_active_fraction_under_bottleneck_profiler": 0.2959854936116645
+    }
+  ],
+  "timing_scope": "Matching only: batch dispatch, routing, signature checks, service priority/deduplication and result storage. Preparation/JSON/normalization/output excluded. Ordinary medians are separate from profiled runs.",
+  "hardware_scope": "CPU counters EL0 and worker-only. Time-series ratios are clipped to sampled matching; L1D counts cover worker lifetimes. VM samples bracket worker lifetimes at 10ms and CPU is converted from Mach ticks. These ratios are not wall-time percentages.",
+  "limits": [
+    "No hard CPU affinity; worker count is not physical-core pinning.",
+    "Native DRAM bandwidth and L2 miss counters were not measured.",
+    "Kernel stack addresses are unresolved; system CPU cannot be assigned exactly to a named compressor function.",
+    "VM deltas are system-wide; target faults/pageins and resident bytes are process-specific.",
+    "Preparation can compress normalized input pages; first-touch restoration is included in matching."
+  ],
+  "source_reports": [
+    "results/profile-scaling/benchmark.json",
+    "results/profile-scaling/summary.json",
+    "results/profile-scaling/hardware-summary.json",
+    "results/baseline.json"
+  ],
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
+    "binary_sha256": "109618097a8108a1ace963b9b8a07a34e5d944b2a75ebb1551f45fbe183809c4",
+    "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
+  },
+  "matcher_source_sha256": {
+    "src/main.rs": "3b23ca306123b3742cff855e390581e78f24a10c27b507d0e77c46e2941ba79a",
+    "src/reporting/diagnostics.rs": "592545a79dd9147acf067be8b3f0fd229b44cb12af044738735fa015ca9e6987",
+    "src/reporting/mod.rs": "acd11488e954c26cb4ebe3512d2915193cbe8f0f95d9731a5cc0f25bf07c3ab6",
+    "src/reporting/output.rs": "7e68e67e6ca1cbeccb5bebab12b17fd0ad43058b752be10ba33cebc1e787ee56",
+    "src/input/normalize.rs": "28e5ad1b418fab052bf95444fe267b84733555cfc820e4cceeb2211cbb389477",
+    "src/input/patterns.rs": "b3219e67d7699ec26aed3f3f3f27d6504fd467fa740fca39cd6b5a8ba1926b65",
+    "src/input/mod.rs": "ac14ad0d36ad3e2073921080fb0aeb8cb814de62371a7323c20e6c9817ca270c",
+    "src/input/corpus.rs": "d8c1394f79e92577c97bc5d5bf6bfbb1dc859809cf23e339d155e9bffc748605",
+    "src/matcher/mod.rs": "1d855e4557830b89bf2e8b19a8f6b08a189de4e4c4f61c609c8f9ee458e0ac92",
+    "src/matcher/grouped.rs": "69de9aa41211c985811b5a365166930f881f50c7d1547f9d875908d17b8d6856",
+    "src/matcher/grouped/literals.rs": "f5b568334b2124dcad0cc7bfdceb78fce6224a4c62b5cac32780cd60f4ef275f",
+    "src/matcher/grouped/primitives.rs": "87d55312575589684fea2b1690980182d79e7bf7c4655997f83a6dfad9d9c512",
+    "src/matcher/grouped/guards.rs": "e2221a60a10e6dffd35e6a8ebbaafda39c5829bc9d899d7cf841f1ce78ef0cfe",
+    "src/matcher/grouped/tests.rs": "0d88e00ec7549997ca6bf8eeb940376b769bee1043ca8d9a374c18f2d683b134",
+    "src/execution/prepared.rs": "9417503a0420494b231f296264c0912ef3fa113c4c5ba2668942e3c1b15813c5",
+    "src/execution/mod.rs": "862b4b589f8e4f093e878c092cbb3a47d8cda0da523140ad6df3b5ffc352f0e6",
+    "src/execution/stats.rs": "f97f57b3f2067cedd83e7c72174c6ba86a56f08d01df77039409979fb4c4ed59",
+    "src/execution/prepared/tests.rs": "322ef3d2b6888d084ca65e799b6fc25ece5743e6061da92c1df0eaa31062a3f3"
+  },
+  "baseline_reference": {
+    "date": "2026-10-13T05:22:39.667761+00:00",
+    "repetitions": 1,
+    "rerun_in_this_series": false,
+    "binary_sha256": "881e9da2709d8e3dee5097379fa730bb66de3d9e2b314bbf6fcb9facecacd37f",
+    "metrics": {
+      "mode": "baseline",
+      "workers": 1,
+      "supported_patterns": 11267,
+      "skipped_patterns": 905,
+      "requests": 1114166,
+      "bytes": 5365209223,
+      "matched_requests": 1114140,
+      "normalization_seconds": 1.813228025,
+      "preparation_seconds": 24.662945333,
+      "pipeline_seconds": 787.5985125,
+      "total_seconds": 812.261457958,
+      "throughput_req_s": 1371.6839437402073,
+      "prepared": {
+        "corpus_prepare_seconds": 24.212591916,
+        "worker_setup_seconds": 0.007259166,
+        "matching_seconds": 787.477552083,
+        "matching_throughput_req_s": 1414.8542990880928,
+        "postprocess_seconds": 0.0358065,
+        "output_seconds": 0.076962333,
+        "storage_bytes": 5402959687,
+        "batches": 71856,
+        "workers": [
+          {
+            "worker_id": 0,
+            "requests": 1114166,
+            "bytes": 5365209223,
+            "batches": 71856,
+            "wall_seconds": 787.477528791,
+            "cpu_seconds": 786.0182308340001
+          }
+        ]
+      }
+    },
+    "external_wall_seconds": 812.8448535,
+    "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+    "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+  },
+  "ordinary_runs": [
+    {
+      "repetition": 1,
+      "external_wall_seconds": 20.220572542,
+      "metrics": {
+        "mode": "fast",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.022506861,
+        "preparation_seconds": 14.884368458,
+        "pipeline_seconds": 5.005662125,
+        "total_seconds": 19.890030583,
+        "throughput_req_s": 56016.30401474983,
+        "prepared": {
+          "corpus_prepare_seconds": 14.418013334,
+          "worker_setup_seconds": 0.004491875,
+          "matching_seconds": 4.919494333,
+          "matching_throughput_req_s": 226479.78116900494,
+          "postprocess_seconds": 0.013001208,
+          "output_seconds": 0.067590292,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 1114166,
+              "bytes": 5365209223,
+              "batches": 71856,
+              "wall_seconds": 4.919479208,
+              "cpu_seconds": 4.918649792
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 1,
+      "external_wall_seconds": 18.477042083,
+      "metrics": {
+        "mode": "fast",
+        "workers": 2,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 0.989040463,
+        "preparation_seconds": 15.002908667,
+        "pipeline_seconds": 3.010058833,
+        "total_seconds": 18.012967584,
+        "throughput_req_s": 61853.55049379298,
+        "prepared": {
+          "corpus_prepare_seconds": 14.519715958,
+          "worker_setup_seconds": 0.004472375,
+          "matching_seconds": 2.8985637090000003,
+          "matching_throughput_req_s": 384385.54810457677,
+          "postprocess_seconds": 0.0201505,
+          "output_seconds": 0.084337417,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 564519,
+              "bytes": 2644428325,
+              "batches": 36367,
+              "wall_seconds": 2.898547125,
+              "cpu_seconds": 2.8819189169999997
+            },
+            {
+              "worker_id": 1,
+              "requests": 549647,
+              "bytes": 2720780898,
+              "batches": 35489,
+              "wall_seconds": 2.89854475,
+              "cpu_seconds": 2.8809351669999996
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 1,
+      "external_wall_seconds": 17.33884950000001,
+      "metrics": {
+        "mode": "fast",
+        "workers": 4,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.006822635,
+        "preparation_seconds": 15.221694083,
+        "pipeline_seconds": 1.7324279169999999,
+        "total_seconds": 16.954122125,
+        "throughput_req_s": 65716.52556147905,
+        "prepared": {
+          "corpus_prepare_seconds": 14.735535667,
+          "worker_setup_seconds": 0.00621975,
+          "matching_seconds": 1.6331985420000001,
+          "matching_throughput_req_s": 682198.7476400771,
+          "postprocess_seconds": 0.015068334,
+          "output_seconds": 0.076304916,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 278851,
+              "bytes": 1349607863,
+              "batches": 17841,
+              "wall_seconds": 1.6331685409999999,
+              "cpu_seconds": 1.611194042
+            },
+            {
+              "worker_id": 1,
+              "requests": 285950,
+              "bytes": 1301519778,
+              "batches": 18536,
+              "wall_seconds": 1.633183375,
+              "cpu_seconds": 1.612449916
+            },
+            {
+              "worker_id": 2,
+              "requests": 272514,
+              "bytes": 1366681711,
+              "batches": 17843,
+              "wall_seconds": 1.633142292,
+              "cpu_seconds": 1.61496575
+            },
+            {
+              "worker_id": 3,
+              "requests": 276851,
+              "bytes": 1347399871,
+              "batches": 17636,
+              "wall_seconds": 1.6331654580000001,
+              "cpu_seconds": 1.615093541
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 1,
+      "external_wall_seconds": 16.7068065,
+      "metrics": {
+        "mode": "fast",
+        "workers": 8,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.005231908,
+        "preparation_seconds": 15.110367792,
+        "pipeline_seconds": 1.267502791,
+        "total_seconds": 16.377870625,
+        "throughput_req_s": 68028.74595304724,
+        "prepared": {
+          "corpus_prepare_seconds": 14.620424292,
+          "worker_setup_seconds": 0.011220292,
+          "matching_seconds": 1.158648667,
+          "matching_throughput_req_s": 961608.1489868922,
+          "postprocess_seconds": 0.01522925,
+          "output_seconds": 0.0810475,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 130004,
+              "bytes": 707499515,
+              "batches": 8401,
+              "wall_seconds": 1.158433708,
+              "cpu_seconds": 1.053272459
+            },
+            {
+              "worker_id": 1,
+              "requests": 142688,
+              "bytes": 663796162,
+              "batches": 9314,
+              "wall_seconds": 1.15848175,
+              "cpu_seconds": 1.054158375
+            },
+            {
+              "worker_id": 2,
+              "requests": 142463,
+              "bytes": 655828419,
+              "batches": 9220,
+              "wall_seconds": 1.158475083,
+              "cpu_seconds": 1.065767083
+            },
+            {
+              "worker_id": 3,
+              "requests": 139109,
+              "bytes": 722959604,
+              "batches": 8858,
+              "wall_seconds": 1.158420416,
+              "cpu_seconds": 1.062057667
+            },
+            {
+              "worker_id": 4,
+              "requests": 138274,
+              "bytes": 629237497,
+              "batches": 9081,
+              "wall_seconds": 1.158475667,
+              "cpu_seconds": 1.055874208
+            },
+            {
+              "worker_id": 5,
+              "requests": 140988,
+              "bytes": 645934933,
+              "batches": 9244,
+              "wall_seconds": 1.15846125,
+              "cpu_seconds": 1.0571365
+            },
+            {
+              "worker_id": 6,
+              "requests": 138958,
+              "bytes": 703087070,
+              "batches": 8596,
+              "wall_seconds": 1.158444583,
+              "cpu_seconds": 1.065149666
+            },
+            {
+              "worker_id": 7,
+              "requests": 141682,
+              "bytes": 636866023,
+              "batches": 9142,
+              "wall_seconds": 1.15848325,
+              "cpu_seconds": 1.0427907909999998
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 2,
+      "external_wall_seconds": 20.752437,
+      "metrics": {
+        "mode": "fast",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.002334726,
+        "preparation_seconds": 15.234174834,
+        "pipeline_seconds": 5.208398208,
+        "total_seconds": 20.442573125,
+        "throughput_req_s": 54502.23869506154,
+        "prepared": {
+          "corpus_prepare_seconds": 14.746490625,
+          "worker_setup_seconds": 0.008727292,
+          "matching_seconds": 5.116802542,
+          "matching_throughput_req_s": 217746.5303487179,
+          "postprocess_seconds": 0.0136115,
+          "output_seconds": 0.067746791,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 1114166,
+              "bytes": 5365209223,
+              "batches": 71856,
+              "wall_seconds": 5.116789209,
+              "cpu_seconds": 5.114747666
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 2,
+      "external_wall_seconds": 18.446314833999992,
+      "metrics": {
+        "mode": "fast",
+        "workers": 2,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.002360639,
+        "preparation_seconds": 15.191448917,
+        "pipeline_seconds": 2.930651041,
+        "total_seconds": 18.122100083,
+        "throughput_req_s": 61481.06427495002,
+        "prepared": {
+          "corpus_prepare_seconds": 14.702061375,
+          "worker_setup_seconds": 0.004702959,
+          "matching_seconds": 2.809132417,
+          "matching_throughput_req_s": 396622.8125300937,
+          "postprocess_seconds": 0.021952833,
+          "output_seconds": 0.092633333,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 563355,
+              "bytes": 2653880801,
+              "batches": 36337,
+              "wall_seconds": 2.8091106249999998,
+              "cpu_seconds": 2.806379375
+            },
+            {
+              "worker_id": 1,
+              "requests": 550811,
+              "bytes": 2711328422,
+              "batches": 35519,
+              "wall_seconds": 2.809119416,
+              "cpu_seconds": 2.806305
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 2,
+      "external_wall_seconds": 17.098922166999984,
+      "metrics": {
+        "mode": "fast",
+        "workers": 4,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.007627115,
+        "preparation_seconds": 15.168280375,
+        "pipeline_seconds": 1.620182375,
+        "total_seconds": 16.788462792,
+        "throughput_req_s": 66364.98015356831,
+        "prepared": {
+          "corpus_prepare_seconds": 14.6791035,
+          "worker_setup_seconds": 0.004639125,
+          "matching_seconds": 1.523615792,
+          "matching_throughput_req_s": 731264.4078973946,
+          "postprocess_seconds": 0.013687417,
+          "output_seconds": 0.076573917,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 280360,
+              "bytes": 1335993924,
+              "batches": 17833,
+              "wall_seconds": 1.523585167,
+              "cpu_seconds": 1.5187985
+            },
+            {
+              "worker_id": 1,
+              "requests": 265275,
+              "bytes": 1416978671,
+              "batches": 17012,
+              "wall_seconds": 1.523575959,
+              "cpu_seconds": 1.5187558330000002
+            },
+            {
+              "worker_id": 2,
+              "requests": 282776,
+              "bytes": 1307678949,
+              "batches": 18474,
+              "wall_seconds": 1.523597875,
+              "cpu_seconds": 1.518858958
+            },
+            {
+              "worker_id": 3,
+              "requests": 285755,
+              "bytes": 1304557679,
+              "batches": 18537,
+              "wall_seconds": 1.523567584,
+              "cpu_seconds": 1.5185402500000003
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 2,
+      "external_wall_seconds": 17.577562124999986,
+      "metrics": {
+        "mode": "fast",
+        "workers": 8,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.021809174,
+        "preparation_seconds": 15.227942208,
+        "pipeline_seconds": 1.654785,
+        "total_seconds": 16.882727333,
+        "throughput_req_s": 65994.43194359858,
+        "prepared": {
+          "corpus_prepare_seconds": 14.738260458,
+          "worker_setup_seconds": 0.011677833,
+          "matching_seconds": 1.467699042,
+          "matching_throughput_req_s": 759124.2946386007,
+          "postprocess_seconds": 0.066708292,
+          "output_seconds": 0.1065525,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 141449,
+              "bytes": 627880403,
+              "batches": 9140,
+              "wall_seconds": 1.4676317079999999,
+              "cpu_seconds": 1.113109542
+            },
+            {
+              "worker_id": 1,
+              "requests": 143493,
+              "bytes": 641072219,
+              "batches": 9390,
+              "wall_seconds": 1.467644666,
+              "cpu_seconds": 1.1311433340000001
+            },
+            {
+              "worker_id": 2,
+              "requests": 142699,
+              "bytes": 670688523,
+              "batches": 9334,
+              "wall_seconds": 1.467650834,
+              "cpu_seconds": 1.155027834
+            },
+            {
+              "worker_id": 3,
+              "requests": 140714,
+              "bytes": 652153498,
+              "batches": 9168,
+              "wall_seconds": 1.467605333,
+              "cpu_seconds": 1.124256125
+            },
+            {
+              "worker_id": 4,
+              "requests": 139333,
+              "bytes": 708659223,
+              "batches": 8733,
+              "wall_seconds": 1.467612833,
+              "cpu_seconds": 1.144284292
+            },
+            {
+              "worker_id": 5,
+              "requests": 127980,
+              "bytes": 696781616,
+              "batches": 8275,
+              "wall_seconds": 1.467467625,
+              "cpu_seconds": 1.123273459
+            },
+            {
+              "worker_id": 6,
+              "requests": 138078,
+              "bytes": 732973746,
+              "batches": 8717,
+              "wall_seconds": 1.467675458,
+              "cpu_seconds": 1.158729541
+            },
+            {
+              "worker_id": 7,
+              "requests": 140420,
+              "bytes": 634999995,
+              "batches": 9099,
+              "wall_seconds": 1.467630459,
+              "cpu_seconds": 1.126652583
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 3,
+      "external_wall_seconds": 20.813051124999987,
+      "metrics": {
+        "mode": "fast",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.013950267,
+        "preparation_seconds": 15.213830208,
+        "pipeline_seconds": 5.2801645409999995,
+        "total_seconds": 20.493994916,
+        "throughput_req_s": 54365.48630790146,
+        "prepared": {
+          "corpus_prepare_seconds": 14.725472542,
+          "worker_setup_seconds": 0.004400584,
+          "matching_seconds": 5.192109334,
+          "matching_throughput_req_s": 214588.31629449656,
+          "postprocess_seconds": 0.014139125,
+          "output_seconds": 0.06796575,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 1114166,
+              "bytes": 5365209223,
+              "batches": 71856,
+              "wall_seconds": 5.192096584,
+              "cpu_seconds": 5.19125575
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 3,
+      "external_wall_seconds": 19.340742250000005,
+      "metrics": {
+        "mode": "fast",
+        "workers": 2,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.057774225,
+        "preparation_seconds": 15.366503042,
+        "pipeline_seconds": 3.364146709,
+        "total_seconds": 18.730650042,
+        "throughput_req_s": 59483.57358135942,
+        "prepared": {
+          "corpus_prepare_seconds": 14.882655541,
+          "worker_setup_seconds": 0.0062705,
+          "matching_seconds": 3.108384083,
+          "matching_throughput_req_s": 358438.97351471544,
+          "postprocess_seconds": 0.0219595,
+          "output_seconds": 0.225992375,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 550969,
+              "bytes": 2711206387,
+              "batches": 35613,
+              "wall_seconds": 3.108372458,
+              "cpu_seconds": 2.989116583
+            },
+            {
+              "worker_id": 1,
+              "requests": 563197,
+              "bytes": 2654002836,
+              "batches": 36243,
+              "wall_seconds": 3.108372917,
+              "cpu_seconds": 2.984689792
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 3,
+      "external_wall_seconds": 17.775898291000004,
+      "metrics": {
+        "mode": "fast",
+        "workers": 4,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.030576181,
+        "preparation_seconds": 15.319680125,
+        "pipeline_seconds": 1.870597542,
+        "total_seconds": 17.190277709,
+        "throughput_req_s": 64813.72894963043,
+        "prepared": {
+          "corpus_prepare_seconds": 14.825464292,
+          "worker_setup_seconds": 0.004642833,
+          "matching_seconds": 1.65546625,
+          "matching_throughput_req_s": 673022.4793166276,
+          "postprocess_seconds": 0.050466417,
+          "output_seconds": 0.15094925,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 286592,
+              "bytes": 1291462800,
+              "batches": 18579,
+              "wall_seconds": 1.655402167,
+              "cpu_seconds": 1.604087625
+            },
+            {
+              "worker_id": 1,
+              "requests": 275780,
+              "bytes": 1345280872,
+              "batches": 17597,
+              "wall_seconds": 1.655410041,
+              "cpu_seconds": 1.6051535000000001
+            },
+            {
+              "worker_id": 2,
+              "requests": 279156,
+              "bytes": 1349363153,
+              "batches": 17771,
+              "wall_seconds": 1.6554175,
+              "cpu_seconds": 1.6071127499999998
+            },
+            {
+              "worker_id": 3,
+              "requests": 272638,
+              "bytes": 1379102398,
+              "batches": 17909,
+              "wall_seconds": 1.655435958,
+              "cpu_seconds": 1.606632708
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "repetition": 3,
+      "external_wall_seconds": 16.861278417000023,
+      "metrics": {
+        "mode": "fast",
+        "workers": 8,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.020449131,
+        "preparation_seconds": 15.226884667,
+        "pipeline_seconds": 1.2900917920000001,
+        "total_seconds": 16.516976542,
+        "throughput_req_s": 67455.8080994337,
+        "prepared": {
+          "corpus_prepare_seconds": 14.734523208,
+          "worker_setup_seconds": 0.009483542,
+          "matching_seconds": 1.184061083,
+          "matching_throughput_req_s": 940970.0360872345,
+          "postprocess_seconds": 0.015505709,
+          "output_seconds": 0.079405333,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 148595,
+              "bytes": 671510295,
+              "batches": 9550,
+              "wall_seconds": 1.183951292,
+              "cpu_seconds": 1.097575875
+            },
+            {
+              "worker_id": 1,
+              "requests": 123295,
+              "bytes": 756409024,
+              "batches": 7760,
+              "wall_seconds": 1.184029542,
+              "cpu_seconds": 1.097826708
+            },
+            {
+              "worker_id": 2,
+              "requests": 142701,
+              "bytes": 649961126,
+              "batches": 9224,
+              "wall_seconds": 1.183936167,
+              "cpu_seconds": 1.089455125
+            },
+            {
+              "worker_id": 3,
+              "requests": 135223,
+              "bytes": 704189647,
+              "batches": 8638,
+              "wall_seconds": 1.183986583,
+              "cpu_seconds": 1.086755167
+            },
+            {
+              "worker_id": 4,
+              "requests": 139966,
+              "bytes": 627780386,
+              "batches": 9125,
+              "wall_seconds": 1.183994292,
+              "cpu_seconds": 1.083179791
+            },
+            {
+              "worker_id": 5,
+              "requests": 143264,
+              "bytes": 656127283,
+              "batches": 9241,
+              "wall_seconds": 1.183969583,
+              "cpu_seconds": 1.085257209
+            },
+            {
+              "worker_id": 6,
+              "requests": 142741,
+              "bytes": 643599947,
+              "batches": 9242,
+              "wall_seconds": 1.183961417,
+              "cpu_seconds": 1.072723042
+            },
+            {
+              "worker_id": 7,
+              "requests": 138381,
+              "bytes": 655631515,
+              "batches": 9076,
+              "wall_seconds": 1.184041709,
+              "cpu_seconds": 1.0842022919999998
+            }
+          ]
+        }
+      },
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    }
+  ],
+  "diagnostic_stage_fractions": [
+    {
+      "workers": 1,
+      "instrumented_matching_seconds": 5.759431917,
+      "worker_wall_seconds_sum": 5.759415167,
+      "stage_fraction_of_worker_wall": {
+        "literal_seconds": 0.6907003917332122,
+        "prefix_seconds": 0.05862917383195876,
+        "group_search_seconds": 0.1508270485476115,
+        "result_build_seconds": 0.022154489700687858,
+        "other_bookkeeping_and_diagnostic_overhead": 0.07768889618652974
+      },
+      "engine_search_seconds_sum": {
+        "regex_set": 0.430471118999013,
+        "byte_after_prefix": 0.17835410300170498,
+        "literal_gap_byte_class": 0.05146805799984619,
+        "singleton_is_match": 0.18475914299862037,
+        "minimum_byte_length": 0.02362316799977475
+      },
+      "group_count": 1779,
+      "called_group_count": 43
+    },
+    {
+      "workers": 2,
+      "instrumented_matching_seconds": 3.064947792,
+      "worker_wall_seconds_sum": 6.129854625,
+      "stage_fraction_of_worker_wall": {
+        "literal_seconds": 0.6601096566787662,
+        "prefix_seconds": 0.06191839516963996,
+        "group_search_seconds": 0.16851586867775936,
+        "result_build_seconds": 0.036707938240775166,
+        "other_bookkeeping_and_diagnostic_overhead": 0.07274814123305937
+      },
+      "engine_search_seconds_sum": {
+        "regex_set": 0.5376272490002731,
+        "byte_after_prefix": 0.18221208000046016,
+        "minimum_byte_length": 0.07160836799984895,
+        "literal_gap_byte_class": 0.05217332499999014,
+        "singleton_is_match": 0.18935675499968424
+      },
+      "group_count": 1779,
+      "called_group_count": 43
+    },
+    {
+      "workers": 4,
+      "instrumented_matching_seconds": 1.638745416,
+      "worker_wall_seconds_sum": 6.5548685419999995,
+      "stage_fraction_of_worker_wall": {
+        "literal_seconds": 0.6517152740178462,
+        "prefix_seconds": 0.0747913594088003,
+        "group_search_seconds": 0.15602593148058,
+        "result_build_seconds": 0.04781068956480634,
+        "other_bookkeeping_and_diagnostic_overhead": 0.06965674552796715
+      },
+      "engine_search_seconds_sum": {
+        "regex_set": 0.48435255299888075,
+        "byte_after_prefix": 0.1884366519995345,
+        "minimum_byte_length": 0.09225544900014028,
+        "literal_gap_byte_class": 0.06180634499998755,
+        "singleton_is_match": 0.19587847099975855
+      },
+      "group_count": 1779,
+      "called_group_count": 43
+    },
+    {
+      "workers": 8,
+      "instrumented_matching_seconds": 1.387838333,
+      "worker_wall_seconds_sum": 11.102050666000002,
+      "stage_fraction_of_worker_wall": {
+        "literal_seconds": 0.5869552455707084,
+        "prefix_seconds": 0.1595129481281581,
+        "group_search_seconds": 0.1517153640955246,
+        "result_build_seconds": 0.042400614279457204,
+        "other_bookkeeping_and_diagnostic_overhead": 0.05941582792615168
+      },
+      "engine_search_seconds_sum": {
+        "regex_set": 0.8581870439997558,
+        "byte_after_prefix": 0.292927366999709,
+        "minimum_byte_length": 0.11867906299988373,
+        "literal_gap_byte_class": 0.08900644799999004,
+        "singleton_is_match": 0.3255517369998128
+      },
+      "group_count": 1779,
+      "called_group_count": 43
+    }
+  ],
+  "selectivity": {
+    "analysis_date": "2026-10-14",
+    "measurement_date": "2026-10-13",
+    "requests": 1114166,
+    "source_reports": [
+      "results/profile-scaling/diagnostics/workers-1.json",
+      "results/profile-scaling/diagnostics/workers-2.json",
+      "results/profile-scaling/diagnostics/workers-4.json",
+      "results/profile-scaling/diagnostics/workers-8.json"
+    ],
+    "source_report_sha256": {
+      "results/profile-scaling/diagnostics/workers-1.json": "09baf11c3cce27e723cc6a24985cf116c52a668b97c86abe3e8d2a62c5c6f6d6",
+      "results/profile-scaling/diagnostics/workers-2.json": "b5953bad3fabe271ba89bb1336400fdab658a687e6c65a3327ee5ba477fd0e12",
+      "results/profile-scaling/diagnostics/workers-4.json": "df3aa8aa0e5cd9418c1c1116f6ff57e7882bfd042c5583447b36d5baf7cfc178",
+      "results/profile-scaling/diagnostics/workers-8.json": "114e146a8962f7a8d72ea7438e9a945866f24c534807d728de6ea6a417f11332"
+    },
+    "condition_mapping_method": "Original Rust plan_groups on the unchanged rule database in a temporary source copy; every group ID and ordered rule ID list checked against each recorded profile.",
+    "identical_counts_at_workers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "conditions": [
+      {
+        "condition": "exact_primitive",
+        "groups": 2,
+        "rules": 3,
+        "active_groups": 2,
+        "calls": 2228306,
+        "confirmed_calls": 1127195,
+        "confirmation_percent": 50.58528765797875
+      },
+      {
+        "condition": "literal_tail",
+        "groups": 2,
+        "rules": 2,
+        "active_groups": 1,
+        "calls": 347879,
+        "confirmed_calls": 286657,
+        "confirmation_percent": 82.40135219429744
+      },
+      {
+        "condition": "prefix",
+        "groups": 1574,
+        "rules": 10931,
+        "active_groups": 2,
+        "calls": 1112398,
+        "confirmed_calls": 0,
+        "confirmation_percent": 0.0
+      },
+      {
+        "condition": "literal",
+        "groups": 194,
+        "rules": 322,
+        "active_groups": 33,
+        "calls": 3570411,
+        "confirmed_calls": 0,
+        "confirmation_percent": 0.0
+      },
+      {
+        "condition": "first_bytes",
+        "groups": 7,
+        "rules": 9,
+        "active_groups": 5,
+        "calls": 4457121,
+        "confirmed_calls": 1082,
+        "confirmation_percent": 0.024275760070233677
+      }
+    ],
+    "group_sizes": {
+      "groups": 1779,
+      "rules": 11267,
+      "mean": 6.333333333333333,
+      "maximum": 128,
+      "nearest_rank_percentiles": {
+        "50": 1,
+        "90": 5,
+        "95": 23,
+        "99": 128
+      },
+      "histogram": {
+        "1": 1277,
+        "2": 208,
+        "3": 74,
+        "4": 40,
+        "5": 29,
+        "6": 13,
+        "7": 7,
+        "8": 8,
+        "9": 5,
+        "10": 8,
+        "11": 3,
+        "12": 3,
+        "13": 3,
+        "14": 4,
+        "16": 4,
+        "18": 2,
+        "19": 1,
+        "22": 1,
+        "23": 2,
+        "24": 4,
+        "27": 1,
+        "28": 2,
+        "29": 1,
+        "30": 3,
+        "31": 3,
+        "33": 1,
+        "34": 1,
+        "36": 1,
+        "38": 1,
+        "39": 1,
+        "40": 2,
+        "42": 1,
+        "43": 1,
+        "44": 1,
+        "56": 1,
+        "59": 1,
+        "67": 1,
+        "72": 1,
+        "74": 1,
+        "80": 1,
+        "94": 1,
+        "101": 1,
+        "103": 1,
+        "110": 1,
+        "128": 53
+      },
+      "buckets": [
+        {
+          "minimum": 1,
+          "maximum": 1,
+          "groups": 1277
+        },
+        {
+          "minimum": 2,
+          "maximum": 2,
+          "groups": 208
+        },
+        {
+          "minimum": 3,
+          "maximum": 8,
+          "groups": 171
+        },
+        {
+          "minimum": 9,
+          "maximum": 32,
+          "groups": 50
+        },
+        {
+          "minimum": 33,
+          "maximum": 127,
+          "groups": 20
+        },
+        {
+          "minimum": 128,
+          "maximum": 128,
+          "groups": 53
+        }
+      ]
+    },
+    "overall": {
+      "active_groups": 43,
+      "maximum_called_group_size": 14,
+      "total_group_calls": 11716115,
+      "mean_group_calls_per_request": 10.515591931543414,
+      "confirmed_group_calls": 1414934,
+      "confirmation_percent": 12.076818979670309,
+      "no_match_percent": 87.9231810203297,
+      "omitted_request_group_pairs_percent": 99.40890433212235,
+      "contained_rule_candidates": 28431795,
+      "mean_contained_rules_per_request": 25.518455059658972
+    },
+    "limits": [
+      "Calls are counted after routing and group byte/length guards, not before those guards.",
+      "Confirmation means at least one rule ID from a called group before ResultBuilder; not attack-detection precision.",
+      "Group-call and contained-rule counts are not individual regex execution counts.",
+      "Per-request percentiles of selected groups were not recorded; only the mean is available."
+    ],
+    "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
+  },
+  "quick_ablation": {
+    "all_outputs_equal_baseline": true,
+    "corpus_counts": {
+      "Legitimate": 1749,
+      "Malicious": 135
+    },
+    "input_files": 15,
+    "max_request_bytes": 44919,
+    "normalized_bytes": 2428300,
+    "requests": 1884,
+    "runs": [
+      {
+        "batches": 7,
+        "elapsed_matching_seconds": 0.054535458999999994,
+        "equals_baseline": true,
+        "repetition": 1,
+        "seconds_per_batch": 0.007790779857142856,
+        "variant": "control"
+      },
+      {
+        "batches": 6,
+        "elapsed_matching_seconds": 0.056013543,
+        "equals_baseline": true,
+        "repetition": 1,
+        "seconds_per_batch": 0.0093355905,
+        "variant": "no_prefix_routing"
+      },
+      {
+        "batches": 1,
+        "elapsed_matching_seconds": 0.807957875,
+        "equals_baseline": true,
+        "repetition": 1,
+        "seconds_per_batch": 0.807957875,
+        "variant": "no_literal_routing"
+      },
+      {
+        "batches": 4,
+        "elapsed_matching_seconds": 0.060115208,
+        "equals_baseline": true,
+        "repetition": 1,
+        "seconds_per_batch": 0.015028802,
+        "variant": "no_exact_primitives"
+      },
+      {
+        "batches": 6,
+        "elapsed_matching_seconds": 0.055225457,
+        "equals_baseline": true,
+        "repetition": 1,
+        "seconds_per_batch": 0.009204242833333333,
+        "variant": "no_literal_tail_predicates"
+      },
+      {
+        "batches": 1,
+        "elapsed_matching_seconds": 0.833026667,
+        "equals_baseline": true,
+        "repetition": 1,
+        "seconds_per_batch": 0.833026667,
+        "variant": "no_literal_or_prefix_routing"
+      },
+      {
+        "batches": 1,
+        "elapsed_matching_seconds": 0.996876791,
+        "equals_baseline": true,
+        "repetition": 2,
+        "seconds_per_batch": 0.996876791,
+        "variant": "no_literal_or_prefix_routing"
+      },
+      {
+        "batches": 6,
+        "elapsed_matching_seconds": 0.054953958,
+        "equals_baseline": true,
+        "repetition": 2,
+        "seconds_per_batch": 0.009158992999999999,
+        "variant": "no_literal_tail_predicates"
+      },
+      {
+        "batches": 4,
+        "elapsed_matching_seconds": 0.060280875,
+        "equals_baseline": true,
+        "repetition": 2,
+        "seconds_per_batch": 0.01507021875,
+        "variant": "no_exact_primitives"
+      },
+      {
+        "batches": 1,
+        "elapsed_matching_seconds": 0.914514792,
+        "equals_baseline": true,
+        "repetition": 2,
+        "seconds_per_batch": 0.914514792,
+        "variant": "no_literal_routing"
+      },
+      {
+        "batches": 6,
+        "elapsed_matching_seconds": 0.055700207,
+        "equals_baseline": true,
+        "repetition": 2,
+        "seconds_per_batch": 0.009283367833333334,
+        "variant": "no_prefix_routing"
+      },
+      {
+        "batches": 7,
+        "elapsed_matching_seconds": 0.054039543,
+        "equals_baseline": true,
+        "repetition": 2,
+        "seconds_per_batch": 0.007719934714285714,
+        "variant": "control"
+      },
+      {
+        "batches": 7,
+        "elapsed_matching_seconds": 0.053816001999999995,
+        "equals_baseline": true,
+        "repetition": 3,
+        "seconds_per_batch": 0.007688000285714285,
+        "variant": "control"
+      },
+      {
+        "batches": 6,
+        "elapsed_matching_seconds": 0.055685957999999994,
+        "equals_baseline": true,
+        "repetition": 3,
+        "seconds_per_batch": 0.009280993,
+        "variant": "no_prefix_routing"
+      },
+      {
+        "batches": 1,
+        "elapsed_matching_seconds": 0.817360625,
+        "equals_baseline": true,
+        "repetition": 3,
+        "seconds_per_batch": 0.817360625,
+        "variant": "no_literal_routing"
+      },
+      {
+        "batches": 4,
+        "elapsed_matching_seconds": 0.060622622999999994,
+        "equals_baseline": true,
+        "repetition": 3,
+        "seconds_per_batch": 0.015155655749999998,
+        "variant": "no_exact_primitives"
+      },
+      {
+        "batches": 6,
+        "elapsed_matching_seconds": 0.0547095,
+        "equals_baseline": true,
+        "repetition": 3,
+        "seconds_per_batch": 0.00911825,
+        "variant": "no_literal_tail_predicates"
+      },
+      {
+        "batches": 1,
+        "elapsed_matching_seconds": 0.822891417,
+        "equals_baseline": true,
+        "repetition": 3,
+        "seconds_per_batch": 0.822891417,
+        "variant": "no_literal_or_prefix_routing"
+      }
+    ],
+    "status": "complete",
+    "date": "2026-10-14",
+    "root_sources_sha256": {
+      "src/main.rs": "3b23ca306123b3742cff855e390581e78f24a10c27b507d0e77c46e2941ba79a",
+      "src/reporting/diagnostics.rs": "592545a79dd9147acf067be8b3f0fd229b44cb12af044738735fa015ca9e6987",
+      "src/reporting/mod.rs": "acd11488e954c26cb4ebe3512d2915193cbe8f0f95d9731a5cc0f25bf07c3ab6",
+      "src/reporting/output.rs": "7e68e67e6ca1cbeccb5bebab12b17fd0ad43058b752be10ba33cebc1e787ee56",
+      "src/input/normalize.rs": "28e5ad1b418fab052bf95444fe267b84733555cfc820e4cceeb2211cbb389477",
+      "src/input/patterns.rs": "b3219e67d7699ec26aed3f3f3f27d6504fd467fa740fca39cd6b5a8ba1926b65",
+      "src/input/mod.rs": "ac14ad0d36ad3e2073921080fb0aeb8cb814de62371a7323c20e6c9817ca270c",
+      "src/input/corpus.rs": "d8c1394f79e92577c97bc5d5bf6bfbb1dc859809cf23e339d155e9bffc748605",
+      "src/matcher/mod.rs": "1d855e4557830b89bf2e8b19a8f6b08a189de4e4c4f61c609c8f9ee458e0ac92",
+      "src/matcher/grouped.rs": "69de9aa41211c985811b5a365166930f881f50c7d1547f9d875908d17b8d6856",
+      "src/matcher/grouped/literals.rs": "f5b568334b2124dcad0cc7bfdceb78fce6224a4c62b5cac32780cd60f4ef275f",
+      "src/matcher/grouped/primitives.rs": "87d55312575589684fea2b1690980182d79e7bf7c4655997f83a6dfad9d9c512",
+      "src/matcher/grouped/guards.rs": "e2221a60a10e6dffd35e6a8ebbaafda39c5829bc9d899d7cf841f1ce78ef0cfe",
+      "src/matcher/grouped/tests.rs": "0d88e00ec7549997ca6bf8eeb940376b769bee1043ca8d9a374c18f2d683b134",
+      "src/execution/prepared.rs": "9417503a0420494b231f296264c0912ef3fa113c4c5ba2668942e3c1b15813c5",
+      "src/execution/mod.rs": "862b4b589f8e4f093e878c092cbb3a47d8cda0da523140ad6df3b5ffc352f0e6",
+      "src/execution/stats.rs": "f97f57b3f2067cedd83e7c72174c6ba86a56f08d01df77039409979fb4c4ed59",
+      "src/execution/prepared/tests.rs": "322ef3d2b6888d084ca65e799b6fc25ece5743e6061da92c1df0eaa31062a3f3"
+    },
+    "harness_sha256": "b46758b194fe030ff907a89f07f3c34817e3edae76d9f5d51ad00a4f322fbbb5",
+    "experiment": "Short warmed single-thread matcher+ResultBuilder ablation; no worker scheduler, I/O or preparation in timing.",
+    "sample_method": "Up to 12 sorted Legitimate and 3 sorted Malicious JSON files of 50 KB–2 MiB; per-file prefix quotas; requests capped at 64 KiB and total at 16 MiB.",
+    "limitations": [
+      "Nonrandom size-limited sample; large requests excluded.",
+      "Repeated warmed inputs; not comparable to full-corpus fresh-process seconds.",
+      "Group layout, byte/length guards and result semantics preserved.",
+      "Ablation overlays apply only to a temporary source copy; production matcher unchanged."
+    ],
+    "total_experiment_wall_seconds": 27.465924708,
+    "summary": [
+      {
+        "variant": "control",
+        "repetitions": 3,
+        "median_seconds_per_batch": 0.007719934714285714,
+        "relative_time_to_control": 1.0,
+        "min_seconds_per_batch": 0.007688000285714285,
+        "max_seconds_per_batch": 0.007790779857142856
+      },
+      {
+        "variant": "no_prefix_routing",
+        "repetitions": 3,
+        "median_seconds_per_batch": 0.009283367833333334,
+        "relative_time_to_control": 1.2025189560417515,
+        "min_seconds_per_batch": 0.009280993,
+        "max_seconds_per_batch": 0.0093355905
+      },
+      {
+        "variant": "no_literal_routing",
+        "repetitions": 3,
+        "median_seconds_per_batch": 0.817360625,
+        "relative_time_to_control": 105.8766239936559,
+        "min_seconds_per_batch": 0.807957875,
+        "max_seconds_per_batch": 0.914514792
+      },
+      {
+        "variant": "no_exact_primitives",
+        "repetitions": 3,
+        "median_seconds_per_batch": 0.01507021875,
+        "relative_time_to_control": 1.9521173828209464,
+        "min_seconds_per_batch": 0.015028802,
+        "max_seconds_per_batch": 0.015155655749999998
+      },
+      {
+        "variant": "no_literal_tail_predicates",
+        "repetitions": 3,
+        "median_seconds_per_batch": 0.009158992999999999,
+        "relative_time_to_control": 1.186408090090621,
+        "min_seconds_per_batch": 0.00911825,
+        "max_seconds_per_batch": 0.009204242833333333
+      },
+      {
+        "variant": "no_literal_or_prefix_routing",
+        "repetitions": 3,
+        "median_seconds_per_batch": 0.833026667,
+        "relative_time_to_control": 107.90592120662457,
+        "min_seconds_per_batch": 0.822891417,
+        "max_seconds_per_batch": 0.996876791
+      }
+    ],
+    "cpu": "Apple M3",
+    "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
+    "source_archive": {
+      "temporary_driver_py": "from pathlib import Path\nimport hashlib\nimport json\nimport shutil\nimport subprocess\nimport time\n\nwork = Path(__file__).parent\nroot = Path(json.loads((work / 'root.json').read_text())['root'])\nstarted = time.monotonic()\nsources = {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()\n           for p in (root / 'src').rglob('*.rs')}\nfor name in ('input', 'matcher', 'reporting'):\n    shutil.copytree(root / 'src' / name, work / name)\n\noverlay = r'''\npub(super) fn quick_plan(rules: &[Rule]) -> Result<Vec<serde_json::Value>> {\n    Ok(plan_groups(rules)?.iter().enumerate().map(|(id, plan)| {\n        let kind = match &plan.condition {\n            GroupCondition::Primitive(_) => \"exact_primitive\",\n            GroupCondition::LiteralTail(_) => \"literal_tail\",\n            GroupCondition::Prefixes(_) => \"prefix\",\n            GroupCondition::Literals(_) => \"literal\",\n            GroupCondition::FirstBytes(_) => \"first_bytes\",\n        };\n        serde_json::json!({\"group_id\": id, \"condition\": kind, \"rule_ids\": plan.rule_ids})\n    }).collect())\n}\n\npub(super) fn quick_variant(rules: &[Rule], variant: &str) -> Result<GroupedMatcher> {\n    let plans = plan_groups(rules)?;\n    let bypass: Vec<_> = plans.iter().enumerate().filter_map(|(id, plan)| {\n        let selected = match &plan.condition {\n            GroupCondition::Prefixes(_) => variant == \"no_prefix_routing\" || variant == \"no_literal_or_prefix_routing\",\n            GroupCondition::Literals(_) | GroupCondition::LiteralTail(_) => variant == \"no_literal_routing\" || variant == \"no_literal_or_prefix_routing\",\n            _ => false,\n        };\n        selected.then_some((id, plan.guard))\n    }).collect();\n    let mut matcher = GroupedMatcher::new(rules, plans)?;\n    if variant == \"no_exact_primitives\" || variant == \"no_literal_tail_predicates\" {\n        let cache = (DFA_CACHE_BUDGET_PER_WORKER / matcher.groups.len()).min(MAX_GROUP_DFA_CACHE);\n        for group in &mut matcher.groups {\n            let replace = match &group.engine {\n                GroupEngine::Primitive(_) => variant == \"no_exact_primitives\",\n                GroupEngine::LiteralTail { .. } => variant == \"no_literal_tail_predicates\",\n                _ => false,\n            };\n            if replace {\n                let set = RegexSetBuilder::new(group.rule_ids.iter().map(|&id| &rules[id].expression))\n                    .unicode(false).size_limit(SET_SIZE_LIMIT).dfa_size_limit(cache).build()?;\n                group.engine = if group.rule_ids.len() == 1 { GroupEngine::Single(set) } else { GroupEngine::Regex(set) };\n            }\n        }\n    }\n    let index = Arc::get_mut(&mut matcher.index).unwrap();\n    if variant == \"no_prefix_routing\" || variant == \"no_literal_or_prefix_routing\" {\n        index.prefixes = PrefixIndex::default();\n    }\n    if variant == \"no_literal_routing\" || variant == \"no_literal_or_prefix_routing\" {\n        index.literal_search = None;\n    }\n    for (id, guard) in bypass {\n        for byte in 0..256 {\n            if guard.first_bytes.contains(byte as u8) { index.fallback[byte].push(id); }\n        }\n        if guard.minimum_len == Some(0) { index.fallback[EMPTY_INPUT_BUCKET].push(id); }\n    }\n    Ok(matcher)\n}\n'''\nwith (work / 'matcher/grouped.rs').open('a') as target:\n    target.write(overlay)\nwith (work / 'matcher/mod.rs').open('a') as target:\n    target.write('''\npub fn quick_plan(database: &PatternDatabase) -> Result<Vec<serde_json::Value>> {\n    grouped::quick_plan(&database.rules)\n}\npub fn quick_variant(database: &PatternDatabase, variant: &str) -> Result<Matcher> {\n    Ok(Matcher::Fast(Box::new(grouped::quick_variant(&database.rules, variant)?)))\n}\n''')\n\nselected = []\nfor label, quota, file_limit in (('Legitimate', 1867, 12), ('Malicious', 133, 3)):\n    files = sorted((p for p in (root / 'data/requests' / label).rglob('*.json')\n                    if 50000 <= p.stat().st_size <= 2 * 1024 * 1024), key=str)[:file_limit]\n    for p in files:\n        selected.append({'path': str(p), 'label': label, 'limit': (quota + len(files) - 1) // len(files)})\n(work / 'inputs.json').write_text(json.dumps(selected))\n(work / 'main.rs').write_text(r'''\n#![allow(dead_code, unused_imports)]\nmod input;\nmod matcher;\nmod reporting;\nuse anyhow::{ensure, Result};\nuse std::{hint::black_box, path::Path, sync::Arc, time::Instant};\nuse input::{PatternDatabase, Request};\nuse matcher::{Matcher, RequestResult, ResultBuilder};\n\nfn batch(matcher: &Matcher, builder: &ResultBuilder, requests: &[Request]) -> Vec<RequestResult> {\n    requests.iter().map(|r| builder.build(r.id, matcher.matching_rules(&r.bytes))).collect()\n}\n\nfn main() -> Result<()> {\n    let args: Vec<_> = std::env::args().collect();\n    let inputs: Vec<serde_json::Value> = serde_json::from_slice(&std::fs::read(&args[1])?)?;\n    let mut requests = Vec::new();\n    let mut counts = std::collections::BTreeMap::<String, usize>::new();\n    let mut bytes = 0usize;\n    for item in &inputs {\n        let label = item[\"label\"].as_str().unwrap();\n        input::read_requests(Path::new(item[\"path\"].as_str().unwrap()), Some(item[\"limit\"].as_u64().unwrap() as usize), |mut r| {\n            if r.bytes.len() <= 64 * 1024 && bytes + r.bytes.len() <= 16 * 1024 * 1024 {\n                bytes += r.bytes.len();\n                r.id = requests.len() as u64;\n                requests.push(r);\n                *counts.entry(label.to_owned()).or_default() += 1;\n            }\n            Ok(())\n        })?;\n    }\n    ensure!(!requests.is_empty(), \"empty sample\");\n    let database = PatternDatabase::load(Path::new(input::PATTERNS_PATH))?;\n    let plan = matcher::quick_plan(&database)?;\n    std::fs::write(&args[2], serde_json::to_vec(&plan)?)?;\n    let builder = ResultBuilder::new(Arc::new(database.rules.clone()));\n    let baseline = Matcher::baseline(&database);\n    let expected = batch(&baseline, &builder, &requests);\n    let names = [\"control\", \"no_prefix_routing\", \"no_literal_routing\", \"no_exact_primitives\", \"no_literal_tail_predicates\", \"no_literal_or_prefix_routing\"];\n    let mut matchers = Vec::new();\n    for name in names {\n        let matcher = matcher::quick_variant(&database, name)?;\n        ensure!(batch(&matcher, &builder, &requests) == expected, \"warmup result differs: {name}\");\n        matchers.push((name, matcher));\n    }\n    let mut results = Vec::new();\n    for repetition in 0..3 {\n        let order: Vec<_> = if repetition % 2 == 0 { (0..matchers.len()).collect() } else { (0..matchers.len()).rev().collect() };\n        for index in order {\n            let (name, matcher) = &matchers[index];\n            let mut elapsed = 0.0;\n            let mut batches = 0;\n            while elapsed < 0.05 {\n                let start = Instant::now();\n                let result = batch(matcher, &builder, &requests);\n                elapsed += start.elapsed().as_secs_f64();\n                ensure!(result == expected, \"timed result differs: {name}\");\n                black_box(result);\n                batches += 1;\n            }\n            results.push(serde_json::json!({\"variant\":name,\"repetition\":repetition+1,\"batches\":batches,\n                \"elapsed_matching_seconds\":elapsed,\"seconds_per_batch\":elapsed/batches as f64,\n                \"equals_baseline\":true}));\n        }\n    }\n    println!(\"{}\", serde_json::json!({\"status\":\"complete\",\"requests\":requests.len(),\"normalized_bytes\":bytes,\n        \"corpus_counts\":counts,\"input_files\":inputs.len(),\"max_request_bytes\":requests.iter().map(|r|r.bytes.len()).max(),\n        \"runs\":results,\"all_outputs_equal_baseline\":true}));\n    Ok(())\n}\n''')\n\ncommand = ['rustc', '--edition=2021', '-C', 'opt-level=3', '-C', 'codegen-units=1',\n           '-C', 'lto=thin', '-C', 'debuginfo=1', str(work / 'main.rs'), '-o', str(work / 'ablation'),\n           '-L', 'dependency=' + str(root / 'target/release/deps')]\nfor name in ('anyhow', 'aho_corasick', 'memchr', 'regex', 'regex_syntax', 'serde', 'serde_json', 'libc'):\n    library, = (root / 'target/release/deps').glob(f'lib{name}-*.rlib')\n    command += ['--extern', f'{name}={library}']\nsubprocess.run(command, cwd=root, check=True, timeout=60)\nresult = subprocess.run([str(work / 'ablation'), str(work / 'inputs.json'), str(work / 'plan.json')],\n                        cwd=root, check=True, capture_output=True, text=True, timeout=60)\nrecord = json.loads(result.stdout)\nrecord.update(date='2026-10-14', root_sources_sha256=sources,\n    harness_sha256=hashlib.sha256((work / 'main.rs').read_bytes() + overlay.encode()).hexdigest(),\n    experiment='Short warmed single-thread matcher+ResultBuilder ablation; no worker scheduler, I/O or preparation in timing.',\n    sample_method='Up to 12 sorted Legitimate and 3 sorted Malicious JSON files of 50 KB–2 MiB; per-file prefix quotas; requests capped at 64 KiB and total at 16 MiB.',\n    limitations=['Nonrandom size-limited sample; large requests excluded.',\n                 'Repeated warmed inputs; not comparable to full-corpus fresh-process seconds.',\n                 'Group layout, byte/length guards and result semantics preserved.',\n                 'Ablation overlays apply only to a temporary source copy; production matcher unchanged.'],\n    total_experiment_wall_seconds=time.monotonic()-started)\nassert all(hashlib.sha256((root / name).read_bytes()).hexdigest() == digest for name,digest in sources.items())\n(work / 'ablation.json').write_text(json.dumps(record, indent=2) + '\\n')\nprint(json.dumps({k:record[k] for k in ('status','requests','normalized_bytes','corpus_counts','input_files','max_request_bytes','total_experiment_wall_seconds')}, indent=2))\nprint('Saved analysis files:', work)\n"
+    },
+    "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff",
+    "reproduction_notes": [
+      "Release dependencies must already be present under target/release/deps.",
+      "In a new temporary directory save source_archive.temporary_driver_py as run.py and create root.json containing the repository root under the root key.",
+      "Run python3 -B run.py from the repository root; source overlays and executable remain in the temporary directory.",
+      "The archived driver describes the 2026-10-14 experiment and does not update repository measurements."
+    ]
+  }
+}

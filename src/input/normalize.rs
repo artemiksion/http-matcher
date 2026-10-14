@@ -1,6 +1,6 @@
 use serde_json::Value;
 
-use crate::corpus::HttpRequest;
+use super::corpus::HttpRequest;
 
 #[derive(Debug)]
 pub struct Request {

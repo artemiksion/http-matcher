@@ -1,85 +1,51 @@
 {
-  "date": "2026-10-10T06:15:52.298481+00:00",
-  "implementation": "rule_shards_broadcast",
+  "date": "2026-10-13T05:09:02.656724+00:00",
   "status": "complete",
+  "implementation": "complete_grouped_replicas_dynamic_byte_limited_batches_literal_DFA_direct_flagged_offsets_four_chains",
   "environment": {
     "platform": "macOS-27.0.1-arm64-arm-64bit",
     "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
-    "binary_sha256": "23aa691093ca8c16dbae5d1e7679144f8775704998f55a8802cffa3cb94859ca",
-    "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
-  },
-  "method": "Same unchanged release binary, sorted input and real JSONL output/flush. No profiler, fsync, affinity, explicit warm-up or OS file-cache reset. Full 2/4/8 saved from earlier same-day sequential runs; current fast/1 measured afterwards separately. One full run per configuration; validation outside matcher timing. Sample uses 3 repetitions per fast worker count. Speedup S(N) uses current fast/1 total_seconds; splitting changes automaton size and computation cost, so S(N) is not pure parallel efficiency.",
-  "sample_limit": 10000,
-  "worker_counts": [
-    1,
-    2,
-    4,
-    8
-  ],
-  "sample_summary": [
-    {
-      "workers": 1,
-      "preparation_seconds": 0.385533334,
-      "pipeline_seconds": 5.539692625,
-      "total_seconds": 5.925226125,
-      "throughput_req_s": 1687.6993027839928,
-      "total_min_seconds": 5.876982834,
-      "total_max_seconds": 5.972292416,
-      "speedup_vs_fast_one": 1.0,
-      "pipeline_speedup_vs_fast_one": 1.0,
-      "parallel_efficiency": 1.0
-    },
-    {
-      "workers": 2,
-      "preparation_seconds": 0.558665167,
-      "pipeline_seconds": 1.69824175,
-      "total_seconds": 2.256907209,
-      "throughput_req_s": 4430.842331542218,
-      "total_min_seconds": 2.236734125,
-      "total_max_seconds": 2.297044209,
-      "speedup_vs_fast_one": 2.625374273860986,
-      "pipeline_speedup_vs_fast_one": 3.2620165091336375,
-      "parallel_efficiency": 1.312687136930493
-    },
-    {
-      "workers": 4,
-      "preparation_seconds": 0.557819875,
-      "pipeline_seconds": 0.889999958,
-      "total_seconds": 1.446336584,
-      "throughput_req_s": 6914.019952633654,
-      "total_min_seconds": 1.445890667,
-      "total_max_seconds": 1.4519245,
-      "speedup_vs_fast_one": 4.096713165211619,
-      "pipeline_speedup_vs_fast_one": 6.224374029689561,
-      "parallel_efficiency": 1.0241782913029047
-    },
-    {
-      "workers": 8,
-      "preparation_seconds": 0.396405917,
-      "pipeline_seconds": 0.318388625,
-      "total_seconds": 0.710463958,
-      "throughput_req_s": 14075.309362843147,
-      "total_min_seconds": 0.69373675,
-      "total_max_seconds": 0.727849333,
-      "speedup_vs_fast_one": 8.339939075417533,
-      "pipeline_speedup_vs_fast_one": 17.399153707202952,
-      "parallel_efficiency": 1.0424923844271916
-    }
-  ],
-  "service_match_counts_by_corpus_class": {
-    "Legitimate": {
-      "requests": 1040242,
-      "with_service_match": 1040216,
-      "without_service_match": 26
-    },
-    "Malicious": {
-      "requests": 73924,
-      "with_service_match": 73924,
-      "without_service_match": 0
+    "binary_sha256": "881e9da2709d8e3dee5097379fa730bb66de3d9e2b314bbf6fcb9facecacd37f",
+    "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff",
+    "hardware": {
+      "model": "Mac15,13",
+      "cpu": "Apple M3",
+      "physical_cores": 8,
+      "logical_cpus": 8,
+      "memory_bytes": 17179869184,
+      "perflevel0_physical_cores": 4,
+      "perflevel1_physical_cores": 4,
+      "source": "sysctl hw.model machdep.cpu.brand_string hw.physicalcpu hw.logicalcpu hw.memsize hw.perflevel0.physicalcpu hw.perflevel1.physicalcpu"
     }
   },
-  "classification_note": "Service matches are not allow/block verdicts. Every Malicious request has at least one matching service; 26 Legitimate requests have none.",
-  "historical_report": "results/history/benchmark-request-distribution.json",
+  "method": "Sequential full-corpus fresh processes. Primary metric: prepared.matching_seconds. Includes batch claims, all per-request filters, signature checks, complete service priority/deduplication and storing results in memory. Excludes file reading, JSON decoding, normalization, compilation, worker startup/destruction, postprocessing, JSON serialization, writes and flush. First-use search cache work is included. Every request is processed once in total. No affinity, explicit warm-up, cache reset or fsync. Actual outputs are checked outside application timing. Diagnostics perturb performance and are kept out of ordinary summaries. Baseline is historical unless --baseline is explicitly selected.",
+  "source_sha256": {
+    "Cargo.toml": "051dfd480da20c64daa19753a4c023dee5d1350d8ea43631b21c5e3f87fd1d9d",
+    "Cargo.lock": "c30d25a68664a4f93dec9e3ba1b262ba91bcad264078b42f6d4c190a874b6963",
+    "rust-toolchain.toml": "4c2b49f5f849a8c7e2dd6e782dc0c1e3979f6aadfcb2f6ab75128ade28774fc8",
+    "src/prepared.rs": "cb4e2655d8180c552b7d6e85abdcace173ca1dbf736ce5dc5996b9ae45f8ae2e",
+    "src/diagnostics.rs": "7c394d125e7bb5af81b9b09954674a667f4d528081224ca24bc2bb08ecbe7064",
+    "src/normalize.rs": "082ff2feb2a74d2a5181d0c8abdcc9738211b757ec75f2a9e4d0c15cf2e6f276",
+    "src/matcher.rs": "ee9b44d6e8c081de1f68cab2201d397c678e9474863bd27a3fd5d50131493848",
+    "src/patterns.rs": "c25422dbf923a8d6b9352046219169245321c789668f262bbb2f8051e90e7b88",
+    "src/grouped.rs": "db895ef518e11bff79031f8f8ff5665d58fa6de2dd93e47f9cb7d17709c38b4e",
+    "src/corpus.rs": "75ec772d556f6197f21b265e09196eb34150dfe148bf9fabb237416ed6bfc3b7",
+    "src/output.rs": "8cdd19a7a9db4335a2f9ef92e92c46618512f49e89db6d9237b4e350d68fbb51",
+    "src/main.rs": "7c823d6edbc6d32b07e1872909a0b061857dbd88e645c561b4b110472129dc52",
+    "src/stats.rs": "40996a7788f74c03ca08ec79c432996318f580999d74e202db274f9f0ace40c3",
+    "src/prepared/tests.rs": "d46e4415d5da19348f02ee31b0103bdf6b10fb55d71a4ab0b15bbff7cbbaf471",
+    "src/grouped/literals.rs": "db551a41c2608fa5d5854fd07b362c5517cffb1494f8ea37307027cdb43c91ef",
+    "src/grouped/primitives.rs": "0a51d449cac99340c46abc612f0f999cf4912d70074c226260168559aec7941f",
+    "src/grouped/guards.rs": "d1477489b03fc93af71decd1c84f4b6cae023b5dc138eb1bc427cf2385665dfd",
+    "src/grouped/tests.rs": "7de7186fc17f720fdeb03b58c62302574b0e9bbac0815571ce898559ba994db7",
+    "scripts/benchmark.py": "06777c876dcc917776a0f35a782f5e0b1a8d2b4ee346f831c3226ee6b100b23f",
+    "README.md": "965483d5c6f373b81774d427c695cb737a2021eb3f15944b2251508f55f62060",
+    "docs/running.md": "03b5bcc85d65ae7d51e9d14f050f22b20b638977997b92584e6c32fb8eaf3975"
+  },
+  "baseline_reference": "results/baseline.json",
+  "baseline_report_sha256": "17c63fae4df3c5a426b9d5973d68eec7d0cd6503d8845c1ec78a1ac786a08610",
+  "baseline_historical": false,
+  "reference_output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
   "runs": [
     {
       "command": [
@@ -91,976 +57,1904 @@
         "--input",
         "data/requests",
         "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
       ],
-      "external_wall_seconds": 5.448468334,
+      "external_wall_seconds": 812.8448535,
       "metrics": {
         "mode": "baseline",
         "workers": 1,
         "supported_patterns": 11267,
         "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.018243021,
-        "preparation_seconds": 0.267844334,
-        "pipeline_seconds": 4.542067792,
-        "total_seconds": 4.809912334,
-        "throughput_req_s": 2079.039971126426
-      },
-      "scope": "sample",
-      "purpose": "correctness_reference",
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "1",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 5.888320875,
-      "metrics": {
-        "mode": "fast",
-        "workers": 1,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.015404462,
-        "preparation_seconds": 0.38087975,
-        "pipeline_seconds": 5.496102792,
-        "total_seconds": 5.876982834,
-        "throughput_req_s": 1701.5533790820666
-      },
-      "scope": "sample",
-      "repetition": 1,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "2",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 2.2951150840000007,
-      "metrics": {
-        "mode": "fast",
-        "workers": 2,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.015776819,
-        "preparation_seconds": 0.552930833,
-        "pipeline_seconds": 1.6838031249999998,
-        "total_seconds": 2.236734125,
-        "throughput_req_s": 4470.804056785248
-      },
-      "scope": "sample",
-      "repetition": 1,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "4",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 1.4919094160000004,
-      "metrics": {
-        "mode": "fast",
-        "workers": 4,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.016318162,
-        "preparation_seconds": 0.556336334,
-        "pipeline_seconds": 0.889999958,
-        "total_seconds": 1.446336584,
-        "throughput_req_s": 6914.019952633654
-      },
-      "scope": "sample",
-      "repetition": 1,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "8",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 0.7834207499999994,
-      "metrics": {
-        "mode": "fast",
-        "workers": 8,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.016843195,
-        "preparation_seconds": 0.406059125,
-        "pipeline_seconds": 0.321789958,
-        "total_seconds": 0.727849333,
-        "throughput_req_s": 13739.107184151257
-      },
-      "scope": "sample",
-      "repetition": 1,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "8",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 0.7166268749999993,
-      "metrics": {
-        "mode": "fast",
-        "workers": 8,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.015812229,
-        "preparation_seconds": 0.396405917,
-        "pipeline_seconds": 0.297330584,
-        "total_seconds": 0.69373675,
-        "throughput_req_s": 14414.689722001898
-      },
-      "scope": "sample",
-      "repetition": 2,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "4",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 1.4943272499999978,
-      "metrics": {
-        "mode": "fast",
-        "workers": 4,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.016130279,
-        "preparation_seconds": 0.562368125,
-        "pipeline_seconds": 0.883522334,
-        "total_seconds": 1.445890667,
-        "throughput_req_s": 6916.152257036458
-      },
-      "scope": "sample",
-      "repetition": 2,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "2",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 2.345921292,
-      "metrics": {
-        "mode": "fast",
-        "workers": 2,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.015843169,
-        "preparation_seconds": 0.559830334,
-        "pipeline_seconds": 1.737213667,
-        "total_seconds": 2.297044209,
-        "throughput_req_s": 4353.420783465644
-      },
-      "scope": "sample",
-      "repetition": 2,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "1",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 6.015980875,
-      "metrics": {
-        "mode": "fast",
-        "workers": 1,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.015525679,
-        "preparation_seconds": 0.411971791,
-        "pipeline_seconds": 5.560320417,
-        "total_seconds": 5.972292416,
-        "throughput_req_s": 1674.3989248097794
-      },
-      "scope": "sample",
-      "repetition": 2,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "2",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 2.300019917,
-      "metrics": {
-        "mode": "fast",
-        "workers": 2,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.015372695,
-        "preparation_seconds": 0.558665167,
-        "pipeline_seconds": 1.69824175,
-        "total_seconds": 2.256907209,
-        "throughput_req_s": 4430.842331542218
-      },
-      "scope": "sample",
-      "repetition": 3,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "8",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 0.7363086249999995,
-      "metrics": {
-        "mode": "fast",
-        "workers": 8,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.015981079,
-        "preparation_seconds": 0.392075166,
-        "pipeline_seconds": 0.318388625,
-        "total_seconds": 0.710463958,
-        "throughput_req_s": 14075.309362843147
-      },
-      "scope": "sample",
-      "repetition": 3,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "1",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 5.939302916999999,
-      "metrics": {
-        "mode": "fast",
-        "workers": 1,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.015119463,
-        "preparation_seconds": 0.385533334,
-        "pipeline_seconds": 5.539692625,
-        "total_seconds": 5.925226125,
-        "throughput_req_s": 1687.6993027839928
-      },
-      "scope": "sample",
-      "repetition": 3,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "4",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-sample-pc32hawu/matches.jsonl",
-        "--limit",
-        "10000"
-      ],
-      "external_wall_seconds": 1.4903133749999995,
-      "metrics": {
-        "mode": "fast",
-        "workers": 4,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 10000,
-        "bytes": 37004032,
-        "matched_requests": 9999,
-        "normalization_seconds": 0.016613525,
-        "preparation_seconds": 0.557819875,
-        "pipeline_seconds": 0.894104416,
-        "total_seconds": 1.4519245,
-        "throughput_req_s": 6887.410467968548
-      },
-      "scope": "sample",
-      "repetition": 3,
-      "output_digest": "c6fd51193998447d9018e7711cd568d3529dc94c216549e1aa237799ffc442a5",
-      "every_id_once": true,
-      "equals_baseline": true
-    },
-    {
-      "scope": "full",
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "1",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/profile-rule-shards/full-one-output.jsonl"
-      ],
-      "external_wall_seconds": 575.715577625,
-      "metrics": {
-        "mode": "fast",
-        "workers": 1,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
         "requests": 1114166,
         "bytes": 5365209223,
         "matched_requests": 1114140,
-        "normalization_seconds": 1.67305633,
-        "preparation_seconds": 0.377739375,
-        "pipeline_seconds": 575.326194416,
-        "total_seconds": 575.703933917,
-        "throughput_req_s": 1935.3107289355971
-      },
-      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
-      "every_id_once": true,
-      "equals_historical_fast_one": true,
-      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
-      "speedup_vs_historical_fast_one": 1.0298337900422896,
-      "speedup_vs_fast_one": 1.0,
-      "parallel_efficiency": 1.0,
-      "equals_fast_one": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "2",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-full-jjpjib3b/matches.jsonl"
-      ],
-      "external_wall_seconds": 55.379918333999996,
-      "scope": "full",
-      "metrics": {
-        "mode": "fast",
-        "workers": 2,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 1114166,
-        "bytes": 5365209223,
-        "matched_requests": 1114140,
-        "normalization_seconds": 1.6426122840000001,
-        "preparation_seconds": 0.581858709,
-        "pipeline_seconds": 54.220741667,
-        "total_seconds": 54.802600459,
-        "throughput_req_s": 20330.531592812862
-      },
-      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
-      "every_id_once": true,
-      "equals_historical_fast_one": true,
-      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
-      "speedup_vs_historical_fast_one": 10.818453125259204,
-      "speedup_vs_previous_same_workers": 7.233262664032956,
-      "speedup_vs_fast_one": 10.505047736698316,
-      "parallel_efficiency": 5.252523868349158,
-      "equals_fast_one": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "4",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-full-jjpjib3b/matches.jsonl"
-      ],
-      "external_wall_seconds": 30.134681958999998,
-      "scope": "full",
-      "metrics": {
-        "mode": "fast",
-        "workers": 4,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 1114166,
-        "bytes": 5365209223,
-        "matched_requests": 1114140,
-        "normalization_seconds": 1.6506237860000001,
-        "preparation_seconds": 0.560852625,
-        "pipeline_seconds": 29.523661583,
-        "total_seconds": 30.084514375,
-        "throughput_req_s": 37034.53498075619
-      },
-      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
-      "every_id_once": true,
-      "equals_historical_fast_one": true,
-      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
-      "speedup_vs_historical_fast_one": 19.70712762113515,
-      "speedup_vs_previous_same_workers": 16.925313344865984,
-      "speedup_vs_fast_one": 19.13622160361031,
-      "parallel_efficiency": 4.784055400902577,
-      "equals_fast_one": true
-    },
-    {
-      "command": [
-        "target/release/http-matcher",
-        "--mode",
-        "fast",
-        "--workers",
-        "8",
-        "--input",
-        "data/requests",
-        "--output",
-        "results/shards-full-jjpjib3b/matches.jsonl"
-      ],
-      "external_wall_seconds": 28.116599209,
-      "scope": "full",
-      "metrics": {
-        "mode": "fast",
-        "workers": 8,
-        "supported_patterns": 11267,
-        "skipped_patterns": 905,
-        "requests": 1114166,
-        "bytes": 5365209223,
-        "matched_requests": 1114140,
-        "normalization_seconds": 1.678111276,
-        "preparation_seconds": 0.410642834,
-        "pipeline_seconds": 27.649515583,
-        "total_seconds": 28.060158625,
-        "throughput_req_s": 39706.332914573824
-      },
-      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
-      "every_id_once": true,
-      "equals_historical_fast_one": true,
-      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
-      "speedup_vs_historical_fast_one": 21.128867164698715,
-      "speedup_vs_previous_same_workers": 20.511204408453338,
-      "speedup_vs_fast_one": 20.51677403577044,
-      "parallel_efficiency": 2.564596754471305,
-      "equals_fast_one": true
-    }
-  ],
-  "measurement_sources": [
-    {
-      "original_report_name": "benchmark-shards-one-20261010T060524Z.json",
-      "original_report_sha256": "2821c80b2a67e2da33a71ea66fd49f8f0c531464525c926eb3a727b33afd0dbe",
-      "retention": "All runs consolidated into this report; intermediate file removed.",
-      "metadata": {
-        "date": "2026-10-10T06:05:24.916677+00:00",
-        "implementation": "rule_shards_broadcast",
-        "environment": {
-          "platform": "macOS-27.0.1-arm64-arm-64bit",
-          "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
-          "binary_sha256": "23aa691093ca8c16dbae5d1e7679144f8775704998f55a8802cffa3cb94859ca",
-          "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
-        },
-        "status": "complete",
-        "method": "One fresh-process unprofiled full-corpus run; same release binary as saved current 2/4/8. Real JSONL output and flush. No affinity, explicit warm-up, fsync or OS cache reset. Validation outside matcher timing.",
-        "historical_reference": {
-          "report": "results/history/benchmark-request-distribution.json",
-          "run": {
-            "command": [
-              "target/release/http-matcher",
-              "--mode",
-              "fast",
-              "--workers",
-              "1",
-              "--input",
-              "data/requests",
-              "--output",
-              "results/benchmark-5en_09ed/matches.jsonl"
-            ],
-            "external_wall_seconds": 592.898289208,
-            "metrics": {
-              "mode": "fast",
-              "workers": 1,
-              "supported_patterns": 11267,
-              "skipped_patterns": 905,
+        "normalization_seconds": 1.813228025,
+        "preparation_seconds": 24.662945333,
+        "pipeline_seconds": 787.5985125,
+        "total_seconds": 812.261457958,
+        "throughput_req_s": 1371.6839437402073,
+        "prepared": {
+          "corpus_prepare_seconds": 24.212591916,
+          "worker_setup_seconds": 0.007259166,
+          "matching_seconds": 787.477552083,
+          "matching_throughput_req_s": 1414.8542990880928,
+          "postprocess_seconds": 0.0358065,
+          "output_seconds": 0.076962333,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
               "requests": 1114166,
               "bytes": 5365209223,
-              "matched_requests": 1114140,
-              "normalization_seconds": 1.729851137,
-              "preparation_seconds": 0.3847995,
-              "pipeline_seconds": 592.494564583,
-              "total_seconds": 592.879364208,
-              "throughput_req_s": 1879.2457070729097
-            },
-            "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
-            "scope": "full",
-            "every_id_once": true,
-            "equals_fast_one": true,
-            "speedup_vs_fast_one": 1.0,
-            "parallel_efficiency": 1.0
-          }
-        },
-        "corpus_class_method": "Sorted corpus paths put all Legitimate records before Malicious; boundary 1040242 from saved corpus counts. Service matches are not allow/block verdicts."
-      }
-    },
-    {
-      "original_report_name": "benchmark-shards-full-20261010T054538Z.json",
-      "original_report_sha256": "1b3632ed858079a1d51781e771e87a6c0de4d2bd963e61ac9d082ba6b2511909",
-      "retention": "All runs consolidated into this report; intermediate file removed.",
-      "metadata": {
-        "date": "2026-10-10T05:45:38.358715+00:00",
-        "implementation": "rule_shards_broadcast",
-        "worker_counts": [
-          2,
-          4,
-          8
-        ],
-        "repetitions": 1,
-        "status": "complete",
-        "environment": {
-          "platform": "macOS-27.0.1-arm64-arm-64bit",
-          "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
-          "binary_sha256": "23aa691093ca8c16dbae5d1e7679144f8775704998f55a8802cffa3cb94859ca",
-          "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
-        },
-        "historical_reference": {
-          "report": "results/history/benchmark-request-distribution.json",
-          "date": "2026-10-09T16:08:55.031960+00:00",
-          "implementation": "full_rules_request_distribution",
-          "binary_sha256": "bcd996665a114b288f0d91e643d5c641da09d1142d2ad64618aaee774df206af",
-          "run": {
-            "command": [
-              "target/release/http-matcher",
-              "--mode",
-              "fast",
-              "--workers",
-              "1",
-              "--input",
-              "data/requests",
-              "--output",
-              "results/benchmark-5en_09ed/matches.jsonl"
-            ],
-            "external_wall_seconds": 592.898289208,
-            "metrics": {
-              "mode": "fast",
-              "workers": 1,
-              "supported_patterns": 11267,
-              "skipped_patterns": 905,
-              "requests": 1114166,
-              "bytes": 5365209223,
-              "matched_requests": 1114140,
-              "normalization_seconds": 1.729851137,
-              "preparation_seconds": 0.3847995,
-              "pipeline_seconds": 592.494564583,
-              "total_seconds": 592.879364208,
-              "throughput_req_s": 1879.2457070729097
-            },
-            "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
-            "scope": "full",
-            "every_id_once": true,
-            "equals_fast_one": true,
-            "speedup_vs_fast_one": 1.0,
-            "parallel_efficiency": 1.0
-          }
-        },
-        "method": "One sequential fresh-process full-corpus run at each of 2, 4 and 8 workers, same release binary and sorted input. Real JSONL output and flush; no fsync, affinity, profiler, explicit warm-up or OS file-cache clearing. Output validation is outside matcher timing. Speedup uses application total_seconds relative to saved historical fast/1; the historical executable and parallel strategy differ. Every output is checked against the saved full-corpus digest."
-      }
-    },
-    {
-      "original_report_name": "benchmark-shards-sample-20261010T053808Z.json",
-      "original_report_sha256": "1b1982ad943c71b1098839b870ab59ecfb086ee300cc65d0587499892f838918",
-      "retention": "All runs consolidated into this report; intermediate file removed.",
-      "metadata": {
-        "date": "2026-10-10T05:38:08.650853+00:00",
-        "implementation": "rule_shards_broadcast",
-        "sample_limit": 10000,
-        "input": "first 10000 requests in sorted data/requests path order",
-        "worker_counts": [
-          1,
-          2,
-          4,
-          8
-        ],
-        "repetitions": 3,
-        "run_orders": [
-          [
-            1,
-            2,
-            4,
-            8
-          ],
-          [
-            8,
-            4,
-            2,
-            1
-          ],
-          [
-            2,
-            8,
-            1,
-            4
+              "batches": 71856,
+              "wall_seconds": 787.477528791,
+              "cpu_seconds": 786.0182308340001
+            }
           ]
-        ],
-        "environment": {
-          "platform": "macOS-27.0.1-arm64-arm-64bit",
-          "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
-          "binary_sha256": "23aa691093ca8c16dbae5d1e7679144f8775704998f55a8802cffa3cb94859ca",
-          "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
-        },
-        "method": "Sequential fresh-process runs, same sorted sample and binary. One baseline correctness run, three runs per fast worker count in varied order. Real JSONL output and flush; no fsync, affinity, profiler, explicit warm-up or OS file-cache clearing. Output validation is outside matcher timing. Summary uses medians of application total_seconds and pipeline_seconds. Total speedup is relative to fast/1.",
-        "unit_tests": {
-          "passed": 16,
-          "failed": 0
-        },
-        "all_outputs_equal_baseline": true
-      }
+        }
+      },
+      "repetition": 1,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "baseline",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "1",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 21.041724624999915,
+      "metrics": {
+        "mode": "fast",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.006317172,
+        "preparation_seconds": 15.240737041,
+        "pipeline_seconds": 5.405715125,
+        "total_seconds": 20.646452291,
+        "throughput_req_s": 53964.04109996546,
+        "prepared": {
+          "corpus_prepare_seconds": 14.752091834,
+          "worker_setup_seconds": 0.0118095,
+          "matching_seconds": 5.303574458,
+          "matching_throughput_req_s": 210078.3177125709,
+          "postprocess_seconds": 0.014773542,
+          "output_seconds": 0.074151166,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 1114166,
+              "bytes": 5365209223,
+              "batches": 71856,
+              "wall_seconds": 5.303559416,
+              "cpu_seconds": 5.29677375
+            }
+          ]
+        }
+      },
+      "repetition": 1,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "2",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 18.593590582999923,
+      "metrics": {
+        "mode": "fast",
+        "workers": 2,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.024792099,
+        "preparation_seconds": 15.271091,
+        "pipeline_seconds": 2.966315833,
+        "total_seconds": 18.237407,
+        "throughput_req_s": 61092.347174135,
+        "prepared": {
+          "corpus_prepare_seconds": 14.785805709,
+          "worker_setup_seconds": 0.007657833,
+          "matching_seconds": 2.868507833,
+          "matching_throughput_req_s": 388413.09310100815,
+          "postprocess_seconds": 0.01406975,
+          "output_seconds": 0.074593875,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 564708,
+              "bytes": 2657064911,
+              "batches": 36429,
+              "wall_seconds": 2.868495875,
+              "cpu_seconds": 2.8654370410000003
+            },
+            {
+              "worker_id": 1,
+              "requests": 549458,
+              "bytes": 2708144312,
+              "batches": 35427,
+              "wall_seconds": 2.868492041,
+              "cpu_seconds": 2.865507167
+            }
+          ]
+        }
+      },
+      "repetition": 1,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "4",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 17.495571917000007,
+      "metrics": {
+        "mode": "fast",
+        "workers": 4,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.000361733,
+        "preparation_seconds": 15.221298583,
+        "pipeline_seconds": 1.816534208,
+        "total_seconds": 17.037832916,
+        "throughput_req_s": 65393.64515974926,
+        "prepared": {
+          "corpus_prepare_seconds": 14.735783166000001,
+          "worker_setup_seconds": 0.0043715,
+          "matching_seconds": 1.6624114589999999,
+          "matching_throughput_req_s": 670210.7315057915,
+          "postprocess_seconds": 0.021572625,
+          "output_seconds": 0.124480667,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 272137,
+              "bytes": 1368333334,
+              "batches": 17764,
+              "wall_seconds": 1.6623554170000001,
+              "cpu_seconds": 1.627537916
+            },
+            {
+              "worker_id": 1,
+              "requests": 279730,
+              "bytes": 1350096237,
+              "batches": 17873,
+              "wall_seconds": 1.662398958,
+              "cpu_seconds": 1.63207825
+            },
+            {
+              "worker_id": 2,
+              "requests": 284590,
+              "bytes": 1304800665,
+              "batches": 18493,
+              "wall_seconds": 1.662369,
+              "cpu_seconds": 1.63319175
+            },
+            {
+              "worker_id": 3,
+              "requests": 277709,
+              "bytes": 1341978987,
+              "batches": 17726,
+              "wall_seconds": 1.662385459,
+              "cpu_seconds": 1.6294232920000002
+            }
+          ]
+        }
+      },
+      "repetition": 1,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "8",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 17.510455750000006,
+      "metrics": {
+        "mode": "fast",
+        "workers": 8,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.0171026,
+        "preparation_seconds": 15.346076625,
+        "pipeline_seconds": 1.5425461660000002,
+        "total_seconds": 16.888622875,
+        "throughput_req_s": 65971.39436687197,
+        "prepared": {
+          "corpus_prepare_seconds": 14.855896833,
+          "worker_setup_seconds": 0.009520041,
+          "matching_seconds": 1.404228209,
+          "matching_throughput_req_s": 793436.5602820617,
+          "postprocess_seconds": 0.029250792,
+          "output_seconds": 0.096448,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 131314,
+              "bytes": 773582148,
+              "batches": 8086,
+              "wall_seconds": 1.404094542,
+              "cpu_seconds": 1.135947667
+            },
+            {
+              "worker_id": 1,
+              "requests": 149207,
+              "bytes": 673950890,
+              "batches": 9591,
+              "wall_seconds": 1.404097125,
+              "cpu_seconds": 1.139482167
+            },
+            {
+              "worker_id": 2,
+              "requests": 141443,
+              "bytes": 643793291,
+              "batches": 9202,
+              "wall_seconds": 1.404061583,
+              "cpu_seconds": 1.1188446669999998
+            },
+            {
+              "worker_id": 3,
+              "requests": 145022,
+              "bytes": 629787361,
+              "batches": 9301,
+              "wall_seconds": 1.404041042,
+              "cpu_seconds": 1.1178238329999999
+            },
+            {
+              "worker_id": 4,
+              "requests": 135820,
+              "bytes": 626699030,
+              "batches": 8937,
+              "wall_seconds": 1.404066541,
+              "cpu_seconds": 1.08228825
+            },
+            {
+              "worker_id": 5,
+              "requests": 131178,
+              "bytes": 698496946,
+              "batches": 8361,
+              "wall_seconds": 1.404055167,
+              "cpu_seconds": 1.100695125
+            },
+            {
+              "worker_id": 6,
+              "requests": 142160,
+              "bytes": 638880568,
+              "batches": 9210,
+              "wall_seconds": 1.404035584,
+              "cpu_seconds": 1.1102180830000001
+            },
+            {
+              "worker_id": 7,
+              "requests": 138022,
+              "bytes": 680018989,
+              "batches": 9168,
+              "wall_seconds": 1.404037791,
+              "cpu_seconds": 1.110763542
+            }
+          ]
+        }
+      },
+      "repetition": 1,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "1",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 20.971254000000044,
+      "metrics": {
+        "mode": "fast",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.020155214,
+        "preparation_seconds": 15.233962958,
+        "pipeline_seconds": 5.372681208,
+        "total_seconds": 20.606644208,
+        "throughput_req_s": 54068.28927377966,
+        "prepared": {
+          "corpus_prepare_seconds": 14.749701958,
+          "worker_setup_seconds": 0.011008167,
+          "matching_seconds": 5.2847665,
+          "matching_throughput_req_s": 210825.96553698258,
+          "postprocess_seconds": 0.006217042,
+          "output_seconds": 0.070276458,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 1114166,
+              "bytes": 5365209223,
+              "batches": 71856,
+              "wall_seconds": 5.284751584,
+              "cpu_seconds": 5.282820624999999
+            }
+          ]
+        }
+      },
+      "repetition": 2,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "2",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 18.644963000000075,
+      "metrics": {
+        "mode": "fast",
+        "workers": 2,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.012400747,
+        "preparation_seconds": 15.334761375,
+        "pipeline_seconds": 2.993380875,
+        "total_seconds": 18.328142458,
+        "throughput_req_s": 60789.90288040242,
+        "prepared": {
+          "corpus_prepare_seconds": 14.849163083,
+          "worker_setup_seconds": 0.007520167,
+          "matching_seconds": 2.87737825,
+          "matching_throughput_req_s": 387215.68844832963,
+          "postprocess_seconds": 0.013919834,
+          "output_seconds": 0.070218458,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 562797,
+              "bytes": 2655446883,
+              "batches": 36420,
+              "wall_seconds": 2.877358333,
+              "cpu_seconds": 2.833221125
+            },
+            {
+              "worker_id": 1,
+              "requests": 551369,
+              "bytes": 2709762340,
+              "batches": 35436,
+              "wall_seconds": 2.877361584,
+              "cpu_seconds": 2.832445666
+            }
+          ]
+        }
+      },
+      "repetition": 2,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "4",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 18.13502087500001,
+      "metrics": {
+        "mode": "fast",
+        "workers": 4,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.073628929,
+        "preparation_seconds": 15.35494,
+        "pipeline_seconds": 2.099572916,
+        "total_seconds": 17.454512958,
+        "throughput_req_s": 63832.545925570485,
+        "prepared": {
+          "corpus_prepare_seconds": 14.866090166,
+          "worker_setup_seconds": 0.00815725,
+          "matching_seconds": 1.768240417,
+          "matching_throughput_req_s": 630098.7067642624,
+          "postprocess_seconds": 0.028588291,
+          "output_seconds": 0.292190375,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 288107,
+              "bytes": 1306326857,
+              "batches": 18634,
+              "wall_seconds": 1.768195458,
+              "cpu_seconds": 1.7055770419999998
+            },
+            {
+              "worker_id": 1,
+              "requests": 267461,
+              "bytes": 1400922720,
+              "batches": 17024,
+              "wall_seconds": 1.768211667,
+              "cpu_seconds": 1.705411041
+            },
+            {
+              "worker_id": 2,
+              "requests": 274500,
+              "bytes": 1356319555,
+              "batches": 17666,
+              "wall_seconds": 1.768192042,
+              "cpu_seconds": 1.707430208
+            },
+            {
+              "worker_id": 3,
+              "requests": 284098,
+              "bytes": 1301640091,
+              "batches": 18532,
+              "wall_seconds": 1.768178333,
+              "cpu_seconds": 1.709019708
+            }
+          ]
+        }
+      },
+      "repetition": 2,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "8",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 16.765567000000033,
+      "metrics": {
+        "mode": "fast",
+        "workers": 8,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 0.987619006,
+        "preparation_seconds": 15.257130083,
+        "pipeline_seconds": 1.187674,
+        "total_seconds": 16.444804208,
+        "throughput_req_s": 67751.85559570148,
+        "prepared": {
+          "corpus_prepare_seconds": 14.766568667,
+          "worker_setup_seconds": 0.004458833,
+          "matching_seconds": 1.085466375,
+          "matching_throughput_req_s": 1026439.9023875798,
+          "postprocess_seconds": 0.015365208,
+          "output_seconds": 0.080291417,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 144930,
+              "bytes": 632845211,
+              "batches": 9310,
+              "wall_seconds": 1.085368375,
+              "cpu_seconds": 1.043113209
+            },
+            {
+              "worker_id": 1,
+              "requests": 139815,
+              "bytes": 713683991,
+              "batches": 8795,
+              "wall_seconds": 1.085415042,
+              "cpu_seconds": 1.0521823750000001
+            },
+            {
+              "worker_id": 2,
+              "requests": 137763,
+              "bytes": 654413735,
+              "batches": 9015,
+              "wall_seconds": 1.085389167,
+              "cpu_seconds": 1.042957334
+            },
+            {
+              "worker_id": 3,
+              "requests": 144814,
+              "bytes": 659613734,
+              "batches": 9393,
+              "wall_seconds": 1.0853915,
+              "cpu_seconds": 1.054638125
+            },
+            {
+              "worker_id": 4,
+              "requests": 145269,
+              "bytes": 667094917,
+              "batches": 9415,
+              "wall_seconds": 1.085422917,
+              "cpu_seconds": 1.04077925
+            },
+            {
+              "worker_id": 5,
+              "requests": 132001,
+              "bytes": 712715131,
+              "batches": 8510,
+              "wall_seconds": 1.085413667,
+              "cpu_seconds": 1.045023834
+            },
+            {
+              "worker_id": 6,
+              "requests": 131020,
+              "bytes": 699976200,
+              "batches": 8465,
+              "wall_seconds": 1.085447958,
+              "cpu_seconds": 1.050949208
+            },
+            {
+              "worker_id": 7,
+              "requests": 138554,
+              "bytes": 624866304,
+              "batches": 8953,
+              "wall_seconds": 1.085359167,
+              "cpu_seconds": 1.044790584
+            }
+          ]
+        }
+      },
+      "repetition": 2,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "1",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 20.81527758300001,
+      "metrics": {
+        "mode": "fast",
+        "workers": 1,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.010676591,
+        "preparation_seconds": 15.139366667,
+        "pipeline_seconds": 5.348694709,
+        "total_seconds": 20.488061458,
+        "throughput_req_s": 54381.23085895714,
+        "prepared": {
+          "corpus_prepare_seconds": 14.655237875,
+          "worker_setup_seconds": 0.004376542,
+          "matching_seconds": 5.260875416,
+          "matching_throughput_req_s": 211783.38430358298,
+          "postprocess_seconds": 0.013544792,
+          "output_seconds": 0.06814,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 1114166,
+              "bytes": 5365209223,
+              "batches": 71856,
+              "wall_seconds": 5.260864875,
+              "cpu_seconds": 5.255573625
+            }
+          ]
+        }
+      },
+      "repetition": 3,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "2",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 18.734684832999847,
+      "metrics": {
+        "mode": "fast",
+        "workers": 2,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.004546268,
+        "preparation_seconds": 15.34781325,
+        "pipeline_seconds": 3.013081291,
+        "total_seconds": 18.360894708,
+        "throughput_req_s": 60681.46556684671,
+        "prepared": {
+          "corpus_prepare_seconds": 14.856096792,
+          "worker_setup_seconds": 0.011206416,
+          "matching_seconds": 2.91776925,
+          "matching_throughput_req_s": 381855.4191699703,
+          "postprocess_seconds": 0.013189167,
+          "output_seconds": 0.068793667,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 561587,
+              "bytes": 2662808985,
+              "batches": 36243,
+              "wall_seconds": 2.917745,
+              "cpu_seconds": 2.8928184999999997
+            },
+            {
+              "worker_id": 1,
+              "requests": 552579,
+              "bytes": 2702400238,
+              "batches": 35613,
+              "wall_seconds": 2.917731208,
+              "cpu_seconds": 2.899882708
+            }
+          ]
+        }
+      },
+      "repetition": 3,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "4",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 17.77530816700005,
+      "metrics": {
+        "mode": "fast",
+        "workers": 4,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 0.999652681,
+        "preparation_seconds": 15.343231291,
+        "pipeline_seconds": 1.8797072080000001,
+        "total_seconds": 17.222938833,
+        "throughput_req_s": 64690.817914606014,
+        "prepared": {
+          "corpus_prepare_seconds": 14.833152541,
+          "worker_setup_seconds": 0.009666833,
+          "matching_seconds": 1.6623344169999998,
+          "matching_throughput_req_s": 670241.792870249,
+          "postprocess_seconds": 0.02637075,
+          "output_seconds": 0.174466084,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 283488,
+              "bytes": 1298839978,
+              "batches": 18439,
+              "wall_seconds": 1.662286208,
+              "cpu_seconds": 1.633809625
+            },
+            {
+              "worker_id": 1,
+              "requests": 265498,
+              "bytes": 1412322927,
+              "batches": 17103,
+              "wall_seconds": 1.6623178749999998,
+              "cpu_seconds": 1.6369018750000002
+            },
+            {
+              "worker_id": 2,
+              "requests": 278329,
+              "bytes": 1346263340,
+              "batches": 17752,
+              "wall_seconds": 1.662301625,
+              "cpu_seconds": 1.6332272499999998
+            },
+            {
+              "worker_id": 3,
+              "requests": 286851,
+              "bytes": 1307782978,
+              "batches": 18562,
+              "wall_seconds": 1.662294875,
+              "cpu_seconds": 1.6328349999999998
+            }
+          ]
+        }
+      },
+      "repetition": 3,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+    },
+    {
+      "command": [
+        "target/release/http-matcher",
+        "--mode",
+        "fast",
+        "--workers",
+        "8",
+        "--input",
+        "data/requests",
+        "--output",
+        "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+      ],
+      "external_wall_seconds": 17.56682595799998,
+      "metrics": {
+        "mode": "fast",
+        "workers": 8,
+        "supported_patterns": 11267,
+        "skipped_patterns": 905,
+        "requests": 1114166,
+        "bytes": 5365209223,
+        "matched_requests": 1114140,
+        "normalization_seconds": 1.030962692,
+        "preparation_seconds": 15.304826125,
+        "pipeline_seconds": 1.584384833,
+        "total_seconds": 16.889211042,
+        "throughput_req_s": 65969.09691218246,
+        "prepared": {
+          "corpus_prepare_seconds": 14.812714583,
+          "worker_setup_seconds": 0.006009541,
+          "matching_seconds": 1.445083375,
+          "matching_throughput_req_s": 771004.6487802131,
+          "postprocess_seconds": 0.025545833,
+          "output_seconds": 0.105232666,
+          "storage_bytes": 5402959687,
+          "batches": 71856,
+          "workers": [
+            {
+              "worker_id": 0,
+              "requests": 139575,
+              "bytes": 710135629,
+              "batches": 8829,
+              "wall_seconds": 1.4449785,
+              "cpu_seconds": 1.129342416
+            },
+            {
+              "worker_id": 1,
+              "requests": 136915,
+              "bytes": 708399243,
+              "batches": 8746,
+              "wall_seconds": 1.444974,
+              "cpu_seconds": 1.1211012079999998
+            },
+            {
+              "worker_id": 2,
+              "requests": 139055,
+              "bytes": 648220410,
+              "batches": 9175,
+              "wall_seconds": 1.444981292,
+              "cpu_seconds": 1.1145858329999998
+            },
+            {
+              "worker_id": 3,
+              "requests": 145552,
+              "bytes": 645658311,
+              "batches": 9324,
+              "wall_seconds": 1.4449886250000001,
+              "cpu_seconds": 1.119469125
+            },
+            {
+              "worker_id": 4,
+              "requests": 141466,
+              "bytes": 645598700,
+              "batches": 9214,
+              "wall_seconds": 1.444986917,
+              "cpu_seconds": 1.139934958
+            },
+            {
+              "worker_id": 5,
+              "requests": 125123,
+              "bytes": 704910390,
+              "batches": 8198,
+              "wall_seconds": 1.445029917,
+              "cpu_seconds": 1.119349416
+            },
+            {
+              "worker_id": 6,
+              "requests": 141182,
+              "bytes": 648031349,
+              "batches": 9050,
+              "wall_seconds": 1.444989958,
+              "cpu_seconds": 1.118403709
+            },
+            {
+              "worker_id": 7,
+              "requests": 145298,
+              "bytes": 654255191,
+              "batches": 9320,
+              "wall_seconds": 1.4450664579999999,
+              "cpu_seconds": 1.123463583
+            }
+          ]
+        }
+      },
+      "repetition": 3,
+      "scope": "full",
+      "diagnostic": false,
+      "variant": "current_fast",
+      "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+      "equals_baseline": true,
+      "every_id_once_in_order": true,
+      "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
     }
   ],
-  "baseline_comparison_100k": {
-    "date": "2026-10-10T08:48:35.326702+00:00",
-    "status": "complete",
-    "sample_limit": 100000,
-    "worker_counts": [
-      1,
-      2,
-      4,
-      8
-    ],
-    "repetitions": 1,
+  "diagnostics": [],
+  "previous_fast_measurements": {
+    "date": "2026-10-12T18:33:55.919354+00:00",
     "environment": {
       "platform": "macOS-27.0.1-arm64-arm-64bit",
       "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
-      "binary_sha256": "23aa691093ca8c16dbae5d1e7679144f8775704998f55a8802cffa3cb94859ca",
+      "after_binary_sha256": "6dcb167c430d13f2cd6d1f6933c28b36a589500866b5b9951fca29c93367eadb",
       "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
     },
-    "method": "One sequential fresh-process run of baseline/1 and each fast configuration on the same sorted first 100000 requests from data/requests. Same unchanged release binary as saved full 1/2/4/8 measurements. Real JSONL output and final flush; preparation included, no fsync, profiler, affinity, explicit warm-up or OS cache clearing. Every request ID, canonical output digest, byte counts and skipped-rule hash validated outside matcher timing. Speedup = baseline total_seconds / fast total_seconds. No full-corpus run in this series.",
-    "input_order_note": "Sorted first 100000 records; these are Legitimate requests, not a random mix of both corpus classes.",
-    "output_retention": "Temporary JSONL outputs removed after validation; metrics, per-ID digest and skipped-rule hashes retained.",
     "runs": [
       {
         "command": [
-          "target/release/http-matcher",
+          "/Users/artem/Desktop/http-matcher-1/target/release/http-matcher",
           "--mode",
-          "baseline",
+          "prepared",
           "--workers",
           "1",
           "--input",
           "data/requests",
           "--output",
-          "results/baseline-100k-6npcyirt/matches.jsonl",
-          "--limit",
-          "100000"
+          "/private/tmp/http-matcher-literals-qeegdyd5/matches.jsonl"
         ],
-        "external_wall_seconds": 48.784974792,
+        "external_wall_seconds": 40.655871166000004,
         "metrics": {
-          "mode": "baseline",
+          "mode": "prepared",
           "workers": 1,
           "supported_patterns": 11267,
           "skipped_patterns": 905,
-          "requests": 100000,
-          "bytes": 417530913,
-          "matched_requests": 99999,
-          "normalization_seconds": 0.193868073,
-          "preparation_seconds": 0.237728042,
-          "pipeline_seconds": 48.469903541,
-          "total_seconds": 48.707631833,
-          "throughput_req_s": 2053.066351960245
+          "requests": 1114166,
+          "bytes": 5365209223,
+          "matched_requests": 1114140,
+          "normalization_seconds": 1.994751291,
+          "preparation_seconds": 25.822805084,
+          "pipeline_seconds": 12.32936375,
+          "total_seconds": 38.152169,
+          "throughput_req_s": 29203.215156653347,
+          "prepared": {
+            "corpus_prepare_seconds": 24.955831208,
+            "worker_setup_seconds": 0.009861916,
+            "matching_seconds": 11.756480958000001,
+            "matching_throughput_req_s": 94770.36572256233,
+            "postprocess_seconds": 0.055385625,
+            "output_seconds": 0.435207041,
+            "storage_bytes": 5402959687,
+            "batches": 71856,
+            "workers": [
+              {
+                "worker_id": 0,
+                "requests": 1114166,
+                "bytes": 5365209223,
+                "batches": 71856,
+                "wall_seconds": 11.756454084,
+                "cpu_seconds": 11.507664208
+              }
+            ]
+          }
         },
-        "scope": "sample",
-        "output_digest": "d70c8538778c5a83db438549c14efc711ef4ae01a5cb7b25131afeef57a736a2",
-        "every_id_once": true,
-        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
-        "speedup_vs_baseline": 1.0
+        "version": "after",
+        "scope": "full",
+        "repetition": 1,
+        "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+        "every_id_once_in_order": true,
+        "equals_reference": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
       },
       {
         "command": [
-          "target/release/http-matcher",
+          "/Users/artem/Desktop/http-matcher-1/target/release/http-matcher",
           "--mode",
-          "fast",
-          "--workers",
-          "1",
-          "--input",
-          "data/requests",
-          "--output",
-          "results/baseline-100k-6npcyirt/matches.jsonl",
-          "--limit",
-          "100000"
-        ],
-        "external_wall_seconds": 51.427286458,
-        "metrics": {
-          "mode": "fast",
-          "workers": 1,
-          "supported_patterns": 11267,
-          "skipped_patterns": 905,
-          "requests": 100000,
-          "bytes": 417530913,
-          "matched_requests": 99999,
-          "normalization_seconds": 0.157811183,
-          "preparation_seconds": 0.427969208,
-          "pipeline_seconds": 50.975775708,
-          "total_seconds": 51.403745166,
-          "throughput_req_s": 1945.3835450523368
-        },
-        "scope": "sample",
-        "output_digest": "d70c8538778c5a83db438549c14efc711ef4ae01a5cb7b25131afeef57a736a2",
-        "every_id_once": true,
-        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
-        "speedup_vs_baseline": 0.9475502548638559,
-        "equals_baseline": true
-      },
-      {
-        "command": [
-          "target/release/http-matcher",
-          "--mode",
-          "fast",
-          "--workers",
-          "2",
-          "--input",
-          "data/requests",
-          "--output",
-          "results/baseline-100k-6npcyirt/matches.jsonl",
-          "--limit",
-          "100000"
-        ],
-        "external_wall_seconds": 6.444532916,
-        "metrics": {
-          "mode": "fast",
-          "workers": 2,
-          "supported_patterns": 11267,
-          "skipped_patterns": 905,
-          "requests": 100000,
-          "bytes": 417530913,
-          "matched_requests": 99999,
-          "normalization_seconds": 0.152167695,
-          "preparation_seconds": 0.569044125,
-          "pipeline_seconds": 5.857149708,
-          "total_seconds": 6.426193958,
-          "throughput_req_s": 15561.310575680573
-        },
-        "scope": "sample",
-        "output_digest": "d70c8538778c5a83db438549c14efc711ef4ae01a5cb7b25131afeef57a736a2",
-        "every_id_once": true,
-        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
-        "speedup_vs_baseline": 7.579545863592187,
-        "equals_baseline": true
-      },
-      {
-        "command": [
-          "target/release/http-matcher",
-          "--mode",
-          "fast",
-          "--workers",
-          "4",
-          "--input",
-          "data/requests",
-          "--output",
-          "results/baseline-100k-6npcyirt/matches.jsonl",
-          "--limit",
-          "100000"
-        ],
-        "external_wall_seconds": 4.042713875000004,
-        "metrics": {
-          "mode": "fast",
-          "workers": 4,
-          "supported_patterns": 11267,
-          "skipped_patterns": 905,
-          "requests": 100000,
-          "bytes": 417530913,
-          "matched_requests": 99999,
-          "normalization_seconds": 0.163530564,
-          "preparation_seconds": 0.566398792,
-          "pipeline_seconds": 3.412105167,
-          "total_seconds": 3.97850425,
-          "throughput_req_s": 25135.074318445182
-        },
-        "scope": "sample",
-        "output_digest": "d70c8538778c5a83db438549c14efc711ef4ae01a5cb7b25131afeef57a736a2",
-        "every_id_once": true,
-        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
-        "speedup_vs_baseline": 12.242699459979212,
-        "equals_baseline": true
-      },
-      {
-        "command": [
-          "target/release/http-matcher",
-          "--mode",
-          "fast",
+          "prepared",
           "--workers",
           "8",
           "--input",
           "data/requests",
           "--output",
-          "results/baseline-100k-6npcyirt/matches.jsonl",
-          "--limit",
-          "100000"
+          "/private/tmp/http-matcher-literals-qeegdyd5/matches.jsonl"
         ],
-        "external_wall_seconds": 2.1903926669999976,
+        "external_wall_seconds": 28.54545275000001,
         "metrics": {
-          "mode": "fast",
+          "mode": "prepared",
           "workers": 8,
           "supported_patterns": 11267,
           "skipped_patterns": 905,
-          "requests": 100000,
-          "bytes": 417530913,
-          "matched_requests": 99999,
-          "normalization_seconds": 0.172569449,
-          "preparation_seconds": 0.39760425,
-          "pipeline_seconds": 1.761570292,
-          "total_seconds": 2.159174792,
-          "throughput_req_s": 46313.990127391226
+          "requests": 1114166,
+          "bytes": 5365209223,
+          "matched_requests": 1114140,
+          "normalization_seconds": 1.862327979,
+          "preparation_seconds": 25.534214875,
+          "pipeline_seconds": 2.312436583,
+          "total_seconds": 27.846651709,
+          "throughput_req_s": 40010.77083317356,
+          "prepared": {
+            "corpus_prepare_seconds": 24.233728833,
+            "worker_setup_seconds": 0.010939916,
+            "matching_seconds": 2.092031375,
+            "matching_throughput_req_s": 532576.1426498683,
+            "postprocess_seconds": 0.02717575,
+            "output_seconds": 0.133488,
+            "storage_bytes": 5402959687,
+            "batches": 71856,
+            "workers": [
+              {
+                "worker_id": 0,
+                "requests": 131222,
+                "bytes": 713782334,
+                "batches": 8460,
+                "wall_seconds": 2.091940375,
+                "cpu_seconds": 1.855538667
+              },
+              {
+                "worker_id": 1,
+                "requests": 145239,
+                "bytes": 647171335,
+                "batches": 9420,
+                "wall_seconds": 2.091870958,
+                "cpu_seconds": 1.864344291
+              },
+              {
+                "worker_id": 2,
+                "requests": 142700,
+                "bytes": 654229105,
+                "batches": 9249,
+                "wall_seconds": 2.091953042,
+                "cpu_seconds": 1.870051084
+              },
+              {
+                "worker_id": 3,
+                "requests": 132703,
+                "bytes": 701209261,
+                "batches": 8464,
+                "wall_seconds": 2.09186225,
+                "cpu_seconds": 1.840044791
+              },
+              {
+                "worker_id": 4,
+                "requests": 133787,
+                "bytes": 702813445,
+                "batches": 8513,
+                "wall_seconds": 2.091799167,
+                "cpu_seconds": 1.842969584
+              },
+              {
+                "worker_id": 5,
+                "requests": 144062,
+                "bytes": 654494234,
+                "batches": 9353,
+                "wall_seconds": 2.091649625,
+                "cpu_seconds": 1.857706292
+              },
+              {
+                "worker_id": 6,
+                "requests": 140697,
+                "bytes": 639692867,
+                "batches": 9104,
+                "wall_seconds": 2.091660875,
+                "cpu_seconds": 1.832139583
+              },
+              {
+                "worker_id": 7,
+                "requests": 143756,
+                "bytes": 651816642,
+                "batches": 9293,
+                "wall_seconds": 2.091642375,
+                "cpu_seconds": 1.858500917
+              }
+            ]
+          }
         },
-        "scope": "sample",
-        "output_digest": "d70c8538778c5a83db438549c14efc711ef4ae01a5cb7b25131afeef57a736a2",
-        "every_id_once": true,
-        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2",
-        "speedup_vs_baseline": 22.558447798421685,
-        "equals_baseline": true
+        "version": "after",
+        "scope": "full",
+        "repetition": 1,
+        "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+        "every_id_once_in_order": true,
+        "equals_reference": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+      },
+      {
+        "command": [
+          "/Users/artem/Desktop/http-matcher-1/target/release/http-matcher",
+          "--mode",
+          "prepared",
+          "--workers",
+          "8",
+          "--input",
+          "data/requests",
+          "--output",
+          "/private/tmp/http-matcher-literals-qeegdyd5/matches.jsonl"
+        ],
+        "external_wall_seconds": 29.465160042000008,
+        "metrics": {
+          "mode": "prepared",
+          "workers": 8,
+          "supported_patterns": 11267,
+          "skipped_patterns": 905,
+          "requests": 1114166,
+          "bytes": 5365209223,
+          "matched_requests": 1114140,
+          "normalization_seconds": 1.8678865199999999,
+          "preparation_seconds": 24.836236208,
+          "pipeline_seconds": 3.183576042,
+          "total_seconds": 28.019812625,
+          "throughput_req_s": 39763.506448501816,
+          "prepared": {
+            "corpus_prepare_seconds": 23.980094417,
+            "worker_setup_seconds": 0.010366917,
+            "matching_seconds": 2.883550583,
+            "matching_throughput_req_s": 386386.840781839,
+            "postprocess_seconds": 0.033967042,
+            "output_seconds": 0.192541916,
+            "storage_bytes": 5402959687,
+            "batches": 71856,
+            "workers": [
+              {
+                "worker_id": 0,
+                "requests": 140908,
+                "bytes": 646983992,
+                "batches": 9123,
+                "wall_seconds": 2.883339875,
+                "cpu_seconds": 2.030565083
+              },
+              {
+                "worker_id": 1,
+                "requests": 143925,
+                "bytes": 649683131,
+                "batches": 9259,
+                "wall_seconds": 2.883318083,
+                "cpu_seconds": 2.055991583
+              },
+              {
+                "worker_id": 2,
+                "requests": 145138,
+                "bytes": 654187799,
+                "batches": 9366,
+                "wall_seconds": 2.883415875,
+                "cpu_seconds": 2.054197541
+              },
+              {
+                "worker_id": 3,
+                "requests": 134103,
+                "bytes": 706101027,
+                "batches": 8443,
+                "wall_seconds": 2.883165333,
+                "cpu_seconds": 2.017915709
+              },
+              {
+                "worker_id": 4,
+                "requests": 141600,
+                "bytes": 650350248,
+                "batches": 9245,
+                "wall_seconds": 2.88345875,
+                "cpu_seconds": 2.0371967079999997
+              },
+              {
+                "worker_id": 5,
+                "requests": 137843,
+                "bytes": 698430183,
+                "batches": 8730,
+                "wall_seconds": 2.8834005,
+                "cpu_seconds": 2.0282547500000003
+              },
+              {
+                "worker_id": 6,
+                "requests": 138716,
+                "bytes": 645837436,
+                "batches": 9078,
+                "wall_seconds": 2.8835124580000002,
+                "cpu_seconds": 2.0266342500000003
+              },
+              {
+                "worker_id": 7,
+                "requests": 131933,
+                "bytes": 713635407,
+                "batches": 8612,
+                "wall_seconds": 2.883433584,
+                "cpu_seconds": 2.045056875
+              }
+            ]
+          }
+        },
+        "version": "after",
+        "scope": "full",
+        "repetition": 2,
+        "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+        "every_id_once_in_order": true,
+        "equals_reference": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+      },
+      {
+        "command": [
+          "/Users/artem/Desktop/http-matcher-1/target/release/http-matcher",
+          "--mode",
+          "prepared",
+          "--workers",
+          "1",
+          "--input",
+          "data/requests",
+          "--output",
+          "/private/tmp/http-matcher-literals-qeegdyd5/matches.jsonl"
+        ],
+        "external_wall_seconds": 37.538166209000025,
+        "metrics": {
+          "mode": "prepared",
+          "workers": 1,
+          "supported_patterns": 11267,
+          "skipped_patterns": 905,
+          "requests": 1114166,
+          "bytes": 5365209223,
+          "matched_requests": 1114140,
+          "normalization_seconds": 1.899870111,
+          "preparation_seconds": 24.761596458,
+          "pipeline_seconds": 12.009406375,
+          "total_seconds": 36.771003083,
+          "throughput_req_s": 30300.125277656683,
+          "prepared": {
+            "corpus_prepare_seconds": 23.898126375,
+            "worker_setup_seconds": 0.01124225,
+            "matching_seconds": 11.782709208,
+            "matching_throughput_req_s": 94559.40737666043,
+            "postprocess_seconds": 0.036871125,
+            "output_seconds": 0.126138791,
+            "storage_bytes": 5402959687,
+            "batches": 71856,
+            "workers": [
+              {
+                "worker_id": 0,
+                "requests": 1114166,
+                "bytes": 5365209223,
+                "batches": 71856,
+                "wall_seconds": 11.78266825,
+                "cpu_seconds": 11.663327375
+              }
+            ]
+          }
+        },
+        "version": "after",
+        "scope": "full",
+        "repetition": 2,
+        "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+        "every_id_once_in_order": true,
+        "equals_reference": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+      },
+      {
+        "command": [
+          "/Users/artem/Desktop/http-matcher-1/target/release/http-matcher",
+          "--mode",
+          "prepared",
+          "--workers",
+          "1",
+          "--input",
+          "data/requests",
+          "--output",
+          "/private/tmp/http-matcher-literals-qeegdyd5/matches.jsonl"
+        ],
+        "external_wall_seconds": 37.37403037500002,
+        "metrics": {
+          "mode": "prepared",
+          "workers": 1,
+          "supported_patterns": 11267,
+          "skipped_patterns": 905,
+          "requests": 1114166,
+          "bytes": 5365209223,
+          "matched_requests": 1114140,
+          "normalization_seconds": 1.978898622,
+          "preparation_seconds": 25.031407625,
+          "pipeline_seconds": 11.604894083,
+          "total_seconds": 36.63630225,
+          "throughput_req_s": 30411.52986448025,
+          "prepared": {
+            "corpus_prepare_seconds": 24.177641875,
+            "worker_setup_seconds": 0.012244625,
+            "matching_seconds": 11.37322475,
+            "matching_throughput_req_s": 97963.94817573616,
+            "postprocess_seconds": 0.028381333,
+            "output_seconds": 0.135195125,
+            "storage_bytes": 5402959687,
+            "batches": 71856,
+            "workers": [
+              {
+                "worker_id": 0,
+                "requests": 1114166,
+                "bytes": 5365209223,
+                "batches": 71856,
+                "wall_seconds": 11.373195625,
+                "cpu_seconds": 11.330401709
+              }
+            ]
+          }
+        },
+        "version": "after",
+        "scope": "full",
+        "repetition": 3,
+        "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+        "every_id_once_in_order": true,
+        "equals_reference": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+      },
+      {
+        "command": [
+          "/Users/artem/Desktop/http-matcher-1/target/release/http-matcher",
+          "--mode",
+          "prepared",
+          "--workers",
+          "8",
+          "--input",
+          "data/requests",
+          "--output",
+          "/private/tmp/http-matcher-literals-qeegdyd5/matches.jsonl"
+        ],
+        "external_wall_seconds": 28.793364916999963,
+        "metrics": {
+          "mode": "prepared",
+          "workers": 8,
+          "supported_patterns": 11267,
+          "skipped_patterns": 905,
+          "requests": 1114166,
+          "bytes": 5365209223,
+          "matched_requests": 1114140,
+          "normalization_seconds": 1.908557917,
+          "preparation_seconds": 24.979432792,
+          "pipeline_seconds": 3.031292875,
+          "total_seconds": 28.010726125,
+          "throughput_req_s": 39776.40547510083,
+          "prepared": {
+            "corpus_prepare_seconds": 24.115951792,
+            "worker_setup_seconds": 0.011388333,
+            "matching_seconds": 2.765910958,
+            "matching_throughput_req_s": 402820.6319431343,
+            "postprocess_seconds": 0.042807083,
+            "output_seconds": 0.155286958,
+            "storage_bytes": 5402959687,
+            "batches": 71856,
+            "workers": [
+              {
+                "worker_id": 0,
+                "requests": 133431,
+                "bytes": 710708720,
+                "batches": 8571,
+                "wall_seconds": 2.765591209,
+                "cpu_seconds": 1.942411583
+              },
+              {
+                "worker_id": 1,
+                "requests": 131597,
+                "bytes": 713493886,
+                "batches": 8571,
+                "wall_seconds": 2.765664583,
+                "cpu_seconds": 1.96903825
+              },
+              {
+                "worker_id": 2,
+                "requests": 143686,
+                "bytes": 647020474,
+                "batches": 9265,
+                "wall_seconds": 2.765697791,
+                "cpu_seconds": 1.945594167
+              },
+              {
+                "worker_id": 3,
+                "requests": 142298,
+                "bytes": 651134383,
+                "batches": 9203,
+                "wall_seconds": 2.765357791,
+                "cpu_seconds": 1.953133875
+              },
+              {
+                "worker_id": 4,
+                "requests": 140443,
+                "bytes": 642702991,
+                "batches": 9046,
+                "wall_seconds": 2.765639667,
+                "cpu_seconds": 1.9265450419999999
+              },
+              {
+                "worker_id": 5,
+                "requests": 143627,
+                "bytes": 656148622,
+                "batches": 9348,
+                "wall_seconds": 2.765694334,
+                "cpu_seconds": 1.96290875
+              },
+              {
+                "worker_id": 6,
+                "requests": 134650,
+                "bytes": 697360816,
+                "batches": 8516,
+                "wall_seconds": 2.765213833,
+                "cpu_seconds": 1.94827475
+              },
+              {
+                "worker_id": 7,
+                "requests": 144434,
+                "bytes": 646639331,
+                "batches": 9336,
+                "wall_seconds": 2.765765166,
+                "cpu_seconds": 1.938024083
+              }
+            ]
+          }
+        },
+        "version": "after",
+        "scope": "full",
+        "repetition": 3,
+        "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+        "every_id_once_in_order": true,
+        "equals_reference": true,
+        "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
       }
     ],
-    "completed_at": "2026-10-10T08:50:30.212903+00:00",
-    "all_outputs_equal_baseline": true,
-    "all_skipped_reports_equal_baseline": true
+    "full_summary": [
+      {
+        "workers": 1,
+        "repetitions": 3,
+        "median_matching_seconds": 11.756480958000001,
+        "min_matching_seconds": 11.37322475,
+        "max_matching_seconds": 11.782709208,
+        "matching_throughput_req_s": 94770.36572256233,
+        "median_worker_cpu_seconds_sum": 11.507664208,
+        "median_output_seconds_excluded": 0.135195125,
+        "speedup_vs_baseline": 83.53076636404143
+      },
+      {
+        "workers": 8,
+        "repetitions": 3,
+        "median_matching_seconds": 2.765910958,
+        "min_matching_seconds": 2.092031375,
+        "max_matching_seconds": 2.883550583,
+        "matching_throughput_req_s": 402820.6319431343,
+        "median_worker_cpu_seconds_sum": 15.5859305,
+        "median_output_seconds_excluded": 0.155286958,
+        "speedup_vs_baseline": 355.0468106450157
+      }
+    ]
   },
-  "historical_report_retention": "The recorded historical report path is no longer present. Historical summary values remain in docs/experiments.md; current measured runs and the independent 100k comparison are retained in this report."
+  "completed_at": "2026-10-13T05:27:14.104699+00:00",
+  "full_summary": [
+    {
+      "mode": "fast",
+      "workers": 1,
+      "repetitions": 3,
+      "median_matching_seconds": 5.2847665,
+      "min_matching_seconds": 5.260875416,
+      "max_matching_seconds": 5.303574458,
+      "matching_throughput_req_s": 210825.96553698258,
+      "speedup_vs_baseline": 149.00895850043705,
+      "median_worker_cpu_seconds_sum": 5.282820624999999,
+      "speedup_vs_fast_one_worker": 1.0
+    },
+    {
+      "mode": "fast",
+      "workers": 2,
+      "repetitions": 3,
+      "median_matching_seconds": 2.87737825,
+      "min_matching_seconds": 2.868507833,
+      "max_matching_seconds": 2.91776925,
+      "matching_throughput_req_s": 387215.68844832963,
+      "speedup_vs_baseline": 273.6788436080658,
+      "median_worker_cpu_seconds_sum": 5.730944208,
+      "speedup_vs_fast_one_worker": 1.836660334803045
+    },
+    {
+      "mode": "fast",
+      "workers": 4,
+      "repetitions": 3,
+      "median_matching_seconds": 1.6624114589999999,
+      "min_matching_seconds": 1.6623344169999998,
+      "max_matching_seconds": 1.768240417,
+      "matching_throughput_req_s": 670210.7315057915,
+      "speedup_vs_baseline": 473.69593599691376,
+      "median_worker_cpu_seconds_sum": 6.53677375,
+      "speedup_vs_fast_one_worker": 3.1789762223962152
+    },
+    {
+      "mode": "fast",
+      "workers": 8,
+      "repetitions": 3,
+      "median_matching_seconds": 1.404228209,
+      "min_matching_seconds": 1.085466375,
+      "max_matching_seconds": 1.445083375,
+      "matching_throughput_req_s": 793436.5602820617,
+      "speedup_vs_baseline": 560.7902953635936,
+      "median_worker_cpu_seconds_sum": 8.916063333999999,
+      "speedup_vs_fast_one_worker": 3.763466982167711
+    }
+  ],
+  "baseline_matching_seconds": 787.477552083,
+  "all_outputs_equal_baseline": true,
+  "measured_sources_unchanged": true,
+  "literal_search_experiments": [
+    {
+      "variant": "eight_chains",
+      "repetitions": 1,
+      "scope": "full_corpus",
+      "summary": [
+        {
+          "variant": "control",
+          "workers": 1,
+          "repetitions": 1,
+          "median_matching_seconds": 11.562809292,
+          "min_matching_seconds": 11.562809292,
+          "max_matching_seconds": 11.562809292,
+          "median_cpu_seconds": 11.536884042
+        },
+        {
+          "variant": "eight_chains",
+          "workers": 1,
+          "repetitions": 1,
+          "median_matching_seconds": 10.532983625,
+          "min_matching_seconds": 10.532983625,
+          "max_matching_seconds": 10.532983625,
+          "median_cpu_seconds": 10.453054875
+        },
+        {
+          "variant": "control",
+          "workers": 8,
+          "repetitions": 1,
+          "median_matching_seconds": 2.511425708,
+          "min_matching_seconds": 2.511425708,
+          "max_matching_seconds": 2.511425708,
+          "median_cpu_seconds": 16.286434499000002
+        },
+        {
+          "variant": "eight_chains",
+          "workers": 8,
+          "repetitions": 1,
+          "median_matching_seconds": 2.931005667,
+          "min_matching_seconds": 2.931005667,
+          "max_matching_seconds": 2.931005667,
+          "median_cpu_seconds": 17.027128291000004
+        }
+      ],
+      "all_outputs_equal_baseline": true
+    },
+    {
+      "variant": "vectorscan_singlematch",
+      "repetitions": 1,
+      "scope": "full_corpus",
+      "summary": [
+        {
+          "variant": "control",
+          "workers": 1,
+          "repetitions": 1,
+          "median_matching_seconds": 11.388918,
+          "min_matching_seconds": 11.388918,
+          "max_matching_seconds": 11.388918,
+          "median_cpu_seconds": 11.383441125000001
+        },
+        {
+          "variant": "vectorscan",
+          "workers": 1,
+          "repetitions": 1,
+          "median_matching_seconds": 15.398910792,
+          "min_matching_seconds": 15.398910792,
+          "max_matching_seconds": 15.398910792,
+          "median_cpu_seconds": 15.183764457999999
+        },
+        {
+          "variant": "control",
+          "workers": 8,
+          "repetitions": 1,
+          "median_matching_seconds": 2.6333464170000003,
+          "min_matching_seconds": 2.6333464170000003,
+          "max_matching_seconds": 2.6333464170000003,
+          "median_cpu_seconds": 16.749607918
+        },
+        {
+          "variant": "vectorscan",
+          "workers": 8,
+          "repetitions": 1,
+          "median_matching_seconds": 2.882030125,
+          "min_matching_seconds": 2.882030125,
+          "max_matching_seconds": 2.882030125,
+          "median_cpu_seconds": 18.909432707
+        }
+      ],
+      "all_outputs_equal_baseline": true
+    },
+    {
+      "variant": "compact_u16",
+      "repetitions": 1,
+      "scope": "full_corpus",
+      "summary": [
+        {
+          "variant": "control",
+          "workers": 1,
+          "repetitions": 1,
+          "median_matching_seconds": 11.083551,
+          "min_matching_seconds": 11.083551,
+          "max_matching_seconds": 11.083551,
+          "median_cpu_seconds": 11.078515167
+        },
+        {
+          "variant": "narrow_table",
+          "workers": 1,
+          "repetitions": 1,
+          "median_matching_seconds": 10.849640459,
+          "min_matching_seconds": 10.849640459,
+          "max_matching_seconds": 10.849640459,
+          "median_cpu_seconds": 10.789105458
+        },
+        {
+          "variant": "control",
+          "workers": 8,
+          "repetitions": 1,
+          "median_matching_seconds": 2.5779552089999997,
+          "min_matching_seconds": 2.5779552089999997,
+          "max_matching_seconds": 2.5779552089999997,
+          "median_cpu_seconds": 16.518973832
+        },
+        {
+          "variant": "narrow_table",
+          "workers": 8,
+          "repetitions": 1,
+          "median_matching_seconds": 2.330001166,
+          "min_matching_seconds": 2.330001166,
+          "max_matching_seconds": 2.330001166,
+          "median_cpu_seconds": 14.803019082999999
+        }
+      ],
+      "all_outputs_equal_baseline": true
+    },
+    {
+      "variant": "compact_u16_padded",
+      "repetitions": 1,
+      "scope": "full_corpus",
+      "summary": [
+        {
+          "variant": "control",
+          "workers": 1,
+          "repetitions": 1,
+          "median_matching_seconds": 11.257701541,
+          "min_matching_seconds": 11.257701541,
+          "max_matching_seconds": 11.257701541,
+          "median_cpu_seconds": 11.138901208
+        },
+        {
+          "variant": "padded_narrow",
+          "workers": 1,
+          "repetitions": 1,
+          "median_matching_seconds": 14.455665042,
+          "min_matching_seconds": 14.455665042,
+          "max_matching_seconds": 14.455665042,
+          "median_cpu_seconds": 14.439772041000001
+        },
+        {
+          "variant": "control",
+          "workers": 8,
+          "repetitions": 1,
+          "median_matching_seconds": 2.6095604999999997,
+          "min_matching_seconds": 2.6095604999999997,
+          "max_matching_seconds": 2.6095604999999997,
+          "median_cpu_seconds": 16.168300293
+        },
+        {
+          "variant": "padded_narrow",
+          "workers": 8,
+          "repetitions": 1,
+          "median_matching_seconds": 2.810807042,
+          "min_matching_seconds": 2.810807042,
+          "max_matching_seconds": 2.810807042,
+          "median_cpu_seconds": 18.698386166
+        }
+      ],
+      "all_outputs_equal_baseline": true
+    },
+    {
+      "variant": "flagged_offsets_checked_preliminary",
+      "repetitions": 1,
+      "scope": "full_corpus",
+      "summary": [
+        {
+          "variant": "control",
+          "workers": 1,
+          "repetitions": 1,
+          "median_matching_seconds": 10.529453208,
+          "min_matching_seconds": 10.529453208,
+          "max_matching_seconds": 10.529453208,
+          "median_cpu_seconds": 10.49566325
+        },
+        {
+          "variant": "offset_flag",
+          "workers": 1,
+          "repetitions": 1,
+          "median_matching_seconds": 9.368177417,
+          "min_matching_seconds": 9.368177417,
+          "max_matching_seconds": 9.368177417,
+          "median_cpu_seconds": 9.360156374999999
+        },
+        {
+          "variant": "control",
+          "workers": 8,
+          "repetitions": 1,
+          "median_matching_seconds": 2.532239916,
+          "min_matching_seconds": 2.532239916,
+          "max_matching_seconds": 2.532239916,
+          "median_cpu_seconds": 16.127752751
+        },
+        {
+          "variant": "offset_flag",
+          "workers": 8,
+          "repetitions": 1,
+          "median_matching_seconds": 1.908697542,
+          "min_matching_seconds": 1.908697542,
+          "max_matching_seconds": 1.908697542,
+          "median_cpu_seconds": 13.902752041999998
+        }
+      ],
+      "all_outputs_equal_baseline": true
+    },
+    {
+      "variant": "flagged_offsets_unchecked",
+      "selected": false,
+      "reason": "The three-repeat comparison did not confirm a parallel throughput benefit; ordinary checked indexing was retained.",
+      "scope": "full_corpus",
+      "summary": [
+        {
+          "mode": "fast",
+          "workers": 1,
+          "repetitions": 3,
+          "median_matching_seconds": 9.21177875,
+          "min_matching_seconds": 8.927662250000001,
+          "max_matching_seconds": 9.29288275,
+          "matching_throughput_req_s": 120950.14765742175,
+          "speedup_vs_baseline": 106.60567202246362,
+          "median_worker_cpu_seconds_sum": 9.206564667
+        },
+        {
+          "mode": "fast",
+          "workers": 8,
+          "repetitions": 3,
+          "median_matching_seconds": 2.283102792,
+          "min_matching_seconds": 2.103427667,
+          "max_matching_seconds": 2.547398625,
+          "matching_throughput_req_s": 488005.1848318181,
+          "speedup_vs_baseline": 430.1286247851077,
+          "median_worker_cpu_seconds_sum": 14.278612833
+        }
+      ],
+      "comparison_vs_previous_fast": [
+        {
+          "workers": 1,
+          "repetitions": 3,
+          "previous_median_matching_seconds": 10.753808583,
+          "previous_min_matching_seconds": 10.401316667,
+          "previous_max_matching_seconds": 10.946675291,
+          "previous_median_worker_cpu_seconds_sum": 10.7391905,
+          "current_median_matching_seconds": 9.21177875,
+          "speedup_vs_previous_fast": 1.1673976193794275
+        },
+        {
+          "workers": 8,
+          "repetitions": 3,
+          "previous_median_matching_seconds": 2.049112167,
+          "previous_min_matching_seconds": 1.984796625,
+          "previous_max_matching_seconds": 2.733462417,
+          "previous_median_worker_cpu_seconds_sum": 14.588770086000002,
+          "current_median_matching_seconds": 2.283102792,
+          "speedup_vs_previous_fast": 0.8975120061085712
+        }
+      ],
+      "all_outputs_equal_baseline": true
+    }
+  ],
+  "prior_literal_optimization_comparison": {
+    "date": "2026-10-13T04:58:14.550270+00:00",
+    "binary_sha256": "881e9da2709d8e3dee5097379fa730bb66de3d9e2b314bbf6fcb9facecacd37f",
+    "comparison_vs_previous_fast": [
+      {
+        "workers": 1,
+        "repetitions": 3,
+        "previous_median_matching_seconds": 10.918018083,
+        "previous_min_matching_seconds": 10.700585125,
+        "previous_max_matching_seconds": 11.115600667,
+        "previous_median_worker_cpu_seconds_sum": 10.907458042,
+        "current_median_matching_seconds": 9.445282625,
+        "speedup_vs_previous_fast": 1.155922857628625
+      },
+      {
+        "workers": 8,
+        "repetitions": 3,
+        "previous_median_matching_seconds": 2.115720958,
+        "previous_min_matching_seconds": 2.012695458,
+        "previous_max_matching_seconds": 2.549958792,
+        "previous_median_worker_cpu_seconds_sum": 15.018163208999999,
+        "current_median_matching_seconds": 1.930931583,
+        "speedup_vs_previous_fast": 1.0956995973481882
+      }
+    ],
+    "literal_search_profile": {
+      "workers": 1,
+      "previous_literal_seconds": 8.438129192014372,
+      "current_literal_seconds": 7.035637881999971,
+      "speedup": 1.1993410311242063,
+      "seconds_saved": 1.4024913100144012,
+      "method": "Fresh full-corpus diagnostic processes; identical literal occurrence and presence counts. Diagnostic stage timings include instrumentation and are separate from ordinary throughput medians."
+    }
+  },
+  "validation": {
+    "debug_tests_passed": 19,
+    "clippy_all_targets_warnings_denied": true,
+    "rustfmt_check_passed": true,
+    "release_build_passed": true,
+    "checked_binary_matches_preliminary_trial": true,
+    "changed_sources_vs_previous_fast": [
+      "src/grouped/literals.rs",
+      "scripts/benchmark.py",
+      "README.md",
+      "docs/running.md"
+    ],
+    "ordinary_full_runs_verified": 13,
+    "diagnostic_full_runs_verified": 0,
+    "release_tests_passed": 19,
+    "previous_fast_diagnostic_full_runs_verified": 0,
+    "baseline_full_runs_verified": 1,
+    "fast_full_runs_verified": 12,
+    "sources_and_binary_unchanged_since_validation": true
+  }
 }

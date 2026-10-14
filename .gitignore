@@ -1,13 +1,9 @@
 /target/
 /data/
 /results/*
+!/results/baseline.json
 !/results/benchmark.json
-!/results/experiments.json
+!/results/profile.json
 !/results/skipped-patterns.jsonl
-!/results/history/
-!/results/history/*.json
-!/results/profile-rule-shards/
-/results/profile-rule-shards/*
-!/results/profile-rule-shards/recording-options.json
-!/results/profile-rule-shards/recording-options-l1d.json
+__pycache__/
 .DS_Store

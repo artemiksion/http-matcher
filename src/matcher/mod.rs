@@ -1,21 +1,20 @@
-use anyhow::{ensure, Context, Result};
-use regex::bytes::{Regex, RegexSet, RegexSetBuilder};
+//! Baseline and fast matching, with shared service priority and deduplication.
+
+use anyhow::Result;
+use regex::bytes::Regex;
 use serde::Serialize;
 use std::collections::HashSet;
 use std::sync::Arc;
 
-use crate::patterns::{MatchKind, PatternDatabase, Rule};
+use crate::input::{MatchKind, PatternDatabase, Rule};
+use crate::reporting::{GroupDescription, MatchingTime};
 
-const SET_SIZE_LIMIT: usize = 256 * 1024 * 1024;
-// On the malicious corpus, 128 MiB was faster than 64; 256 showed no clear gain.
-const DFA_CACHE_LIMIT: usize = 128 * 1024 * 1024;
+mod grouped;
+use grouped::GroupedMatcher;
 
 pub enum Matcher {
     Baseline(Vec<Regex>),
-    Fast {
-        regex_set: RegexSet,
-        first_rule_id: usize,
-    },
+    Fast(Box<GroupedMatcher>),
 }
 
 impl Matcher {
@@ -23,31 +22,11 @@ impl Matcher {
         Self::Baseline(database.regexes.clone())
     }
 
-    pub fn fast_shards(database: &PatternDatabase, workers: usize) -> Result<Vec<Self>> {
-        ensure!(workers > 0, "workers must be greater than zero");
-        let rules_per_worker = database.rules.len() / workers;
-        let remainder = database.rules.len() % workers;
-        let mut first_rule_id = 0;
-        let mut matchers = Vec::with_capacity(workers);
-        for worker_id in 0..workers {
-            let count = rules_per_worker + usize::from(worker_id < remainder);
-            let end = first_rule_id + count;
-            let expressions = database.rules[first_rule_id..end]
-                .iter()
-                .map(|rule| &rule.expression);
-            let regex_set = RegexSetBuilder::new(expressions)
-                .unicode(false)
-                .size_limit(SET_SIZE_LIMIT)
-                .dfa_size_limit(DFA_CACHE_LIMIT)
-                .build()
-                .with_context(|| format!("could not compile regex shard {worker_id}"))?;
-            matchers.push(Self::Fast {
-                regex_set,
-                first_rule_id,
-            });
-            first_rule_id = end;
-        }
-        Ok(matchers)
+    pub fn fast_replicas(database: &PatternDatabase, workers: usize) -> Result<Vec<Self>> {
+        Ok(GroupedMatcher::replicas(&database.rules, workers)?
+            .into_iter()
+            .map(|matcher| Self::Fast(Box::new(matcher)))
+            .collect())
     }
 
     pub fn matching_rules(&self, request_bytes: &[u8]) -> Vec<usize> {
@@ -57,14 +36,28 @@ impl Matcher {
                 .enumerate()
                 .filter_map(|(rule_id, regex)| regex.is_match(request_bytes).then_some(rule_id))
                 .collect(),
-            Self::Fast {
-                regex_set,
-                first_rule_id,
-            } => regex_set
-                .matches(request_bytes)
-                .iter()
-                .map(|local_id| first_rule_id + local_id)
-                .collect(),
+            Self::Fast(matcher) => matcher.matching_rules(request_bytes),
+        }
+    }
+
+    pub fn group_descriptions(&self, rules: &[Rule]) -> Result<Vec<GroupDescription>> {
+        match self {
+            Self::Fast(matcher) => Ok(matcher.group_descriptions(rules)),
+            Self::Baseline(_) => anyhow::bail!("diagnostics requires fast mode"),
+        }
+    }
+
+    pub fn matching_rules_diagnostic(
+        &self,
+        bytes: &[u8],
+        request_id: u64,
+        timing: &mut MatchingTime,
+    ) -> Vec<usize> {
+        match self {
+            Self::Fast(matcher) => matcher.matching_rules_diagnostic(bytes, request_id, timing),
+            Self::Baseline(_) => {
+                unreachable!("diagnostic matcher was validated before starting workers")
+            }
         }
     }
 }

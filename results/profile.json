@@ -1,0 +1,2535 @@
+{
+  "date": "2026-10-13T08:52:18.058712+00:00",
+  "status": "complete",
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
+    "binary_sha256": "109618097a8108a1ace963b9b8a07a34e5d944b2a75ebb1551f45fbe183809c4",
+    "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff"
+  },
+  "source_sha256": {
+    "Cargo.toml": "051dfd480da20c64daa19753a4c023dee5d1350d8ea43631b21c5e3f87fd1d9d",
+    "Cargo.lock": "c30d25a68664a4f93dec9e3ba1b262ba91bcad264078b42f6d4c190a874b6963",
+    "rust-toolchain.toml": "4c2b49f5f849a8c7e2dd6e782dc0c1e3979f6aadfcb2f6ab75128ade28774fc8",
+    "src/main.rs": "3b23ca306123b3742cff855e390581e78f24a10c27b507d0e77c46e2941ba79a",
+    "src/reporting/diagnostics.rs": "592545a79dd9147acf067be8b3f0fd229b44cb12af044738735fa015ca9e6987",
+    "src/reporting/mod.rs": "acd11488e954c26cb4ebe3512d2915193cbe8f0f95d9731a5cc0f25bf07c3ab6",
+    "src/reporting/output.rs": "7e68e67e6ca1cbeccb5bebab12b17fd0ad43058b752be10ba33cebc1e787ee56",
+    "src/input/normalize.rs": "28e5ad1b418fab052bf95444fe267b84733555cfc820e4cceeb2211cbb389477",
+    "src/input/patterns.rs": "b3219e67d7699ec26aed3f3f3f27d6504fd467fa740fca39cd6b5a8ba1926b65",
+    "src/input/mod.rs": "ac14ad0d36ad3e2073921080fb0aeb8cb814de62371a7323c20e6c9817ca270c",
+    "src/input/corpus.rs": "d8c1394f79e92577c97bc5d5bf6bfbb1dc859809cf23e339d155e9bffc748605",
+    "src/matcher/mod.rs": "1d855e4557830b89bf2e8b19a8f6b08a189de4e4c4f61c609c8f9ee458e0ac92",
+    "src/matcher/grouped.rs": "69de9aa41211c985811b5a365166930f881f50c7d1547f9d875908d17b8d6856",
+    "src/matcher/grouped/literals.rs": "f5b568334b2124dcad0cc7bfdceb78fce6224a4c62b5cac32780cd60f4ef275f",
+    "src/matcher/grouped/primitives.rs": "87d55312575589684fea2b1690980182d79e7bf7c4655997f83a6dfad9d9c512",
+    "src/matcher/grouped/guards.rs": "e2221a60a10e6dffd35e6a8ebbaafda39c5829bc9d899d7cf841f1ce78ef0cfe",
+    "src/matcher/grouped/tests.rs": "0d88e00ec7549997ca6bf8eeb940376b769bee1043ca8d9a374c18f2d683b134",
+    "src/execution/prepared.rs": "9417503a0420494b231f296264c0912ef3fa113c4c5ba2668942e3c1b15813c5",
+    "src/execution/mod.rs": "862b4b589f8e4f093e878c092cbb3a47d8cda0da523140ad6df3b5ffc352f0e6",
+    "src/execution/stats.rs": "f97f57b3f2067cedd83e7c72174c6ba86a56f08d01df77039409979fb4c4ed59",
+    "src/execution/prepared/tests.rs": "322ef3d2b6888d084ca65e799b6fc25ece5743e6061da92c1df0eaa31062a3f3",
+    "scripts/benchmark.py": "7b447f6ad965bf1cecbdb3846c78ed253c9e66f5482466ce9003f4b9c9a5d702",
+    "README.md": "965483d5c6f373b81774d427c695cb737a2021eb3f15944b2251508f55f62060",
+    "docs/running.md": "03b5bcc85d65ae7d51e9d14f050f22b20b638977997b92584e6c32fb8eaf3975"
+  },
+  "ordinary_summary": [
+    {
+      "mode": "fast",
+      "workers": 1,
+      "repetitions": 3,
+      "median_matching_seconds": 5.116802542,
+      "min_matching_seconds": 4.919494333,
+      "max_matching_seconds": 5.192109334,
+      "matching_throughput_req_s": 217746.5303487179,
+      "speedup_vs_baseline": 153.900320682533,
+      "median_worker_cpu_seconds_sum": 5.114747666
+    },
+    {
+      "mode": "fast",
+      "workers": 2,
+      "repetitions": 3,
+      "median_matching_seconds": 2.8985637090000003,
+      "min_matching_seconds": 2.809132417,
+      "max_matching_seconds": 3.108384083,
+      "matching_throughput_req_s": 384385.54810457677,
+      "speedup_vs_baseline": 271.6785384560957,
+      "median_worker_cpu_seconds_sum": 5.762854083999999
+    },
+    {
+      "mode": "fast",
+      "workers": 4,
+      "repetitions": 3,
+      "median_matching_seconds": 1.6331985420000001,
+      "min_matching_seconds": 1.523615792,
+      "max_matching_seconds": 1.65546625,
+      "matching_throughput_req_s": 682198.7476400771,
+      "speedup_vs_baseline": 482.1689046566635,
+      "median_worker_cpu_seconds_sum": 6.422986583
+    },
+    {
+      "mode": "fast",
+      "workers": 8,
+      "repetitions": 3,
+      "median_matching_seconds": 1.184061083,
+      "min_matching_seconds": 1.158648667,
+      "max_matching_seconds": 1.467699042,
+      "matching_throughput_req_s": 940970.0360872345,
+      "speedup_vs_baseline": 665.0649729047805,
+      "median_worker_cpu_seconds_sum": 8.696975209
+    }
+  ],
+  "diagnostics": [
+    {
+      "path": "results/profile-scaling/diagnostics/workers-1.json",
+      "summary": {
+        "workers": 1,
+        "instrumented_matching_seconds": 5.759431917,
+        "worker_wall_seconds_sum": 5.759415167,
+        "worker_cpu_seconds_sum": 5.675147249999999,
+        "average_active_cores": 0.9853658020071009,
+        "timed_wall_seconds_sum": {
+          "prefix_seconds": 0.3376697529964628,
+          "literal_seconds": 3.978030312001104,
+          "result_build_seconds": 0.12759690399928694,
+          "literal_occurrences": 52280023,
+          "distinct_literals_per_request_sum": 9440473,
+          "group_search_seconds": 0.8686755909989591
+        },
+        "stage_seconds_sum": {
+          "literal_seconds": 3.978030312001104,
+          "prefix_seconds": 0.3376697529964628,
+          "group_search_seconds": 0.8686755909989591,
+          "result_build_seconds": 0.12759690399928694,
+          "other_bookkeeping_and_diagnostic_overhead": 0.4474426070041879
+        },
+        "stage_fraction_of_worker_wall": {
+          "literal_seconds": 0.6907003917332122,
+          "prefix_seconds": 0.05862917383195876,
+          "group_search_seconds": 0.1508270485476115,
+          "result_build_seconds": 0.022154489700687858,
+          "other_bookkeeping_and_diagnostic_overhead": 0.07768889618652974
+        },
+        "engine_search_seconds_sum": {
+          "regex_set": 0.430471118999013,
+          "byte_after_prefix": 0.17835410300170498,
+          "literal_gap_byte_class": 0.05146805799984619,
+          "singleton_is_match": 0.18475914299862037,
+          "minimum_byte_length": 0.02362316799977475
+        },
+        "group_count": 1779,
+        "called_group_count": 43,
+        "top_groups": [
+          {
+            "group_id": 1774,
+            "engine": "regex_set",
+            "minimum_len": 8,
+            "rules": [
+              {
+                "rule_id": 1550,
+                "line": 2276,
+                "service": "nagios-nsca",
+                "expression": "(?s-u:^.{128}[\\x52-\\x7F]...$)"
+              },
+              {
+                "rule_id": 9367,
+                "line": 12860,
+                "service": "unreal",
+                "expression": "(?s-u:^.[\\x40\\xc0].[\\x20\\x23\\x32\\x38].[\\x40\\xc0].[\\x20\\x23\\x32\\x38])"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.31733780700057723,
+            "first_64_calls_seconds": 7.187400000000002e-05,
+            "max_call_seconds": 0.00489725,
+            "max_request_id": 99112,
+            "max_request_bytes": 1876
+          },
+          {
+            "group_id": 1776,
+            "engine": "byte_after_prefix",
+            "minimum_len": 10,
+            "rules": [
+              {
+                "rule_id": 11151,
+                "line": 16317,
+                "service": "pc-duo",
+                "expression": "(?s-u:^.........(.*)\\x00)"
+              },
+              {
+                "rule_id": 11152,
+                "line": 16324,
+                "service": "pc-duo-gw",
+                "expression": "(?s-u:^.........(.*)\\x00)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.17835410300170498,
+            "first_64_calls_seconds": 3.1290000000000017e-06,
+            "max_call_seconds": 0.000115416,
+            "max_request_id": 1023058,
+            "max_request_bytes": 3078352
+          },
+          {
+            "group_id": 1778,
+            "engine": "literal_gap_byte_class",
+            "minimum_len": 13,
+            "rules": [
+              {
+                "rule_id": 11140,
+                "line": 16280,
+                "service": "mongodb",
+                "expression": "(?s-u:^.*version.....([\\.\\d]+))"
+              }
+            ],
+            "calls": 347879,
+            "bytes": 2545885705,
+            "search_seconds": 0.05146805799984619,
+            "first_64_calls_seconds": 1.1794999999999991e-05,
+            "max_call_seconds": 0.004035,
+            "max_request_id": 195941,
+            "max_request_bytes": 107945137
+          },
+          {
+            "group_id": 1651,
+            "engine": "regex_set",
+            "minimum_len": 10,
+            "rules": [
+              {
+                "rule_id": 196,
+                "line": 432,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} +\\d\\d:\\d\\d:\\d\\d (?:19|20)\\d\\d\\r\\n)"
+              },
+              {
+                "rule_id": 210,
+                "line": 459,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} \\d\\d:\\d\\d:\\d\\d [A-Z]+ 20\\d\\d\\r\\n$)"
+              },
+              {
+                "rule_id": 4114,
+                "line": 5624,
+                "service": "gopher",
+                "expression": "(?-u:^[0-9ghisIT](?:\\t?[\\x20-\\x7f]+\\t){3}[0-9]+\\r\\n)"
+              },
+              {
+                "rule_id": 9534,
+                "line": 13235,
+                "service": "daytime",
+                "expression": "(?-u:^\\w\\w\\w \\w\\w\\w \\d\\d \\d\\d:\\d\\d:\\d\\d \\d\\d\\d\\d\\r\\n$)"
+              }
+            ],
+            "calls": 1114153,
+            "bytes": 5365206136,
+            "search_seconds": 0.04278454699931283,
+            "first_64_calls_seconds": 2.962299999999999e-05,
+            "max_call_seconds": 0.003524375,
+            "max_request_id": 97456,
+            "max_request_bytes": 2139
+          },
+          {
+            "group_id": 1772,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 11115,
+                "line": 16170,
+                "service": "dominoconsole",
+                "expression": "(?-u:^([^/]+)/([\\w._-]+):([^:]*):([^:]*):)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.03930625099948035,
+            "first_64_calls_seconds": 4.834999999999998e-06,
+            "max_call_seconds": 1.0416e-05,
+            "max_request_id": 27100,
+            "max_request_bytes": 4074
+          },
+          {
+            "group_id": 913,
+            "engine": "regex_set",
+            "minimum_len": 9,
+            "rules": [
+              {
+                "rule_id": 4718,
+                "line": 6543,
+                "service": "finger",
+                "expression": "(?-u:^GET / HTTP/1\\.0 is not known at this site\\.\\r\\n$)"
+              },
+              {
+                "rule_id": 8387,
+                "line": 11260,
+                "service": "hue-link",
+                "expression": "(?-u:^GET  HTTP1\\.0\\n\\n$)"
+              },
+              {
+                "rule_id": 8402,
+                "line": 11291,
+                "service": "modbus",
+                "expression": "(?-u:^GET [\\x00/]\\x03H\\xd4[\\x01-\\x03])"
+              },
+              {
+                "rule_id": 8403,
+                "line": 11292,
+                "service": "modbus",
+                "expression": "(?-u:^GET [\\x00/]\\x03H\\xd4[\\x0a-\\x0b])"
+              },
+              {
+                "rule_id": 8409,
+                "line": 11302,
+                "service": "motorola-devmgr",
+                "expression": "(?-u:^GET / HT\\xff\\xff\\xff\\xff$)"
+              },
+              {
+                "rule_id": 8419,
+                "line": 11324,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : ([-.\\w]+)\\r\\n : USERID : UNIX : [-.\\w]+\\r\\n)"
+              },
+              {
+                "rule_id": 8420,
+                "line": 11325,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : ([-.\\w]+)\\r\\n$)"
+              },
+              {
+                "rule_id": 8422,
+                "line": 11329,
+                "service": "ident",
+                "expression": "(?-u:^GET : ERROR : UNKNOWN-ERROR\\r\\n$)"
+              },
+              {
+                "rule_id": 8425,
+                "line": 11336,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : ERROR : INVALID-PORT\\r\\n : ERROR : INVALID-PORT\\r\\n$)"
+              },
+              {
+                "rule_id": 8427,
+                "line": 11339,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : [^\\r\\n]+\\r\\n)"
+              },
+              {
+                "rule_id": 8443,
+                "line": 11362,
+                "service": "imap",
+                "expression": "(?-u:^GET NO Error in IMAP command received by server\\.\\r\\n)"
+              },
+              {
+                "rule_id": 8520,
+                "line": 11474,
+                "service": "mosmig",
+                "expression": "(?-u:^GET \\x00\\x00\\x00\\x00TP/1\\.0\\r\\n$)"
+              },
+              {
+                "rule_id": 8538,
+                "line": 11509,
+                "service": "optommp",
+                "expression": "(?-u:^GET / P\\x00\\x00\\x00\\x00\\x00)"
+              },
+              {
+                "rule_id": 8628,
+                "line": 11640,
+                "service": "slimp3",
+                "expression": "(?-u:^GET %2[Ff] HTTP%2[Ff]1\\.0\\n$)"
+              }
+            ],
+            "calls": 778062,
+            "bytes": 2079791713,
+            "search_seconds": 0.03334733099957393,
+            "first_64_calls_seconds": 5.158299999999995e-05,
+            "max_call_seconds": 0.00179375,
+            "max_request_id": 100195,
+            "max_request_bytes": 4595
+          },
+          {
+            "group_id": 1659,
+            "engine": "regex_set",
+            "minimum_len": 20,
+            "rules": [
+              {
+                "rule_id": 200,
+                "line": 440,
+                "service": "daytime",
+                "expression": "(?-u:^.... \\d{1,2}:\\d{1,2}:\\d{1,2} (?:19|20)\\d\\d-\\d{1,2}-\\d{1,2}\\n$)"
+              },
+              {
+                "rule_id": 202,
+                "line": 444,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z][a-z] [A-Z][a-z][a-z] \\d{1,2} \\d{1,2}:\\d{1,2}:\\d{1,2} (?:19|20)\\d\\d\\n)"
+              }
+            ],
+            "calls": 919696,
+            "bytes": 5184851546,
+            "search_seconds": 0.032655976999548954,
+            "first_64_calls_seconds": 1.1999000000000024e-05,
+            "max_call_seconds": 0.000219042,
+            "max_request_id": 99165,
+            "max_request_bytes": 2011
+          },
+          {
+            "group_id": 1771,
+            "engine": "singleton_is_match",
+            "minimum_len": 2,
+            "rules": [
+              {
+                "rule_id": 9483,
+                "line": 13096,
+                "service": "arcserve",
+                "expression": "(?-u:^([\\w\\d_-]+)\\x00$)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.030062495999607336,
+            "first_64_calls_seconds": 1.000700000000002e-05,
+            "max_call_seconds": 8.5e-06,
+            "max_request_id": 0,
+            "max_request_bytes": 653
+          },
+          {
+            "group_id": 1654,
+            "engine": "singleton_is_match",
+            "minimum_len": 9,
+            "rules": [
+              {
+                "rule_id": 1546,
+                "line": 2262,
+                "service": "mysql",
+                "expression": "(?s-u:^.\\x00\\x00\\x00.([012]\\.[\\w.-]+)(?: \\([0-9a-f]+\\))?\\x00)"
+              }
+            ],
+            "calls": 1114146,
+            "bytes": 5365204093,
+            "search_seconds": 0.02822860399965175,
+            "first_64_calls_seconds": 9.290000000000014e-06,
+            "max_call_seconds": 1.3541e-05,
+            "max_request_id": 337152,
+            "max_request_bytes": 6141
+          },
+          {
+            "group_id": 1656,
+            "engine": "singleton_is_match",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 9262,
+                "line": 12660,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):1:?$)"
+              }
+            ],
+            "calls": 151911,
+            "bytes": 1870389487,
+            "search_seconds": 0.027170196000005024,
+            "first_64_calls_seconds": 7.663999999999998e-06,
+            "max_call_seconds": 6.708e-06,
+            "max_request_id": 782353,
+            "max_request_bytes": 6670
+          },
+          {
+            "group_id": 1655,
+            "engine": "singleton_is_match",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 9258,
+                "line": 12656,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):0:?$)"
+              }
+            ],
+            "calls": 133133,
+            "bytes": 1993600470,
+            "search_seconds": 0.02576859400000198,
+            "first_64_calls_seconds": 1.945700000000001e-05,
+            "max_call_seconds": 8.042e-06,
+            "max_request_id": 905929,
+            "max_request_bytes": 8224
+          },
+          {
+            "group_id": 1775,
+            "engine": "minimum_byte_length",
+            "minimum_len": 111,
+            "rules": [
+              {
+                "rule_id": 11178,
+                "line": 16473,
+                "service": "ventrilo",
+                "expression": "(?s-u:^.{111})"
+              }
+            ],
+            "calls": 1114140,
+            "bytes": 5365206639,
+            "search_seconds": 0.02362316799977475,
+            "first_64_calls_seconds": 1.5009999999999993e-06,
+            "max_call_seconds": 9.875e-06,
+            "max_request_id": 46978,
+            "max_request_bytes": 3280
+          },
+          {
+            "group_id": 1773,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 8907,
+                "line": 12074,
+                "service": "msdtc",
+                "expression": "(?s-u:^[^\\x15\\x16][^\\x03].\\x00..$)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.019520443999883955,
+            "first_64_calls_seconds": 1.0389999999999997e-06,
+            "max_call_seconds": 1.0834e-05,
+            "max_request_id": 810440,
+            "max_request_bytes": 5017
+          },
+          {
+            "group_id": 1060,
+            "engine": "singleton_is_match",
+            "minimum_len": 1,
+            "rules": [
+              {
+                "rule_id": 1115,
+                "line": 1602,
+                "service": "ilo-console",
+                "expression": "(?-u:^PQ?$)"
+              }
+            ],
+            "calls": 334336,
+            "bytes": 3281729203,
+            "search_seconds": 0.006255014999989174,
+            "first_64_calls_seconds": 4.751999999999997e-06,
+            "max_call_seconds": 6.5e-06,
+            "max_request_id": 631748,
+            "max_request_bytes": 2582
+          },
+          {
+            "group_id": 1616,
+            "engine": "regex_set",
+            "minimum_len": 37,
+            "rules": [
+              {
+                "rule_id": 9312,
+                "line": 12767,
+                "service": "domain",
+                "expression": "(?i-u:\\x07version\\x04bind\\x00\\x00\\x10\\x00\\x03\\xc0\\x0c\\x00\\x10\\x00\\x03.{7}unbound$)"
+              },
+              {
+                "rule_id": 9329,
+                "line": 12789,
+                "service": "domain",
+                "expression": "(?i-u:\\x07version\\x04bind\\x00\\x00\\x10\\x00\\x03\\xc0\\x0c\\x00\\x10\\x00\\x03.{7}djbdns)"
+              }
+            ],
+            "calls": 6,
+            "bytes": 4626714,
+            "search_seconds": 0.0031384990000000003,
+            "first_64_calls_seconds": 0.0031384990000000003,
+            "max_call_seconds": 0.001536166,
+            "max_request_id": 927913,
+            "max_request_bytes": 2219079
+          },
+          {
+            "group_id": 1668,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 9264,
+                "line": 12662,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):1:(.+)$)"
+              }
+            ],
+            "calls": 7428,
+            "bytes": 455579081,
+            "search_seconds": 0.0024523250000000225,
+            "first_64_calls_seconds": 2.158499999999999e-05,
+            "max_call_seconds": 1.1708e-05,
+            "max_request_id": 10216,
+            "max_request_bytes": 132137
+          },
+          {
+            "group_id": 1633,
+            "engine": "singleton_is_match",
+            "minimum_len": 24,
+            "rules": [
+              {
+                "rule_id": 211,
+                "line": 461,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} \\d\\d:\\d\\d:\\d\\d 20\\d\\d $)"
+              }
+            ],
+            "calls": 58837,
+            "bytes": 907417409,
+            "search_seconds": 0.0017703260000008255,
+            "first_64_calls_seconds": 1.0715000000000027e-05,
+            "max_call_seconds": 2.9375e-05,
+            "max_request_id": 185681,
+            "max_request_bytes": 926
+          },
+          {
+            "group_id": 1667,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 9260,
+                "line": 12658,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):0:(.+)$)"
+              }
+            ],
+            "calls": 7337,
+            "bytes": 325247817,
+            "search_seconds": 0.0015662239999999288,
+            "first_64_calls_seconds": 3.9294e-05,
+            "max_call_seconds": 1.025e-05,
+            "max_request_id": 22042,
+            "max_request_bytes": 5659
+          },
+          {
+            "group_id": 1707,
+            "engine": "singleton_is_match",
+            "minimum_len": 54,
+            "rules": [
+              {
+                "rule_id": 10907,
+                "line": 15572,
+                "service": "afs",
+                "expression": "(?-u:^[\\d\\D]{28}\\s*Base\\sconfiguration\\safs([\\d\\.]+)\\s+[^\\s\\x00\\;]+[\\x00\\;])"
+              }
+            ],
+            "calls": 7746,
+            "bytes": 79608728,
+            "search_seconds": 0.0010687410000000308,
+            "first_64_calls_seconds": 4.058500000000006e-05,
+            "max_call_seconds": 1.9792e-05,
+            "max_request_id": 1165,
+            "max_request_bytes": 2361
+          },
+          {
+            "group_id": 1575,
+            "engine": "regex_set",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 3779,
+                "line": 4994,
+                "service": "time",
+                "expression": "(?s-u:^[\\xd5-\\xef]....\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 3893,
+                "line": 5204,
+                "service": "icecream",
+                "expression": "(?-u:^[\\x14-\\x1f]\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 9538,
+                "line": 13241,
+                "service": "time",
+                "expression": "(?s-u:^[\\xd5-\\xef]....\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 11060,
+                "line": 15942,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x01\\x11\\x81\\x91]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11061,
+                "line": 15943,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x02\\x12\\x82\\x92]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11062,
+                "line": 15944,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x04\\x14\\x84\\x94]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11063,
+                "line": 15945,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x05\\x15\\x85\\x95]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11064,
+                "line": 15946,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x03\\x13\\x83\\x93]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11065,
+                "line": 15948,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x00\\x10\\x80\\x90]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              }
+            ],
+            "calls": 7511,
+            "bytes": 1202409200,
+            "search_seconds": 0.0005097510000000387,
+            "first_64_calls_seconds": 1.8499000000000004e-05,
+            "max_call_seconds": 1.3625e-05,
+            "max_request_id": 3544,
+            "max_request_bytes": 5423
+          }
+        ],
+        "interpretation": "Elapsed per-operation sums include descheduling and diagnostic overhead. Stage percentages refer to the sum of worker lifetimes, not CPU time. Across multiple workers the sums are not a wall-clock decomposition. Only ordinary runs measure throughput."
+      }
+    },
+    {
+      "path": "results/profile-scaling/diagnostics/workers-2.json",
+      "summary": {
+        "workers": 2,
+        "instrumented_matching_seconds": 3.064947792,
+        "worker_wall_seconds_sum": 6.129854625,
+        "worker_cpu_seconds_sum": 6.124679458,
+        "average_active_cores": 1.9982981354483054,
+        "timed_wall_seconds_sum": {
+          "prefix_seconds": 0.3795507610031952,
+          "literal_seconds": 4.046376231999497,
+          "result_build_seconds": 0.22501432499943003,
+          "literal_occurrences": 52280023,
+          "distinct_literals_per_request_sum": 9440473,
+          "group_search_seconds": 1.032977777000256
+        },
+        "stage_seconds_sum": {
+          "literal_seconds": 4.046376231999497,
+          "prefix_seconds": 0.3795507610031952,
+          "group_search_seconds": 1.032977777000256,
+          "result_build_seconds": 0.22501432499943003,
+          "other_bookkeeping_and_diagnostic_overhead": 0.4459355299976222
+        },
+        "stage_fraction_of_worker_wall": {
+          "literal_seconds": 0.6601096566787662,
+          "prefix_seconds": 0.06191839516963996,
+          "group_search_seconds": 0.16851586867775936,
+          "result_build_seconds": 0.036707938240775166,
+          "other_bookkeeping_and_diagnostic_overhead": 0.07274814123305937
+        },
+        "engine_search_seconds_sum": {
+          "regex_set": 0.5376272490002731,
+          "byte_after_prefix": 0.18221208000046016,
+          "minimum_byte_length": 0.07160836799984895,
+          "literal_gap_byte_class": 0.05217332499999014,
+          "singleton_is_match": 0.18935675499968424
+        },
+        "group_count": 1779,
+        "called_group_count": 43,
+        "top_groups": [
+          {
+            "group_id": 1774,
+            "engine": "regex_set",
+            "minimum_len": 8,
+            "rules": [
+              {
+                "rule_id": 1550,
+                "line": 2276,
+                "service": "nagios-nsca",
+                "expression": "(?s-u:^.{128}[\\x52-\\x7F]...$)"
+              },
+              {
+                "rule_id": 9367,
+                "line": 12860,
+                "service": "unreal",
+                "expression": "(?s-u:^.[\\x40\\xc0].[\\x20\\x23\\x32\\x38].[\\x40\\xc0].[\\x20\\x23\\x32\\x38])"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.34162424600104413,
+            "first_64_calls_seconds": 0.00013199500000000015,
+            "max_call_seconds": 4.1417e-05,
+            "max_request_id": 472364,
+            "max_request_bytes": 2842
+          },
+          {
+            "group_id": 1776,
+            "engine": "byte_after_prefix",
+            "minimum_len": 10,
+            "rules": [
+              {
+                "rule_id": 11151,
+                "line": 16317,
+                "service": "pc-duo",
+                "expression": "(?s-u:^.........(.*)\\x00)"
+              },
+              {
+                "rule_id": 11152,
+                "line": 16324,
+                "service": "pc-duo-gw",
+                "expression": "(?s-u:^.........(.*)\\x00)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.18221208000046016,
+            "first_64_calls_seconds": 7.078000000000005e-06,
+            "max_call_seconds": 0.000118125,
+            "max_request_id": 1023058,
+            "max_request_bytes": 3078352
+          },
+          {
+            "group_id": 913,
+            "engine": "regex_set",
+            "minimum_len": 9,
+            "rules": [
+              {
+                "rule_id": 4718,
+                "line": 6543,
+                "service": "finger",
+                "expression": "(?-u:^GET / HTTP/1\\.0 is not known at this site\\.\\r\\n$)"
+              },
+              {
+                "rule_id": 8387,
+                "line": 11260,
+                "service": "hue-link",
+                "expression": "(?-u:^GET  HTTP1\\.0\\n\\n$)"
+              },
+              {
+                "rule_id": 8402,
+                "line": 11291,
+                "service": "modbus",
+                "expression": "(?-u:^GET [\\x00/]\\x03H\\xd4[\\x01-\\x03])"
+              },
+              {
+                "rule_id": 8403,
+                "line": 11292,
+                "service": "modbus",
+                "expression": "(?-u:^GET [\\x00/]\\x03H\\xd4[\\x0a-\\x0b])"
+              },
+              {
+                "rule_id": 8409,
+                "line": 11302,
+                "service": "motorola-devmgr",
+                "expression": "(?-u:^GET / HT\\xff\\xff\\xff\\xff$)"
+              },
+              {
+                "rule_id": 8419,
+                "line": 11324,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : ([-.\\w]+)\\r\\n : USERID : UNIX : [-.\\w]+\\r\\n)"
+              },
+              {
+                "rule_id": 8420,
+                "line": 11325,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : ([-.\\w]+)\\r\\n$)"
+              },
+              {
+                "rule_id": 8422,
+                "line": 11329,
+                "service": "ident",
+                "expression": "(?-u:^GET : ERROR : UNKNOWN-ERROR\\r\\n$)"
+              },
+              {
+                "rule_id": 8425,
+                "line": 11336,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : ERROR : INVALID-PORT\\r\\n : ERROR : INVALID-PORT\\r\\n$)"
+              },
+              {
+                "rule_id": 8427,
+                "line": 11339,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : [^\\r\\n]+\\r\\n)"
+              },
+              {
+                "rule_id": 8443,
+                "line": 11362,
+                "service": "imap",
+                "expression": "(?-u:^GET NO Error in IMAP command received by server\\.\\r\\n)"
+              },
+              {
+                "rule_id": 8520,
+                "line": 11474,
+                "service": "mosmig",
+                "expression": "(?-u:^GET \\x00\\x00\\x00\\x00TP/1\\.0\\r\\n$)"
+              },
+              {
+                "rule_id": 8538,
+                "line": 11509,
+                "service": "optommp",
+                "expression": "(?-u:^GET / P\\x00\\x00\\x00\\x00\\x00)"
+              },
+              {
+                "rule_id": 8628,
+                "line": 11640,
+                "service": "slimp3",
+                "expression": "(?-u:^GET %2[Ff] HTTP%2[Ff]1\\.0\\n$)"
+              }
+            ],
+            "calls": 778062,
+            "bytes": 2079791713,
+            "search_seconds": 0.07354875299984631,
+            "first_64_calls_seconds": 0.0001317960000000002,
+            "max_call_seconds": 6.3209e-05,
+            "max_request_id": 32,
+            "max_request_bytes": 556
+          },
+          {
+            "group_id": 1775,
+            "engine": "minimum_byte_length",
+            "minimum_len": 111,
+            "rules": [
+              {
+                "rule_id": 11178,
+                "line": 16473,
+                "service": "ventrilo",
+                "expression": "(?s-u:^.{111})"
+              }
+            ],
+            "calls": 1114140,
+            "bytes": 5365206639,
+            "search_seconds": 0.07160836799984895,
+            "first_64_calls_seconds": 5.5070000000000025e-06,
+            "max_call_seconds": 4.1166e-05,
+            "max_request_id": 780990,
+            "max_request_bytes": 6842
+          },
+          {
+            "group_id": 1651,
+            "engine": "regex_set",
+            "minimum_len": 10,
+            "rules": [
+              {
+                "rule_id": 196,
+                "line": 432,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} +\\d\\d:\\d\\d:\\d\\d (?:19|20)\\d\\d\\r\\n)"
+              },
+              {
+                "rule_id": 210,
+                "line": 459,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} \\d\\d:\\d\\d:\\d\\d [A-Z]+ 20\\d\\d\\r\\n$)"
+              },
+              {
+                "rule_id": 4114,
+                "line": 5624,
+                "service": "gopher",
+                "expression": "(?-u:^[0-9ghisIT](?:\\t?[\\x20-\\x7f]+\\t){3}[0-9]+\\r\\n)"
+              },
+              {
+                "rule_id": 9534,
+                "line": 13235,
+                "service": "daytime",
+                "expression": "(?-u:^\\w\\w\\w \\w\\w\\w \\d\\d \\d\\d:\\d\\d:\\d\\d \\d\\d\\d\\d\\r\\n$)"
+              }
+            ],
+            "calls": 1114153,
+            "bytes": 5365206136,
+            "search_seconds": 0.07091540099958886,
+            "first_64_calls_seconds": 4.9463e-05,
+            "max_call_seconds": 4.7958e-05,
+            "max_request_id": 29735,
+            "max_request_bytes": 731
+          },
+          {
+            "group_id": 1778,
+            "engine": "literal_gap_byte_class",
+            "minimum_len": 13,
+            "rules": [
+              {
+                "rule_id": 11140,
+                "line": 16280,
+                "service": "mongodb",
+                "expression": "(?s-u:^.*version.....([\\.\\d]+))"
+              }
+            ],
+            "calls": 347879,
+            "bytes": 2545885705,
+            "search_seconds": 0.05217332499999014,
+            "first_64_calls_seconds": 2.1582999999999993e-05,
+            "max_call_seconds": 0.004235625,
+            "max_request_id": 195941,
+            "max_request_bytes": 107945137
+          },
+          {
+            "group_id": 1659,
+            "engine": "regex_set",
+            "minimum_len": 20,
+            "rules": [
+              {
+                "rule_id": 200,
+                "line": 440,
+                "service": "daytime",
+                "expression": "(?-u:^.... \\d{1,2}:\\d{1,2}:\\d{1,2} (?:19|20)\\d\\d-\\d{1,2}-\\d{1,2}\\n$)"
+              },
+              {
+                "rule_id": 202,
+                "line": 444,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z][a-z] [A-Z][a-z][a-z] \\d{1,2} \\d{1,2}:\\d{1,2}:\\d{1,2} (?:19|20)\\d\\d\\n)"
+              }
+            ],
+            "calls": 919696,
+            "bytes": 5184851546,
+            "search_seconds": 0.04663288099979364,
+            "first_64_calls_seconds": 2.6950999999999993e-05,
+            "max_call_seconds": 1.4291e-05,
+            "max_request_id": 32,
+            "max_request_bytes": 556
+          },
+          {
+            "group_id": 1772,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 11115,
+                "line": 16170,
+                "service": "dominoconsole",
+                "expression": "(?-u:^([^/]+)/([\\w._-]+):([^:]*):([^:]*):)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.0401923599997832,
+            "first_64_calls_seconds": 1.0874999999999993e-05,
+            "max_call_seconds": 9.625e-06,
+            "max_request_id": 908348,
+            "max_request_bytes": 1915
+          },
+          {
+            "group_id": 1771,
+            "engine": "singleton_is_match",
+            "minimum_len": 2,
+            "rules": [
+              {
+                "rule_id": 9483,
+                "line": 13096,
+                "service": "arcserve",
+                "expression": "(?-u:^([\\w\\d_-]+)\\x00$)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.030223922999974468,
+            "first_64_calls_seconds": 2.0583000000000023e-05,
+            "max_call_seconds": 1.0875e-05,
+            "max_request_id": 0,
+            "max_request_bytes": 653
+          },
+          {
+            "group_id": 1654,
+            "engine": "singleton_is_match",
+            "minimum_len": 9,
+            "rules": [
+              {
+                "rule_id": 1546,
+                "line": 2262,
+                "service": "mysql",
+                "expression": "(?s-u:^.\\x00\\x00\\x00.([012]\\.[\\w.-]+)(?: \\([0-9a-f]+\\))?\\x00)"
+              }
+            ],
+            "calls": 1114146,
+            "bytes": 5365204093,
+            "search_seconds": 0.028605763999972812,
+            "first_64_calls_seconds": 2.9585000000000016e-05,
+            "max_call_seconds": 1.5e-05,
+            "max_request_id": 32,
+            "max_request_bytes": 556
+          },
+          {
+            "group_id": 1656,
+            "engine": "singleton_is_match",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 9262,
+                "line": 12660,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):1:?$)"
+              }
+            ],
+            "calls": 151911,
+            "bytes": 1870389487,
+            "search_seconds": 0.028025655999992558,
+            "first_64_calls_seconds": 1.7751999999999995e-05,
+            "max_call_seconds": 1.0958e-05,
+            "max_request_id": 579894,
+            "max_request_bytes": 1608
+          },
+          {
+            "group_id": 1655,
+            "engine": "singleton_is_match",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 9258,
+                "line": 12656,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):0:?$)"
+              }
+            ],
+            "calls": 133133,
+            "bytes": 1993600470,
+            "search_seconds": 0.02695304699999202,
+            "first_64_calls_seconds": 6.421800000000004e-05,
+            "max_call_seconds": 4.6583e-05,
+            "max_request_id": 252558,
+            "max_request_bytes": 12938
+          },
+          {
+            "group_id": 1773,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 8907,
+                "line": 12074,
+                "service": "msdtc",
+                "expression": "(?s-u:^[^\\x15\\x16][^\\x03].\\x00..$)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.019931240999964236,
+            "first_64_calls_seconds": 2.164999999999999e-06,
+            "max_call_seconds": 2.292e-06,
+            "max_request_id": 1085701,
+            "max_request_bytes": 173
+          },
+          {
+            "group_id": 1060,
+            "engine": "singleton_is_match",
+            "minimum_len": 1,
+            "rules": [
+              {
+                "rule_id": 1115,
+                "line": 1602,
+                "service": "ilo-console",
+                "expression": "(?-u:^PQ?$)"
+              }
+            ],
+            "calls": 334336,
+            "bytes": 3281729203,
+            "search_seconds": 0.006509996000004693,
+            "first_64_calls_seconds": 6.374999999999997e-06,
+            "max_call_seconds": 8.667e-06,
+            "max_request_id": 530861,
+            "max_request_bytes": 1626
+          },
+          {
+            "group_id": 1616,
+            "engine": "regex_set",
+            "minimum_len": 37,
+            "rules": [
+              {
+                "rule_id": 9312,
+                "line": 12767,
+                "service": "domain",
+                "expression": "(?i-u:\\x07version\\x04bind\\x00\\x00\\x10\\x00\\x03\\xc0\\x0c\\x00\\x10\\x00\\x03.{7}unbound$)"
+              },
+              {
+                "rule_id": 9329,
+                "line": 12789,
+                "service": "domain",
+                "expression": "(?i-u:\\x07version\\x04bind\\x00\\x00\\x10\\x00\\x03\\xc0\\x0c\\x00\\x10\\x00\\x03.{7}djbdns)"
+              }
+            ],
+            "calls": 6,
+            "bytes": 4626714,
+            "search_seconds": 0.0031640830000000003,
+            "first_64_calls_seconds": 0.0031640830000000003,
+            "max_call_seconds": 0.001563541,
+            "max_request_id": 927913,
+            "max_request_bytes": 2219079
+          },
+          {
+            "group_id": 1668,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 9264,
+                "line": 12662,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):1:(.+)$)"
+              }
+            ],
+            "calls": 7428,
+            "bytes": 455579081,
+            "search_seconds": 0.0025424919999999865,
+            "first_64_calls_seconds": 3.558299999999999e-05,
+            "max_call_seconds": 7.583e-06,
+            "max_request_id": 10216,
+            "max_request_bytes": 132137
+          },
+          {
+            "group_id": 1633,
+            "engine": "singleton_is_match",
+            "minimum_len": 24,
+            "rules": [
+              {
+                "rule_id": 211,
+                "line": 461,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} \\d\\d:\\d\\d:\\d\\d 20\\d\\d $)"
+              }
+            ],
+            "calls": 58837,
+            "bytes": 907417409,
+            "search_seconds": 0.0017950890000001944,
+            "first_64_calls_seconds": 1.7920000000000015e-05,
+            "max_call_seconds": 9e-06,
+            "max_request_id": 173,
+            "max_request_bytes": 3008
+          },
+          {
+            "group_id": 1667,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 9260,
+                "line": 12658,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):0:(.+)$)"
+              }
+            ],
+            "calls": 7337,
+            "bytes": 325247817,
+            "search_seconds": 0.00165428100000006,
+            "first_64_calls_seconds": 7.0913e-05,
+            "max_call_seconds": 8.75e-06,
+            "max_request_id": 22043,
+            "max_request_bytes": 6340
+          },
+          {
+            "group_id": 1707,
+            "engine": "singleton_is_match",
+            "minimum_len": 54,
+            "rules": [
+              {
+                "rule_id": 10907,
+                "line": 15572,
+                "service": "afs",
+                "expression": "(?-u:^[\\d\\D]{28}\\s*Base\\sconfiguration\\safs([\\d\\.]+)\\s+[^\\s\\x00\\;]+[\\x00\\;])"
+              }
+            ],
+            "calls": 7746,
+            "bytes": 79608728,
+            "search_seconds": 0.0012195310000000493,
+            "first_64_calls_seconds": 8.5585e-05,
+            "max_call_seconds": 2.4917e-05,
+            "max_request_id": 10933,
+            "max_request_bytes": 3740
+          },
+          {
+            "group_id": 1575,
+            "engine": "regex_set",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 3779,
+                "line": 4994,
+                "service": "time",
+                "expression": "(?s-u:^[\\xd5-\\xef]....\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 3893,
+                "line": 5204,
+                "service": "icecream",
+                "expression": "(?-u:^[\\x14-\\x1f]\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 9538,
+                "line": 13241,
+                "service": "time",
+                "expression": "(?s-u:^[\\xd5-\\xef]....\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 11060,
+                "line": 15942,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x01\\x11\\x81\\x91]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11061,
+                "line": 15943,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x02\\x12\\x82\\x92]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11062,
+                "line": 15944,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x04\\x14\\x84\\x94]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11063,
+                "line": 15945,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x05\\x15\\x85\\x95]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11064,
+                "line": 15946,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x03\\x13\\x83\\x93]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11065,
+                "line": 15948,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x00\\x10\\x80\\x90]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              }
+            ],
+            "calls": 7511,
+            "bytes": 1202409200,
+            "search_seconds": 0.0008107550000000298,
+            "first_64_calls_seconds": 4.154299999999998e-05,
+            "max_call_seconds": 1.525e-05,
+            "max_request_id": 3544,
+            "max_request_bytes": 5423
+          }
+        ],
+        "interpretation": "Elapsed per-operation sums include descheduling and diagnostic overhead. Stage percentages refer to the sum of worker lifetimes, not CPU time. Across multiple workers the sums are not a wall-clock decomposition. Only ordinary runs measure throughput."
+      }
+    },
+    {
+      "path": "results/profile-scaling/diagnostics/workers-4.json",
+      "summary": {
+        "workers": 4,
+        "instrumented_matching_seconds": 1.638745416,
+        "worker_wall_seconds_sum": 6.5548685419999995,
+        "worker_cpu_seconds_sum": 6.529032417,
+        "average_active_cores": 3.98416517492794,
+        "timed_wall_seconds_sum": {
+          "prefix_seconds": 0.4902475290021608,
+          "literal_seconds": 4.27190794800049,
+          "result_build_seconds": 0.3133927849996767,
+          "literal_occurrences": 52280023,
+          "distinct_literals_per_request_sum": 9440473,
+          "group_search_seconds": 1.0227294699983012
+        },
+        "stage_seconds_sum": {
+          "literal_seconds": 4.27190794800049,
+          "prefix_seconds": 0.4902475290021608,
+          "group_search_seconds": 1.0227294699983012,
+          "result_build_seconds": 0.3133927849996767,
+          "other_bookkeeping_and_diagnostic_overhead": 0.45659080999937096
+        },
+        "stage_fraction_of_worker_wall": {
+          "literal_seconds": 0.6517152740178462,
+          "prefix_seconds": 0.0747913594088003,
+          "group_search_seconds": 0.15602593148058,
+          "result_build_seconds": 0.04781068956480634,
+          "other_bookkeeping_and_diagnostic_overhead": 0.06965674552796715
+        },
+        "engine_search_seconds_sum": {
+          "regex_set": 0.48435255299888075,
+          "byte_after_prefix": 0.1884366519995345,
+          "minimum_byte_length": 0.09225544900014028,
+          "literal_gap_byte_class": 0.06180634499998755,
+          "singleton_is_match": 0.19587847099975855
+        },
+        "group_count": 1779,
+        "called_group_count": 43,
+        "top_groups": [
+          {
+            "group_id": 1774,
+            "engine": "regex_set",
+            "minimum_len": 8,
+            "rules": [
+              {
+                "rule_id": 1550,
+                "line": 2276,
+                "service": "nagios-nsca",
+                "expression": "(?s-u:^.{128}[\\x52-\\x7F]...$)"
+              },
+              {
+                "rule_id": 9367,
+                "line": 12860,
+                "service": "unreal",
+                "expression": "(?s-u:^.[\\x40\\xc0].[\\x20\\x23\\x32\\x38].[\\x40\\xc0].[\\x20\\x23\\x32\\x38])"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.3399064149990789,
+            "first_64_calls_seconds": 0.00034804,
+            "max_call_seconds": 6.3292e-05,
+            "max_request_id": 216019,
+            "max_request_bytes": 1483
+          },
+          {
+            "group_id": 1776,
+            "engine": "byte_after_prefix",
+            "minimum_len": 10,
+            "rules": [
+              {
+                "rule_id": 11151,
+                "line": 16317,
+                "service": "pc-duo",
+                "expression": "(?s-u:^.........(.*)\\x00)"
+              },
+              {
+                "rule_id": 11152,
+                "line": 16324,
+                "service": "pc-duo-gw",
+                "expression": "(?s-u:^.........(.*)\\x00)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.1884366519995345,
+            "first_64_calls_seconds": 2.3587000000000003e-05,
+            "max_call_seconds": 0.000121375,
+            "max_request_id": 1023058,
+            "max_request_bytes": 3078352
+          },
+          {
+            "group_id": 1775,
+            "engine": "minimum_byte_length",
+            "minimum_len": 111,
+            "rules": [
+              {
+                "rule_id": 11178,
+                "line": 16473,
+                "service": "ventrilo",
+                "expression": "(?s-u:^.{111})"
+              }
+            ],
+            "calls": 1114140,
+            "bytes": 5365206639,
+            "search_seconds": 0.09225544900014028,
+            "first_64_calls_seconds": 4.383300000000001e-05,
+            "max_call_seconds": 7.65e-05,
+            "max_request_id": 19424,
+            "max_request_bytes": 6427
+          },
+          {
+            "group_id": 1778,
+            "engine": "literal_gap_byte_class",
+            "minimum_len": 13,
+            "rules": [
+              {
+                "rule_id": 11140,
+                "line": 16280,
+                "service": "mongodb",
+                "expression": "(?s-u:^.*version.....([\\.\\d]+))"
+              }
+            ],
+            "calls": 347879,
+            "bytes": 2545885705,
+            "search_seconds": 0.06180634499998755,
+            "first_64_calls_seconds": 4.5205999999999973e-05,
+            "max_call_seconds": 0.009421417,
+            "max_request_id": 195941,
+            "max_request_bytes": 107945137
+          },
+          {
+            "group_id": 1651,
+            "engine": "regex_set",
+            "minimum_len": 10,
+            "rules": [
+              {
+                "rule_id": 196,
+                "line": 432,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} +\\d\\d:\\d\\d:\\d\\d (?:19|20)\\d\\d\\r\\n)"
+              },
+              {
+                "rule_id": 210,
+                "line": 459,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} \\d\\d:\\d\\d:\\d\\d [A-Z]+ 20\\d\\d\\r\\n$)"
+              },
+              {
+                "rule_id": 4114,
+                "line": 5624,
+                "service": "gopher",
+                "expression": "(?-u:^[0-9ghisIT](?:\\t?[\\x20-\\x7f]+\\t){3}[0-9]+\\r\\n)"
+              },
+              {
+                "rule_id": 9534,
+                "line": 13235,
+                "service": "daytime",
+                "expression": "(?-u:^\\w\\w\\w \\w\\w\\w \\d\\d \\d\\d:\\d\\d:\\d\\d \\d\\d\\d\\d\\r\\n$)"
+              }
+            ],
+            "calls": 1114153,
+            "bytes": 5365206136,
+            "search_seconds": 0.05245002099993876,
+            "first_64_calls_seconds": 0.00013248499999999995,
+            "max_call_seconds": 5.0542e-05,
+            "max_request_id": 64,
+            "max_request_bytes": 3244
+          },
+          {
+            "group_id": 913,
+            "engine": "regex_set",
+            "minimum_len": 9,
+            "rules": [
+              {
+                "rule_id": 4718,
+                "line": 6543,
+                "service": "finger",
+                "expression": "(?-u:^GET / HTTP/1\\.0 is not known at this site\\.\\r\\n$)"
+              },
+              {
+                "rule_id": 8387,
+                "line": 11260,
+                "service": "hue-link",
+                "expression": "(?-u:^GET  HTTP1\\.0\\n\\n$)"
+              },
+              {
+                "rule_id": 8402,
+                "line": 11291,
+                "service": "modbus",
+                "expression": "(?-u:^GET [\\x00/]\\x03H\\xd4[\\x01-\\x03])"
+              },
+              {
+                "rule_id": 8403,
+                "line": 11292,
+                "service": "modbus",
+                "expression": "(?-u:^GET [\\x00/]\\x03H\\xd4[\\x0a-\\x0b])"
+              },
+              {
+                "rule_id": 8409,
+                "line": 11302,
+                "service": "motorola-devmgr",
+                "expression": "(?-u:^GET / HT\\xff\\xff\\xff\\xff$)"
+              },
+              {
+                "rule_id": 8419,
+                "line": 11324,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : ([-.\\w]+)\\r\\n : USERID : UNIX : [-.\\w]+\\r\\n)"
+              },
+              {
+                "rule_id": 8420,
+                "line": 11325,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : ([-.\\w]+)\\r\\n$)"
+              },
+              {
+                "rule_id": 8422,
+                "line": 11329,
+                "service": "ident",
+                "expression": "(?-u:^GET : ERROR : UNKNOWN-ERROR\\r\\n$)"
+              },
+              {
+                "rule_id": 8425,
+                "line": 11336,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : ERROR : INVALID-PORT\\r\\n : ERROR : INVALID-PORT\\r\\n$)"
+              },
+              {
+                "rule_id": 8427,
+                "line": 11339,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : [^\\r\\n]+\\r\\n)"
+              },
+              {
+                "rule_id": 8443,
+                "line": 11362,
+                "service": "imap",
+                "expression": "(?-u:^GET NO Error in IMAP command received by server\\.\\r\\n)"
+              },
+              {
+                "rule_id": 8520,
+                "line": 11474,
+                "service": "mosmig",
+                "expression": "(?-u:^GET \\x00\\x00\\x00\\x00TP/1\\.0\\r\\n$)"
+              },
+              {
+                "rule_id": 8538,
+                "line": 11509,
+                "service": "optommp",
+                "expression": "(?-u:^GET / P\\x00\\x00\\x00\\x00\\x00)"
+              },
+              {
+                "rule_id": 8628,
+                "line": 11640,
+                "service": "slimp3",
+                "expression": "(?-u:^GET %2[Ff] HTTP%2[Ff]1\\.0\\n$)"
+              }
+            ],
+            "calls": 778062,
+            "bytes": 2079791713,
+            "search_seconds": 0.04366664899993028,
+            "first_64_calls_seconds": 0.0005089440000000002,
+            "max_call_seconds": 0.000216875,
+            "max_request_id": 96,
+            "max_request_bytes": 1176
+          },
+          {
+            "group_id": 1659,
+            "engine": "regex_set",
+            "minimum_len": 20,
+            "rules": [
+              {
+                "rule_id": 200,
+                "line": 440,
+                "service": "daytime",
+                "expression": "(?-u:^.... \\d{1,2}:\\d{1,2}:\\d{1,2} (?:19|20)\\d\\d-\\d{1,2}-\\d{1,2}\\n$)"
+              },
+              {
+                "rule_id": 202,
+                "line": 444,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z][a-z] [A-Z][a-z][a-z] \\d{1,2} \\d{1,2}:\\d{1,2}:\\d{1,2} (?:19|20)\\d\\d\\n)"
+              }
+            ],
+            "calls": 919696,
+            "bytes": 5184851546,
+            "search_seconds": 0.04309684499993273,
+            "first_64_calls_seconds": 0.00013566599999999997,
+            "max_call_seconds": 5.5042e-05,
+            "max_request_id": 96,
+            "max_request_bytes": 1176
+          },
+          {
+            "group_id": 1772,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 11115,
+                "line": 16170,
+                "service": "dominoconsole",
+                "expression": "(?-u:^([^/]+)/([\\w._-]+):([^:]*):([^:]*):)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.04109794399993229,
+            "first_64_calls_seconds": 3.775400000000003e-05,
+            "max_call_seconds": 7.0292e-05,
+            "max_request_id": 650566,
+            "max_request_bytes": 6931
+          },
+          {
+            "group_id": 1771,
+            "engine": "singleton_is_match",
+            "minimum_len": 2,
+            "rules": [
+              {
+                "rule_id": 9483,
+                "line": 13096,
+                "service": "arcserve",
+                "expression": "(?-u:^([\\w\\d_-]+)\\x00$)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.031481165999922296,
+            "first_64_calls_seconds": 3.674900000000001e-05,
+            "max_call_seconds": 4.0125e-05,
+            "max_request_id": 673333,
+            "max_request_bytes": 3270
+          },
+          {
+            "group_id": 1654,
+            "engine": "singleton_is_match",
+            "minimum_len": 9,
+            "rules": [
+              {
+                "rule_id": 1546,
+                "line": 2262,
+                "service": "mysql",
+                "expression": "(?s-u:^.\\x00\\x00\\x00.([012]\\.[\\w.-]+)(?: \\([0-9a-f]+\\))?\\x00)"
+              }
+            ],
+            "calls": 1114146,
+            "bytes": 5365204093,
+            "search_seconds": 0.030453743999925183,
+            "first_64_calls_seconds": 6.8749e-05,
+            "max_call_seconds": 2.9459e-05,
+            "max_request_id": 64,
+            "max_request_bytes": 3244
+          },
+          {
+            "group_id": 1656,
+            "engine": "singleton_is_match",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 9262,
+                "line": 12660,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):1:?$)"
+              }
+            ],
+            "calls": 151911,
+            "bytes": 1870389487,
+            "search_seconds": 0.028796620999996074,
+            "first_64_calls_seconds": 7.816600000000001e-05,
+            "max_call_seconds": 5.0166e-05,
+            "max_request_id": 113356,
+            "max_request_bytes": 7256
+          },
+          {
+            "group_id": 1655,
+            "engine": "singleton_is_match",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 9258,
+                "line": 12656,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):0:?$)"
+              }
+            ],
+            "calls": 133133,
+            "bytes": 1993600470,
+            "search_seconds": 0.026969698999996555,
+            "first_64_calls_seconds": 0.00013491900000000003,
+            "max_call_seconds": 4.25e-05,
+            "max_request_id": 769556,
+            "max_request_bytes": 4975
+          },
+          {
+            "group_id": 1773,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 8907,
+                "line": 12074,
+                "service": "msdtc",
+                "expression": "(?s-u:^[^\\x15\\x16][^\\x03].\\x00..$)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.020519205999983012,
+            "first_64_calls_seconds": 1.0761999999999996e-05,
+            "max_call_seconds": 2.3542e-05,
+            "max_request_id": 628310,
+            "max_request_bytes": 1843
+          },
+          {
+            "group_id": 1060,
+            "engine": "singleton_is_match",
+            "minimum_len": 1,
+            "rules": [
+              {
+                "rule_id": 1115,
+                "line": 1602,
+                "service": "ilo-console",
+                "expression": "(?-u:^PQ?$)"
+              }
+            ],
+            "calls": 334336,
+            "bytes": 3281729203,
+            "search_seconds": 0.006461572000002947,
+            "first_64_calls_seconds": 8.506000000000001e-06,
+            "max_call_seconds": 7.708e-06,
+            "max_request_id": 388135,
+            "max_request_bytes": 3029
+          },
+          {
+            "group_id": 1616,
+            "engine": "regex_set",
+            "minimum_len": 37,
+            "rules": [
+              {
+                "rule_id": 9312,
+                "line": 12767,
+                "service": "domain",
+                "expression": "(?i-u:\\x07version\\x04bind\\x00\\x00\\x10\\x00\\x03\\xc0\\x0c\\x00\\x10\\x00\\x03.{7}unbound$)"
+              },
+              {
+                "rule_id": 9329,
+                "line": 12789,
+                "service": "domain",
+                "expression": "(?i-u:\\x07version\\x04bind\\x00\\x00\\x10\\x00\\x03\\xc0\\x0c\\x00\\x10\\x00\\x03.{7}djbdns)"
+              }
+            ],
+            "calls": 6,
+            "bytes": 4626714,
+            "search_seconds": 0.0032303740000000003,
+            "first_64_calls_seconds": 0.0032303740000000003,
+            "max_call_seconds": 0.001609958,
+            "max_request_id": 927913,
+            "max_request_bytes": 2219079
+          },
+          {
+            "group_id": 1668,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 9264,
+                "line": 12662,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):1:(.+)$)"
+              }
+            ],
+            "calls": 7428,
+            "bytes": 455579081,
+            "search_seconds": 0.002747184000000029,
+            "first_64_calls_seconds": 0.000122586,
+            "max_call_seconds": 4.8583e-05,
+            "max_request_id": 473339,
+            "max_request_bytes": 4147
+          },
+          {
+            "group_id": 1633,
+            "engine": "singleton_is_match",
+            "minimum_len": 24,
+            "rules": [
+              {
+                "rule_id": 211,
+                "line": 461,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} \\d\\d:\\d\\d:\\d\\d 20\\d\\d $)"
+              }
+            ],
+            "calls": 58837,
+            "bytes": 907417409,
+            "search_seconds": 0.001957477000000157,
+            "first_64_calls_seconds": 6.0709999999999986e-05,
+            "max_call_seconds": 2.5375e-05,
+            "max_request_id": 193,
+            "max_request_bytes": 630
+          },
+          {
+            "group_id": 1667,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 9260,
+                "line": 12658,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):0:(.+)$)"
+              }
+            ],
+            "calls": 7337,
+            "bytes": 325247817,
+            "search_seconds": 0.0017042730000000064,
+            "first_64_calls_seconds": 9.6704e-05,
+            "max_call_seconds": 7.625e-06,
+            "max_request_id": 22043,
+            "max_request_bytes": 6340
+          },
+          {
+            "group_id": 1707,
+            "engine": "singleton_is_match",
+            "minimum_len": 54,
+            "rules": [
+              {
+                "rule_id": 10907,
+                "line": 15572,
+                "service": "afs",
+                "expression": "(?-u:^[\\d\\D]{28}\\s*Base\\sconfiguration\\safs([\\d\\.]+)\\s+[^\\s\\x00\\;]+[\\x00\\;])"
+              }
+            ],
+            "calls": 7746,
+            "bytes": 79608728,
+            "search_seconds": 0.0015342670000000154,
+            "first_64_calls_seconds": 0.00015637200000000003,
+            "max_call_seconds": 2.25e-05,
+            "max_request_id": 1165,
+            "max_request_bytes": 2361
+          },
+          {
+            "group_id": 1575,
+            "engine": "regex_set",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 3779,
+                "line": 4994,
+                "service": "time",
+                "expression": "(?s-u:^[\\xd5-\\xef]....\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 3893,
+                "line": 5204,
+                "service": "icecream",
+                "expression": "(?-u:^[\\x14-\\x1f]\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 9538,
+                "line": 13241,
+                "service": "time",
+                "expression": "(?s-u:^[\\xd5-\\xef]....\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 11060,
+                "line": 15942,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x01\\x11\\x81\\x91]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11061,
+                "line": 15943,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x02\\x12\\x82\\x92]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11062,
+                "line": 15944,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x04\\x14\\x84\\x94]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11063,
+                "line": 15945,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x05\\x15\\x85\\x95]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11064,
+                "line": 15946,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x03\\x13\\x83\\x93]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11065,
+                "line": 15948,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x00\\x10\\x80\\x90]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              }
+            ],
+            "calls": 7511,
+            "bytes": 1202409200,
+            "search_seconds": 0.0008038530000000079,
+            "first_64_calls_seconds": 7.2213e-05,
+            "max_call_seconds": 1.275e-05,
+            "max_request_id": 3548,
+            "max_request_bytes": 21757
+          }
+        ],
+        "interpretation": "Elapsed per-operation sums include descheduling and diagnostic overhead. Stage percentages refer to the sum of worker lifetimes, not CPU time. Across multiple workers the sums are not a wall-clock decomposition. Only ordinary runs measure throughput."
+      }
+    },
+    {
+      "path": "results/profile-scaling/diagnostics/workers-8.json",
+      "summary": {
+        "workers": 8,
+        "instrumented_matching_seconds": 1.387838333,
+        "worker_wall_seconds_sum": 11.102050666000002,
+        "worker_cpu_seconds_sum": 9.357065417,
+        "average_active_cores": 6.742186892023251,
+        "timed_wall_seconds_sum": {
+          "prefix_seconds": 1.7709208320018415,
+          "literal_seconds": 6.516406875000478,
+          "result_build_seconds": 0.470733768000057,
+          "literal_occurrences": 52280023,
+          "distinct_literals_per_request_sum": 9440473,
+          "group_search_seconds": 1.6843516589991516
+        },
+        "stage_seconds_sum": {
+          "literal_seconds": 6.516406875000478,
+          "prefix_seconds": 1.7709208320018415,
+          "group_search_seconds": 1.6843516589991516,
+          "result_build_seconds": 0.470733768000057,
+          "other_bookkeeping_and_diagnostic_overhead": 0.6596375319984737
+        },
+        "stage_fraction_of_worker_wall": {
+          "literal_seconds": 0.5869552455707084,
+          "prefix_seconds": 0.1595129481281581,
+          "group_search_seconds": 0.1517153640955246,
+          "result_build_seconds": 0.042400614279457204,
+          "other_bookkeeping_and_diagnostic_overhead": 0.05941582792615168
+        },
+        "engine_search_seconds_sum": {
+          "regex_set": 0.8581870439997558,
+          "byte_after_prefix": 0.292927366999709,
+          "minimum_byte_length": 0.11867906299988373,
+          "literal_gap_byte_class": 0.08900644799999004,
+          "singleton_is_match": 0.3255517369998128
+        },
+        "group_count": 1779,
+        "called_group_count": 43,
+        "top_groups": [
+          {
+            "group_id": 1774,
+            "engine": "regex_set",
+            "minimum_len": 8,
+            "rules": [
+              {
+                "rule_id": 1550,
+                "line": 2276,
+                "service": "nagios-nsca",
+                "expression": "(?s-u:^.{128}[\\x52-\\x7F]...$)"
+              },
+              {
+                "rule_id": 9367,
+                "line": 12860,
+                "service": "unreal",
+                "expression": "(?s-u:^.[\\x40\\xc0].[\\x20\\x23\\x32\\x38].[\\x40\\xc0].[\\x20\\x23\\x32\\x38])"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.48602706999982337,
+            "first_64_calls_seconds": 0.0013517020000000002,
+            "max_call_seconds": 0.002710416,
+            "max_request_id": 855270,
+            "max_request_bytes": 2261
+          },
+          {
+            "group_id": 1776,
+            "engine": "byte_after_prefix",
+            "minimum_len": 10,
+            "rules": [
+              {
+                "rule_id": 11151,
+                "line": 16317,
+                "service": "pc-duo",
+                "expression": "(?s-u:^.........(.*)\\x00)"
+              },
+              {
+                "rule_id": 11152,
+                "line": 16324,
+                "service": "pc-duo-gw",
+                "expression": "(?s-u:^.........(.*)\\x00)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.292927366999709,
+            "first_64_calls_seconds": 0.00010662400000000003,
+            "max_call_seconds": 0.00087675,
+            "max_request_id": 795011,
+            "max_request_bytes": 7487
+          },
+          {
+            "group_id": 913,
+            "engine": "regex_set",
+            "minimum_len": 9,
+            "rules": [
+              {
+                "rule_id": 4718,
+                "line": 6543,
+                "service": "finger",
+                "expression": "(?-u:^GET / HTTP/1\\.0 is not known at this site\\.\\r\\n$)"
+              },
+              {
+                "rule_id": 8387,
+                "line": 11260,
+                "service": "hue-link",
+                "expression": "(?-u:^GET  HTTP1\\.0\\n\\n$)"
+              },
+              {
+                "rule_id": 8402,
+                "line": 11291,
+                "service": "modbus",
+                "expression": "(?-u:^GET [\\x00/]\\x03H\\xd4[\\x01-\\x03])"
+              },
+              {
+                "rule_id": 8403,
+                "line": 11292,
+                "service": "modbus",
+                "expression": "(?-u:^GET [\\x00/]\\x03H\\xd4[\\x0a-\\x0b])"
+              },
+              {
+                "rule_id": 8409,
+                "line": 11302,
+                "service": "motorola-devmgr",
+                "expression": "(?-u:^GET / HT\\xff\\xff\\xff\\xff$)"
+              },
+              {
+                "rule_id": 8419,
+                "line": 11324,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : ([-.\\w]+)\\r\\n : USERID : UNIX : [-.\\w]+\\r\\n)"
+              },
+              {
+                "rule_id": 8420,
+                "line": 11325,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : ([-.\\w]+)\\r\\n$)"
+              },
+              {
+                "rule_id": 8422,
+                "line": 11329,
+                "service": "ident",
+                "expression": "(?-u:^GET : ERROR : UNKNOWN-ERROR\\r\\n$)"
+              },
+              {
+                "rule_id": 8425,
+                "line": 11336,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : ERROR : INVALID-PORT\\r\\n : ERROR : INVALID-PORT\\r\\n$)"
+              },
+              {
+                "rule_id": 8427,
+                "line": 11339,
+                "service": "ident",
+                "expression": "(?-u:^GET / HTTP/1\\.0 : USERID : UNIX : [^\\r\\n]+\\r\\n)"
+              },
+              {
+                "rule_id": 8443,
+                "line": 11362,
+                "service": "imap",
+                "expression": "(?-u:^GET NO Error in IMAP command received by server\\.\\r\\n)"
+              },
+              {
+                "rule_id": 8520,
+                "line": 11474,
+                "service": "mosmig",
+                "expression": "(?-u:^GET \\x00\\x00\\x00\\x00TP/1\\.0\\r\\n$)"
+              },
+              {
+                "rule_id": 8538,
+                "line": 11509,
+                "service": "optommp",
+                "expression": "(?-u:^GET / P\\x00\\x00\\x00\\x00\\x00)"
+              },
+              {
+                "rule_id": 8628,
+                "line": 11640,
+                "service": "slimp3",
+                "expression": "(?-u:^GET %2[Ff] HTTP%2[Ff]1\\.0\\n$)"
+              }
+            ],
+            "calls": 778062,
+            "bytes": 2079791713,
+            "search_seconds": 0.12757146099997285,
+            "first_64_calls_seconds": 0.002122221999999998,
+            "max_call_seconds": 0.005461792,
+            "max_request_id": 1080411,
+            "max_request_bytes": 198
+          },
+          {
+            "group_id": 1651,
+            "engine": "regex_set",
+            "minimum_len": 10,
+            "rules": [
+              {
+                "rule_id": 196,
+                "line": 432,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} +\\d\\d:\\d\\d:\\d\\d (?:19|20)\\d\\d\\r\\n)"
+              },
+              {
+                "rule_id": 210,
+                "line": 459,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} \\d\\d:\\d\\d:\\d\\d [A-Z]+ 20\\d\\d\\r\\n$)"
+              },
+              {
+                "rule_id": 4114,
+                "line": 5624,
+                "service": "gopher",
+                "expression": "(?-u:^[0-9ghisIT](?:\\t?[\\x20-\\x7f]+\\t){3}[0-9]+\\r\\n)"
+              },
+              {
+                "rule_id": 9534,
+                "line": 13235,
+                "service": "daytime",
+                "expression": "(?-u:^\\w\\w\\w \\w\\w\\w \\d\\d \\d\\d:\\d\\d:\\d\\d \\d\\d\\d\\d\\r\\n$)"
+              }
+            ],
+            "calls": 1114153,
+            "bytes": 5365206136,
+            "search_seconds": 0.12652092499997394,
+            "first_64_calls_seconds": 0.0010800510000000005,
+            "max_call_seconds": 0.001371667,
+            "max_request_id": 1091400,
+            "max_request_bytes": 195
+          },
+          {
+            "group_id": 1775,
+            "engine": "minimum_byte_length",
+            "minimum_len": 111,
+            "rules": [
+              {
+                "rule_id": 11178,
+                "line": 16473,
+                "service": "ventrilo",
+                "expression": "(?s-u:^.{111})"
+              }
+            ],
+            "calls": 1114140,
+            "bytes": 5365206639,
+            "search_seconds": 0.11867906299988373,
+            "first_64_calls_seconds": 4.408999999999999e-05,
+            "max_call_seconds": 0.002745,
+            "max_request_id": 847299,
+            "max_request_bytes": 3023
+          },
+          {
+            "group_id": 1659,
+            "engine": "regex_set",
+            "minimum_len": 20,
+            "rules": [
+              {
+                "rule_id": 200,
+                "line": 440,
+                "service": "daytime",
+                "expression": "(?-u:^.... \\d{1,2}:\\d{1,2}:\\d{1,2} (?:19|20)\\d\\d-\\d{1,2}-\\d{1,2}\\n$)"
+              },
+              {
+                "rule_id": 202,
+                "line": 444,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z][a-z] [A-Z][a-z][a-z] \\d{1,2} \\d{1,2}:\\d{1,2}:\\d{1,2} (?:19|20)\\d\\d\\n)"
+              }
+            ],
+            "calls": 919696,
+            "bytes": 5184851546,
+            "search_seconds": 0.10683977499998565,
+            "first_64_calls_seconds": 0.00019170699999999997,
+            "max_call_seconds": 0.005647209,
+            "max_request_id": 1081158,
+            "max_request_bytes": 226
+          },
+          {
+            "group_id": 1778,
+            "engine": "literal_gap_byte_class",
+            "minimum_len": 13,
+            "rules": [
+              {
+                "rule_id": 11140,
+                "line": 16280,
+                "service": "mongodb",
+                "expression": "(?s-u:^.*version.....([\\.\\d]+))"
+              }
+            ],
+            "calls": 347879,
+            "bytes": 2545885705,
+            "search_seconds": 0.08900644799999004,
+            "first_64_calls_seconds": 0.00010791999999999998,
+            "max_call_seconds": 0.007974834,
+            "max_request_id": 195941,
+            "max_request_bytes": 107945137
+          },
+          {
+            "group_id": 1772,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 11115,
+                "line": 16170,
+                "service": "dominoconsole",
+                "expression": "(?-u:^([^/]+)/([\\w._-]+):([^:]*):([^:]*):)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.07507769399993286,
+            "first_64_calls_seconds": 0.00010351200000000005,
+            "max_call_seconds": 0.000378208,
+            "max_request_id": 603504,
+            "max_request_bytes": 1989
+          },
+          {
+            "group_id": 1771,
+            "engine": "singleton_is_match",
+            "minimum_len": 2,
+            "rules": [
+              {
+                "rule_id": 9483,
+                "line": 13096,
+                "service": "arcserve",
+                "expression": "(?-u:^([\\w\\d_-]+)\\x00$)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.06060751299993165,
+            "first_64_calls_seconds": 0.00011593100000000011,
+            "max_call_seconds": 0.003217625,
+            "max_request_id": 857386,
+            "max_request_bytes": 536
+          },
+          {
+            "group_id": 1654,
+            "engine": "singleton_is_match",
+            "minimum_len": 9,
+            "rules": [
+              {
+                "rule_id": 1546,
+                "line": 2262,
+                "service": "mysql",
+                "expression": "(?s-u:^.\\x00\\x00\\x00.([012]\\.[\\w.-]+)(?: \\([0-9a-f]+\\))?\\x00)"
+              }
+            ],
+            "calls": 1114146,
+            "bytes": 5365204093,
+            "search_seconds": 0.05135929999993338,
+            "first_64_calls_seconds": 0.0007421690000000004,
+            "max_call_seconds": 0.000631292,
+            "max_request_id": 564487,
+            "max_request_bytes": 7826
+          },
+          {
+            "group_id": 1656,
+            "engine": "singleton_is_match",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 9262,
+                "line": 12660,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):1:?$)"
+              }
+            ],
+            "calls": 151911,
+            "bytes": 1870389487,
+            "search_seconds": 0.0424212809999986,
+            "first_64_calls_seconds": 0.00019328499999999996,
+            "max_call_seconds": 0.0004605,
+            "max_request_id": 897647,
+            "max_request_bytes": 324
+          },
+          {
+            "group_id": 1655,
+            "engine": "singleton_is_match",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 9258,
+                "line": 12656,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):0:?$)"
+              }
+            ],
+            "calls": 133133,
+            "bytes": 1993600470,
+            "search_seconds": 0.04008809399999908,
+            "first_64_calls_seconds": 0.00028952000000000003,
+            "max_call_seconds": 0.000445458,
+            "max_request_id": 178281,
+            "max_request_bytes": 5156
+          },
+          {
+            "group_id": 1773,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 8907,
+                "line": 12074,
+                "service": "msdtc",
+                "expression": "(?s-u:^[^\\x15\\x16][^\\x03].\\x00..$)"
+              }
+            ],
+            "calls": 1114166,
+            "bytes": 5365209223,
+            "search_seconds": 0.028238931000015757,
+            "first_64_calls_seconds": 1.2804e-05,
+            "max_call_seconds": 0.001032542,
+            "max_request_id": 1011105,
+            "max_request_bytes": 722
+          },
+          {
+            "group_id": 1060,
+            "engine": "singleton_is_match",
+            "minimum_len": 1,
+            "rules": [
+              {
+                "rule_id": 1115,
+                "line": 1602,
+                "service": "ilo-console",
+                "expression": "(?-u:^PQ?$)"
+              }
+            ],
+            "calls": 334336,
+            "bytes": 3281729203,
+            "search_seconds": 0.008645714000001274,
+            "first_64_calls_seconds": 2.5619000000000017e-05,
+            "max_call_seconds": 0.000281291,
+            "max_request_id": 1071832,
+            "max_request_bytes": 254
+          },
+          {
+            "group_id": 1616,
+            "engine": "regex_set",
+            "minimum_len": 37,
+            "rules": [
+              {
+                "rule_id": 9312,
+                "line": 12767,
+                "service": "domain",
+                "expression": "(?i-u:\\x07version\\x04bind\\x00\\x00\\x10\\x00\\x03\\xc0\\x0c\\x00\\x10\\x00\\x03.{7}unbound$)"
+              },
+              {
+                "rule_id": 9329,
+                "line": 12789,
+                "service": "domain",
+                "expression": "(?i-u:\\x07version\\x04bind\\x00\\x00\\x10\\x00\\x03\\xc0\\x0c\\x00\\x10\\x00\\x03.{7}djbdns)"
+              }
+            ],
+            "calls": 6,
+            "bytes": 4626714,
+            "search_seconds": 0.006190207,
+            "first_64_calls_seconds": 0.006190207,
+            "max_call_seconds": 0.004475625,
+            "max_request_id": 927913,
+            "max_request_bytes": 2219079
+          },
+          {
+            "group_id": 1633,
+            "engine": "singleton_is_match",
+            "minimum_len": 24,
+            "rules": [
+              {
+                "rule_id": 211,
+                "line": 461,
+                "service": "daytime",
+                "expression": "(?-u:^[A-Z][a-z]{2} [A-Z][a-z]{2} +\\d{1,2} \\d\\d:\\d\\d:\\d\\d 20\\d\\d $)"
+              }
+            ],
+            "calls": 58837,
+            "bytes": 907417409,
+            "search_seconds": 0.00387960700000021,
+            "first_64_calls_seconds": 0.00012317800000000007,
+            "max_call_seconds": 0.000143834,
+            "max_request_id": 5720,
+            "max_request_bytes": 5765
+          },
+          {
+            "group_id": 1668,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 9264,
+                "line": 12662,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):1:(.+)$)"
+              }
+            ],
+            "calls": 7428,
+            "bytes": 455579081,
+            "search_seconds": 0.0038576990000000113,
+            "first_64_calls_seconds": 0.00036312700000000014,
+            "max_call_seconds": 2.2709e-05,
+            "max_request_id": 10216,
+            "max_request_bytes": 132137
+          },
+          {
+            "group_id": 1707,
+            "engine": "singleton_is_match",
+            "minimum_len": 54,
+            "rules": [
+              {
+                "rule_id": 10907,
+                "line": 15572,
+                "service": "afs",
+                "expression": "(?-u:^[\\d\\D]{28}\\s*Base\\sconfiguration\\safs([\\d\\.]+)\\s+[^\\s\\x00\\;]+[\\x00\\;])"
+              }
+            ],
+            "calls": 7746,
+            "bytes": 79608728,
+            "search_seconds": 0.0034273420000000177,
+            "first_64_calls_seconds": 0.00045766600000000013,
+            "max_call_seconds": 0.000387833,
+            "max_request_id": 297163,
+            "max_request_bytes": 11473
+          },
+          {
+            "group_id": 1667,
+            "engine": "singleton_is_match",
+            "minimum_len": 6,
+            "rules": [
+              {
+                "rule_id": 9260,
+                "line": 12658,
+                "service": "webmin",
+                "expression": "(?-u:^([^:]*):(\\d+):0:(.+)$)"
+              }
+            ],
+            "calls": 7337,
+            "bytes": 325247817,
+            "search_seconds": 0.0031363129999999986,
+            "first_64_calls_seconds": 0.00031534000000000005,
+            "max_call_seconds": 1.9666e-05,
+            "max_request_id": 22043,
+            "max_request_bytes": 6340
+          },
+          {
+            "group_id": 1575,
+            "engine": "regex_set",
+            "minimum_len": 4,
+            "rules": [
+              {
+                "rule_id": 3779,
+                "line": 4994,
+                "service": "time",
+                "expression": "(?s-u:^[\\xd5-\\xef]....\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 3893,
+                "line": 5204,
+                "service": "icecream",
+                "expression": "(?-u:^[\\x14-\\x1f]\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 9538,
+                "line": 13241,
+                "service": "time",
+                "expression": "(?s-u:^[\\xd5-\\xef]....\\x00\\x00\\x00$)"
+              },
+              {
+                "rule_id": 11060,
+                "line": 15942,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x01\\x11\\x81\\x91]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11061,
+                "line": 15943,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x02\\x12\\x82\\x92]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11062,
+                "line": 15944,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x04\\x14\\x84\\x94]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11063,
+                "line": 15945,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x05\\x15\\x85\\x95]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11064,
+                "line": 15946,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x03\\x13\\x83\\x93]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              },
+              {
+                "rule_id": 11065,
+                "line": 15948,
+                "service": "domain",
+                "expression": "(?s-u:^(?:..)?\\x00\\x00[\\x80-\\x90][\\x00\\x10\\x80\\x90]\\x00[\\x00\\x01]\\x00\\x00\\x00.\\x00.)"
+              }
+            ],
+            "calls": 7511,
+            "bytes": 1202409200,
+            "search_seconds": 0.0018286480000000045,
+            "first_64_calls_seconds": 0.0002909660000000001,
+            "max_call_seconds": 3.2541e-05,
+            "max_request_id": 824779,
+            "max_request_bytes": 57502
+          }
+        ],
+        "interpretation": "Elapsed per-operation sums include descheduling and diagnostic overhead. Stage percentages refer to the sum of worker lifetimes, not CPU time. Across multiple workers the sums are not a wall-clock decomposition. Only ordinary runs measure throughput."
+      }
+    }
+  ],
+  "hardware_summary_path": "results/profile-scaling/hardware-summary.json",
+  "scaling_report_path": "results/profile-scaling/report.md",
+  "timing_context": "Fresh full-corpus ordinary matrix and stage diagnostics in results/profile-scaling. Hardware profiles are separate instrumented runs; their wall times are not used for throughput."
+}

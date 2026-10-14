@@ -3,13 +3,24 @@ use std::fs::{self, Metadata};
 use std::io;
 use std::path::{Path, PathBuf};
 
-use crate::corpus::collect_json_files;
+use crate::input::collect_json_files;
 
 pub fn validate_output_paths(input: &Path, patterns: &Path, output: &Path) -> Result<()> {
+    validate_destinations(
+        input,
+        patterns,
+        &[output.to_owned(), output.with_extension("skipped.jsonl")],
+    )
+}
+
+pub fn validate_destinations(
+    input: &Path,
+    patterns: &Path,
+    destinations: &[PathBuf],
+) -> Result<()> {
     let input_path = input
         .canonicalize()
         .with_context(|| format!("could not find input {}", input.display()))?;
-    let destinations = [output.to_owned(), output.with_extension("skipped.jsonl")];
     let output_paths = destinations
         .iter()
         .map(|path| resolve_destination(path))
@@ -19,8 +30,14 @@ pub fn validate_output_paths(input: &Path, patterns: &Path, output: &Path) -> Re
         .map(|path| existing_metadata(path))
         .collect::<Result<Vec<_>>>()?;
 
-    if output_paths[0] == output_paths[1] || same_file(&output_metadata[0], &output_metadata[1]) {
-        bail!("output and skipped-pattern report must be separate files");
+    for left in 0..destinations.len() {
+        for right in left + 1..destinations.len() {
+            if output_paths[left] == output_paths[right]
+                || same_file(&output_metadata[left], &output_metadata[right])
+            {
+                bail!("output files and reports must be separate files");
+            }
+        }
     }
 
     let mut protected_files = Vec::new();
@@ -132,4 +149,40 @@ fn same_file(left: &Option<Metadata>, right: &Option<Metadata>) -> bool {
     #[cfg(not(unix))]
     let _ = (left, right);
     false
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn diagnostic_destination_cannot_overwrite_input_or_other_outputs() {
+        let directory = std::env::temp_dir().join(format!(
+            "matcher-output-{}-{}",
+            std::process::id(),
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_nanos()
+        ));
+        fs::create_dir(&directory).unwrap();
+        let input = directory.join("input.json");
+        fs::write(&input, br#"[{"method":"GET","url":"/alpha"}]"#).unwrap();
+        let patterns = directory.join("patterns.txt");
+        fs::write(&patterns, b"Probe TCP First q||\n").unwrap();
+        let output = directory.join("output.jsonl");
+        let diagnostic = directory.join("output.diagnostics.json");
+        assert!(crate::reporting::validate_destinations(
+            &input,
+            &patterns,
+            &[output.clone(), input.clone()]
+        )
+        .is_err());
+        fs::write(&output, b"previous output").unwrap();
+        fs::hard_link(&output, &diagnostic).unwrap();
+        assert!(
+            crate::reporting::validate_destinations(&input, &patterns, &[output, diagnostic])
+                .is_err()
+        );
+        fs::remove_dir_all(directory).unwrap();
+    }
 }

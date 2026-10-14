@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-13T05:22:39.667761+00:00",
+  "status": "complete",
+  "historical": false,
+  "environment": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "rustc": "rustc 1.93.0 (254b59607 2026-01-19)",
+    "binary_sha256": "881e9da2709d8e3dee5097379fa730bb66de3d9e2b314bbf6fcb9facecacd37f",
+    "patterns_sha256": "bd1bc6b1904632c617d6cf70e1f21877f4b0abefc8db977ceaf1699accdde5ff",
+    "hardware": {
+      "model": "Mac15,13",
+      "cpu": "Apple M3",
+      "physical_cores": 8,
+      "logical_cpus": 8,
+      "memory_bytes": 17179869184,
+      "perflevel0_physical_cores": 4,
+      "perflevel1_physical_cores": 4,
+      "source": "sysctl hw.model machdep.cpu.brand_string hw.physicalcpu hw.logicalcpu hw.memsize hw.perflevel0.physicalcpu hw.perflevel1.physicalcpu"
+    }
+  },
+  "method": "Sequential full-corpus fresh processes. Primary metric: prepared.matching_seconds. Includes batch claims, all per-request filters, signature checks, complete service priority/deduplication and storing results in memory. Excludes file reading, JSON decoding, normalization, compilation, worker startup/destruction, postprocessing, JSON serialization, writes and flush. First-use search cache work is included. Every request is processed once in total. No affinity, explicit warm-up, cache reset or fsync. Actual outputs are checked outside application timing. Diagnostics perturb performance and are kept out of ordinary summaries. Baseline is historical unless --baseline is explicitly selected.",
+  "source_sha256": {
+    "Cargo.toml": "051dfd480da20c64daa19753a4c023dee5d1350d8ea43631b21c5e3f87fd1d9d",
+    "Cargo.lock": "c30d25a68664a4f93dec9e3ba1b262ba91bcad264078b42f6d4c190a874b6963",
+    "rust-toolchain.toml": "4c2b49f5f849a8c7e2dd6e782dc0c1e3979f6aadfcb2f6ab75128ade28774fc8",
+    "src/prepared.rs": "cb4e2655d8180c552b7d6e85abdcace173ca1dbf736ce5dc5996b9ae45f8ae2e",
+    "src/diagnostics.rs": "7c394d125e7bb5af81b9b09954674a667f4d528081224ca24bc2bb08ecbe7064",
+    "src/normalize.rs": "082ff2feb2a74d2a5181d0c8abdcc9738211b757ec75f2a9e4d0c15cf2e6f276",
+    "src/matcher.rs": "ee9b44d6e8c081de1f68cab2201d397c678e9474863bd27a3fd5d50131493848",
+    "src/patterns.rs": "c25422dbf923a8d6b9352046219169245321c789668f262bbb2f8051e90e7b88",
+    "src/grouped.rs": "db895ef518e11bff79031f8f8ff5665d58fa6de2dd93e47f9cb7d17709c38b4e",
+    "src/corpus.rs": "75ec772d556f6197f21b265e09196eb34150dfe148bf9fabb237416ed6bfc3b7",
+    "src/output.rs": "8cdd19a7a9db4335a2f9ef92e92c46618512f49e89db6d9237b4e350d68fbb51",
+    "src/main.rs": "7c823d6edbc6d32b07e1872909a0b061857dbd88e645c561b4b110472129dc52",
+    "src/stats.rs": "40996a7788f74c03ca08ec79c432996318f580999d74e202db274f9f0ace40c3",
+    "src/prepared/tests.rs": "d46e4415d5da19348f02ee31b0103bdf6b10fb55d71a4ab0b15bbff7cbbaf471",
+    "src/grouped/literals.rs": "db551a41c2608fa5d5854fd07b362c5517cffb1494f8ea37307027cdb43c91ef",
+    "src/grouped/primitives.rs": "0a51d449cac99340c46abc612f0f999cf4912d70074c226260168559aec7941f",
+    "src/grouped/guards.rs": "d1477489b03fc93af71decd1c84f4b6cae023b5dc138eb1bc427cf2385665dfd",
+    "src/grouped/tests.rs": "7de7186fc17f720fdeb03b58c62302574b0e9bbac0815571ce898559ba994db7",
+    "scripts/benchmark.py": "06777c876dcc917776a0f35a782f5e0b1a8d2b4ee346f831c3226ee6b100b23f",
+    "README.md": "965483d5c6f373b81774d427c695cb737a2021eb3f15944b2251508f55f62060",
+    "docs/running.md": "03b5bcc85d65ae7d51e9d14f050f22b20b638977997b92584e6c32fb8eaf3975"
+  },
+  "run": {
+    "command": [
+      "target/release/http-matcher",
+      "--mode",
+      "baseline",
+      "--workers",
+      "1",
+      "--input",
+      "data/requests",
+      "--output",
+      "/var/folders/ph/zhfq673x4dg0hzmbp4ctn4lr0000gn/T/http-matcher-benchmark-a8e9vlqp/matches.jsonl"
+    ],
+    "external_wall_seconds": 812.8448535,
+    "metrics": {
+      "mode": "baseline",
+      "workers": 1,
+      "supported_patterns": 11267,
+      "skipped_patterns": 905,
+      "requests": 1114166,
+      "bytes": 5365209223,
+      "matched_requests": 1114140,
+      "normalization_seconds": 1.813228025,
+      "preparation_seconds": 24.662945333,
+      "pipeline_seconds": 787.5985125,
+      "total_seconds": 812.261457958,
+      "throughput_req_s": 1371.6839437402073,
+      "prepared": {
+        "corpus_prepare_seconds": 24.212591916,
+        "worker_setup_seconds": 0.007259166,
+        "matching_seconds": 787.477552083,
+        "matching_throughput_req_s": 1414.8542990880928,
+        "postprocess_seconds": 0.0358065,
+        "output_seconds": 0.076962333,
+        "storage_bytes": 5402959687,
+        "batches": 71856,
+        "workers": [
+          {
+            "worker_id": 0,
+            "requests": 1114166,
+            "bytes": 5365209223,
+            "batches": 71856,
+            "wall_seconds": 787.477528791,
+            "cpu_seconds": 786.0182308340001
+          }
+        ]
+      }
+    },
+    "repetition": 1,
+    "scope": "full",
+    "diagnostic": false,
+    "variant": "baseline",
+    "output_digest": "f9023dc74a7085cdf72d562a41fb1c614b6651afed5ea004fb6119fe7c8c9554",
+    "equals_baseline": true,
+    "every_id_once_in_order": true,
+    "skipped_report_sha256": "64219eced30acacf46b807df7568eac46148d71ab91881b0685cf822b5c1a1b2"
+  }
+}
